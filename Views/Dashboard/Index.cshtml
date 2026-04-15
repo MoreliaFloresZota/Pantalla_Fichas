@@ -37,7 +37,7 @@
                     <div class="sectionTitle">ÁREAS / SERVICIOS</div>
                     <div class="sectionSubtitle">Doctor titular · Horario · Disponibles</div>
                 </div>
-                <div id="syncBadge" class="sectionBadge">Actualización Automática</div>
+                <div id="syncBadge" class="sectionBadge">Actualización automática</div>
             </div>
 
             <div id="cards" class="cards"></div>
@@ -151,7 +151,7 @@
         position: relative;
         z-index: 1;
         width: min(1720px, calc(100vw - 24px));
-        height: calc(100vh - 24px);
+        height: min(960px, calc(100vh - 24px));
         margin: 12px auto;
         display: flex;
         flex-direction: column;
@@ -159,18 +159,21 @@
         overflow: hidden;
     }
 
+
+
     .topbar {
         position: relative;
         flex: 0 0 auto;
-        min-height: 132px;
+        min-height: 118px;
         background: rgba(255,255,255,.76);
         backdrop-filter: blur(10px);
         border: 2px solid rgba(191,232,201,.98);
         border-radius: 22px;
-        padding: 14px 20px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
+        padding: 12px 18px;
+        display: grid;
+        grid-template-columns: 360px 1fr 280px;
+        align-items: center;
+        gap: 12px;
         box-shadow: 0 8px 20px rgba(0,0,0,.03);
     }
 
@@ -196,71 +199,64 @@
     }
 
     .logo {
-        width: 96px;
-        height: 96px;
+        width: 88px;
+        height: 88px;
         object-fit: contain;
         object-position: center;
         display: block;
         border-radius: 18px;
         background: #fff;
         border: 2px solid rgba(191,232,201,.98);
-        padding: 10px;
+        padding: 9px;
         flex: 0 0 auto;
     }
 
     .leftTitle .small {
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 1000;
-        letter-spacing: 1.6px;
+        letter-spacing: 1.4px;
         color: #355344;
         line-height: 1.1;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
     }
 
     .leftTitle .big {
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 800;
         color: #5c6c63;
-        line-height: 1.2;
-        max-width: 560px;
+        line-height: 1.15;
+        max-width: 520px;
     }
 
     .centerTitleWrap {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -44%);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0;
         text-align: center;
-        z-index: 1;
-        width: max-content;
-        pointer-events: none;
+        min-width: 0;
     }
 
     .centerTitle {
         text-align: center;
-        font-size: clamp(30px, 2.8vw, 46px);
+        font-size: clamp(34px, 2.7vw, 44px);
         font-weight: 1000;
         letter-spacing: 2px;
         color: var(--hospitalGreen);
-        white-space: nowrap;
-        line-height: 1.04;
+        line-height: 1.02;
         margin: 0;
+        white-space: nowrap;
     }
 
     .centerSubtitle {
         text-align: center;
-        font-size: clamp(18px, 1.35vw, 24px);
+        font-size: clamp(15px, 1.1vw, 20px);
         font-weight: 900;
-        letter-spacing: 2.4px;
+        letter-spacing: 2px;
         color: #5c6c63;
         text-transform: uppercase;
         line-height: 1.08;
-        margin-top: 8px;
+        margin-top: 6px;
         white-space: nowrap;
     }
 
@@ -270,8 +266,6 @@
         align-items: flex-end;
         justify-content: center;
         gap: 8px;
-        z-index: 2;
-        margin-left: auto;
         min-width: 0;
     }
 
@@ -279,11 +273,11 @@
         background: rgba(255,255,255,.86);
         border: 1px solid rgba(215,231,222,.98);
         border-radius: 20px;
-        padding: 10px 16px;
+        padding: 8px 14px;
         text-align: right;
-        min-width: 250px;
+        min-width: 230px;
         width: 100%;
-        max-width: 310px;
+        max-width: 280px;
     }
 
     .dateText {
@@ -295,9 +289,9 @@
     }
 
     .clock {
-        font-size: clamp(32px, 3vw, 52px);
+        font-size: clamp(34px, 2.8vw, 48px);
         font-weight: 1000;
-        line-height: 1.05;
+        line-height: 1.03;
         color: #203129;
     }
 
@@ -318,11 +312,13 @@
             color: #c0392b;
         }
 
+
+
     .layout {
         flex: 1 1 auto;
         min-height: 0;
         display: grid;
-        grid-template-columns: minmax(0, 1fr) clamp(360px, 26vw, 430px);
+        grid-template-columns: minmax(0, 1fr) 420px;
         gap: 10px;
         overflow: hidden;
         align-items: stretch;
@@ -382,7 +378,7 @@
     }
 
     .sectionTitle {
-        font-size: clamp(15px, 1.05vw, 17px);
+        font-size: 17px;
         font-weight: 1000;
         letter-spacing: 1px;
     }
@@ -391,7 +387,7 @@
         margin-top: 4px;
         color: var(--muted);
         font-weight: 700;
-        font-size: clamp(11px, .88vw, 13px);
+        font-size: 13px;
     }
 
     .sectionBadge {
@@ -400,7 +396,7 @@
         font-weight: 1000;
         border-radius: 999px;
         padding: 8px 14px;
-        font-size: clamp(11px, .82vw, 13px);
+        font-size: 13px;
         white-space: nowrap;
         transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
     }
@@ -429,6 +425,7 @@
         }
     }
 
+
     .cards {
         position: relative;
         z-index: 1;
@@ -436,7 +433,7 @@
         min-height: 0;
         overflow-y: auto;
         overflow-x: hidden;
-        padding: 10px 12px 12px;
+        padding: 8px 10px 10px;
         scrollbar-width: none;
         -ms-overflow-style: none;
         scroll-behavior: auto;
@@ -451,14 +448,14 @@
         backdrop-filter: blur(12px);
         border: 1px solid rgba(215,231,222,.98);
         border-radius: 22px;
-        padding: 10px 12px;
-        margin: 0 0 10px;
+        padding: 9px 12px;
+        margin: 0 0 8px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 12px;
         box-shadow: 0 8px 18px rgba(0,0,0,.04);
-        min-height: 108px;
+        min-height: 102px;
         transition: transform .35s ease, box-shadow .35s ease, opacity .35s ease, background-color .35s ease, border-color .35s ease;
         position: relative;
         overflow: visible;
@@ -482,8 +479,8 @@
     }
 
     .iconCircle {
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
         background: linear-gradient(135deg, #0b6b2f, #119347);
         display: flex;
@@ -503,10 +500,10 @@
         color: #fff;
         font-weight: 1000;
         letter-spacing: 1px;
-        padding: 9px 14px;
+        padding: 8px 13px;
         border-radius: 999px;
-        font-size: clamp(16px, 1.18vw, 22px);
-        max-width: 520px;
+        font-size: 18px;
+        max-width: 620px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -526,17 +523,17 @@
         padding: 7px 10px;
         font-weight: 900;
         color: #2b3b32;
-        max-width: 320px;
+        max-width: 340px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: clamp(11px, .9vw, 15px);
+        font-size: 13px;
     }
 
     .rightBlock {
-        min-width: clamp(150px, 15vw, 205px);
+        min-width: 205px;
         border-radius: 22px;
-        padding: 12px 10px;
+        padding: 10px 10px;
         text-align: center;
         font-weight: 1000;
         flex: 0 0 auto;
@@ -545,14 +542,14 @@
     }
 
     .num {
-        font-size: clamp(30px, 3vw, 58px);
+        font-size: 54px;
         line-height: 1;
     }
 
     .lbl {
-        margin-top: 4px;
+        margin-top: 3px;
         letter-spacing: 1px;
-        font-size: clamp(12px, .95vw, 15px);
+        font-size: 14px;
         opacity: .96;
     }
 
@@ -570,8 +567,6 @@
         background: #ef4444;
         color: #fff;
     }
-
-    /* ===== EFECTO FUERTE DE ÚLTIMA FICHA SACADA ===== */
 
     .cardRow.ticketHot {
         border: 2px solid #4ade80 !important;
@@ -682,13 +677,16 @@
         }
     }
 
+
+
     .sidePanel {
         height: 100%;
         min-height: 0;
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        padding: 10px;
+        justify-content: flex-start;
+        padding: 12px;
     }
 
     .sideTop {
@@ -698,17 +696,16 @@
     .sideMiddle {
         flex: 1 1 auto;
         min-height: 0;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
         gap: 0;
+        overflow: hidden;
     }
 
     .panelBlock {
         display: flex;
         flex-direction: column;
-        gap: 3px;
+        gap: 4px;
         min-height: 0;
     }
 
@@ -717,24 +714,26 @@
         }
 
     .sideSlot {
-        min-height: auto;
+        min-height: 0;
         overflow: hidden;
-        padding: 2px 0;
+        display: flex;
+        flex-direction: column;
+        padding: 3px 0;
     }
 
     .panelTitle {
-        font-size: clamp(12px, .95vw, 14px);
+        font-size: 14px;
         font-weight: 1000;
         letter-spacing: .8px;
         color: #294135;
-        margin-bottom: 1px;
+        margin-bottom: 4px;
         flex: 0 0 auto;
     }
 
     .divider {
         height: 1px;
         background: var(--line);
-        margin: 2px 0;
+        margin: 6px 0;
         flex: 0 0 auto;
     }
 
@@ -742,7 +741,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 5px 0;
+        padding: 6px 0;
         border-bottom: 1px solid var(--line);
         gap: 8px;
     }
@@ -756,7 +755,7 @@
         font-weight: 900;
         color: #2b3b32;
         margin-left: 2px;
-        font-size: clamp(11px, .92vw, 14px);
+        font-size: 14px;
     }
 
     .dot {
@@ -786,12 +785,12 @@
         padding: 4px 10px;
         font-weight: 1000;
         color: #314238;
-        font-size: clamp(10px, .86vw, 13px);
+        font-size: 12px;
     }
 
     .miniViewport {
-        min-height: 78px;
-        height: 78px;
+        flex: 1 1 auto;
+        min-height: 0;
         overflow: hidden;
         position: relative;
     }
@@ -799,24 +798,23 @@
     .miniTrack {
         display: flex;
         flex-direction: column;
-        gap: 5px;
-        min-height: 78px;
+        gap: 6px;
     }
 
     .miniItem {
         border: 1px solid var(--line);
         background: rgba(255,255,255,.78);
         border-radius: 12px;
-        padding: 7px 10px;
+        padding: 8px 10px;
         font-weight: 900;
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 8px;
-        line-height: 1.1;
-        font-size: clamp(11px, .86vw, 13px);
-        min-height: 36px;
-        max-height: 36px;
+        line-height: 1.12;
+        font-size: 13px;
+        min-height: 38px;
+        max-height: 38px;
         overflow: hidden;
     }
 
@@ -832,19 +830,21 @@
             flex: 0 0 auto;
         }
 
-    .help {
-        color: #55625b;
-        font-weight: 800;
-        line-height: 1.1;
-        font-size: clamp(10px, .82vw, 12px);
-    }
-
     .sideHelp {
-        overflow: hidden;
-        margin-top: auto;
-        padding-top: 6px;
+        margin-top: 8px;
+        padding-top: 8px;
         border-top: 1px solid var(--line);
         flex: 0 0 auto;
+        overflow: visible;
+    }
+
+    .help {
+        color: #55625b;
+        font-weight: 900;
+        line-height: 1.22;
+        font-size: 13px;
+        white-space: normal;
+        word-break: break-word;
     }
 
     .emptyState {
@@ -856,33 +856,71 @@
         padding: 30px;
         color: #5d6b64;
         font-weight: 900;
-        font-size: clamp(16px, 1.2vw, 22px);
+        font-size: 18px;
         border: 2px dashed rgba(191,232,201,.98);
         border-radius: 22px;
         background: rgba(255,255,255,.55);
     }
 
-    @@media (max-width: 1400px) {
-        .centerTitle {
-            font-size: clamp(26px, 2.5vw, 38px);
+
+    @@media (min-height: 930px) {
+        .cardRow {
+            min-height: 86px;
+            padding: 8px 11px;
+            margin-bottom: 7px;
         }
 
-        .centerSubtitle {
-            font-size: clamp(15px, 1.1vw, 18px);
+        .iconCircle {
+            width: 44px;
+            height: 44px;
         }
 
-        .layout {
-            grid-template-columns: minmax(0, 1fr) 390px;
-        }
+            .iconCircle svg {
+                width: 20px;
+                height: 20px;
+            }
 
         .areaPill {
-            max-width: 460px;
+            font-size: 17px;
+            padding: 7px 12px;
         }
 
         .chip {
-            max-width: 260px;
+            font-size: 12px;
+            padding: 6px 9px;
+        }
+
+        .rightBlock {
+            min-width: 195px;
+            padding: 9px 9px;
+        }
+
+        .num {
+            font-size: 48px;
+        }
+
+        .lbl {
+            font-size: 13px;
         }
     }
+
+    @@media (min-height: 1080px) {
+        .miniTrack {
+            gap: 7px;
+        }
+
+        .miniItem {
+            min-height: 40px;
+            max-height: 40px;
+            font-size: 14px;
+        }
+
+        .help {
+            font-size: 15px;
+            line-height: 1.28;
+        }
+    }
+
 
     @@media (max-width: 1180px) {
         html, body {
@@ -898,12 +936,11 @@
         }
 
         .topbar {
-            display: grid;
             grid-template-columns: 1fr;
             text-align: center;
             justify-items: center;
-            gap: 14px;
-            padding: 16px;
+            gap: 12px;
+            padding: 14px;
             min-height: auto;
         }
 
@@ -916,38 +953,33 @@
 
         .brandRow {
             justify-content: center;
-            text-align: left;
             width: 100%;
+            text-align: left;
+        }
+
+        .brandText {
+            align-items: center;
+            text-align: center;
         }
 
         .centerTitleWrap {
-            position: static;
-            left: auto;
-            top: auto;
-            transform: none;
             width: 100%;
-            pointer-events: auto;
         }
 
         .centerTitle {
             white-space: normal;
-            text-align: center;
-            font-size: clamp(22px, 4.6vw, 30px);
+            font-size: clamp(24px, 4.5vw, 32px);
         }
 
         .centerSubtitle {
             white-space: normal;
-            text-align: center;
             font-size: 14px;
-            letter-spacing: 1.8px;
-            margin-top: 6px;
+            letter-spacing: 1.5px;
         }
 
         .clockCard {
-            min-width: 0;
-            max-width: 360px;
-            width: 100%;
             text-align: center;
+            max-width: 340px;
         }
 
         .layout {
@@ -967,16 +999,14 @@
         }
 
         .sidePanel {
-            display: flex;
-            flex-direction: column;
             height: auto;
             overflow: visible;
         }
 
         .sideMiddle {
+            overflow: visible;
             display: flex;
             flex-direction: column;
-            overflow: visible;
         }
 
         .sideSlot,
@@ -985,46 +1015,9 @@
             height: auto;
             min-height: auto;
         }
-
-        .miniTrack {
-            min-height: 0;
-        }
-
-        .watermark {
-            inset: 120px 0 0 0;
-            background-size: 520px;
-        }
     }
 
     @@media (max-width: 900px) {
-        .brandRow {
-            flex-direction: row;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-        }
-
-        .leftTitle .small {
-            font-size: 12px;
-        }
-
-        .leftTitle .big {
-            font-size: 14px;
-        }
-
-        .centerTitle {
-            font-size: clamp(22px, 5.2vw, 30px);
-            letter-spacing: 1px;
-        }
-
-        .centerSubtitle {
-            font-size: 11px;
-        }
-
         .cardRow {
             flex-direction: column;
             align-items: stretch;
@@ -1038,41 +1031,12 @@
             min-width: 0;
         }
 
-        .titleRow {
-            gap: 10px;
-        }
-
-        .iconCircle {
-            width: 46px;
-            height: 46px;
-        }
-
         .areaPill {
-            font-size: clamp(15px, 3.3vw, 20px);
             max-width: calc(100vw - 180px);
         }
 
-        .meta {
-            gap: 6px;
-        }
-
         .chip {
-            font-size: 13px;
-            padding: 7px 10px;
             max-width: 100%;
-        }
-
-        .sidePanel {
-            padding: 12px;
-        }
-
-        .panelTitle {
-            font-size: 14px;
-        }
-
-        .miniItem {
-            min-height: 36px;
-            max-height: none;
         }
     }
 
@@ -1130,16 +1094,6 @@
             font-size: 12px;
         }
 
-        .sectionHeader {
-            padding: 10px 12px;
-            align-items: flex-start;
-        }
-
-        .sectionBadge {
-            font-size: 11px;
-            padding: 7px 12px;
-        }
-
         .cards {
             padding: 8px;
         }
@@ -1147,10 +1101,6 @@
         .cardRow {
             border-radius: 18px;
             margin-bottom: 8px;
-        }
-
-        .titleRow {
-            align-items: center;
         }
 
         .iconCircle {
@@ -1172,7 +1122,6 @@
         .chip {
             font-size: 12px;
             width: fit-content;
-            max-width: 100%;
         }
 
         .rightBlock {
@@ -1190,18 +1139,11 @@
 
         .sidePanel {
             padding: 10px;
-            gap: 0;
         }
 
         .help {
             font-size: 12px;
         }
-
-        .watermark {
-            background-size: 360px;
-            opacity: 0.10;
-        }
-
     }
 </style>
 
@@ -1331,11 +1273,8 @@
         const el = document.getElementById("syncBadge");
         if (!el) return;
         el.innerText = text;
-        if (isSyncing) {
-            el.classList.add("syncing");
-        } else {
-            el.classList.remove("syncing");
-        }
+        if (isSyncing) el.classList.add("syncing");
+        else el.classList.remove("syncing");
     }
 
     function tickClock() {
@@ -1423,6 +1362,27 @@
         return out;
     }
 
+    function getVisibleCountForTrack(trackId) {
+        const track = document.getElementById(trackId);
+        if (!track || !track.parentElement) return 2;
+
+        const viewport = track.parentElement;
+        const viewportHeight = viewport.clientHeight || 0;
+
+        const style = window.getComputedStyle(track);
+        const gap = parseInt(style.rowGap || style.gap || "6", 10) || 6;
+
+        let itemHeight = 38;
+        const firstItem = track.querySelector(".miniItem");
+        if (firstItem) {
+            itemHeight = firstItem.offsetHeight || 38;
+        }
+
+        if (viewportHeight <= 0) return 2;
+
+        return Math.max(1, Math.floor((viewportHeight + gap) / (itemHeight + gap)));
+    }
+
     function renderMiniCollection(items, formatter, emptyText) {
         if (!items || !items.length) {
             return renderMiniItem(emptyText || "Sin datos");
@@ -1442,16 +1402,18 @@
             return Number(a.FichasRestantes || 0) - Number(b.FichasRestantes || 0);
         });
 
-        const lastVisible = chunkRotate(lastTickets, lastCarruselIndex, 2);
-        const agotadasVisible = chunkRotate(agotadas, agotadasCarruselIndex, 2);
-        const pocasVisible = chunkRotate(pocas, pocasCarruselIndex, 2);
+        const lastCount = getVisibleCountForTrack("lastTickets");
+        const agotadasCount = getVisibleCountForTrack("agotadasList");
+        const pocasCount = getVisibleCountForTrack("pocasList");
+
+        const lastVisible = chunkRotate(lastTickets, lastCarruselIndex, lastCount);
+        const agotadasVisible = chunkRotate(agotadas, agotadasCarruselIndex, agotadasCount);
+        const pocasVisible = chunkRotate(pocas, pocasCarruselIndex, pocasCount);
 
         setHtml("lastTickets",
             renderMiniCollection(
                 lastVisible,
-                function (x) {
-                    return renderMiniItem(x.text, x.time);
-                },
+                function (x) { return renderMiniItem(x.text, x.time); },
                 "Sin cambios detectados"
             )
         );
@@ -1459,9 +1421,7 @@
         setHtml("agotadasList",
             renderMiniCollection(
                 agotadasVisible,
-                function (x) {
-                    return renderMiniItem(x.Area, x.FichasRestantes || 0);
-                },
+                function (x) { return renderMiniItem(x.Area, x.FichasRestantes || 0); },
                 "No existen áreas agotadas"
             )
         );
@@ -1469,9 +1429,7 @@
         setHtml("pocasList",
             renderMiniCollection(
                 pocasVisible,
-                function (x) {
-                    return renderMiniItem(x.Area, x.FichasRestantes || 0);
-                },
+                function (x) { return renderMiniItem(x.Area, x.FichasRestantes || 0); },
                 "No existen áreas con pocas fichas"
             )
         );
@@ -1589,9 +1547,7 @@
             repaintRows(rows);
             focusTopAndShowLatest();
 
-            if (hotTimer) {
-                clearTimeout(hotTimer);
-            }
+            if (hotTimer) clearTimeout(hotTimer);
 
             hotTimer = setTimeout(function () {
                 hotKeys = [];
@@ -1617,15 +1573,11 @@
                 cache: 'no-store'
             });
 
-            if (!res.ok) {
-                throw new Error("HTTP " + res.status);
-            }
+            if (!res.ok) throw new Error("HTTP " + res.status);
 
             const rows = await res.json();
 
-            if (rows && rows.error) {
-                throw new Error(rows.error);
-            }
+            if (rows && rows.error) throw new Error(rows.error);
 
             apply(rows || []);
             setConn(true);
@@ -1671,15 +1623,19 @@
                 return n >= 1 && n <= 5;
             });
 
-            if (lastTickets.length > 2) {
+            const lastCount = getVisibleCountForTrack("lastTickets");
+            const agotadasCount = getVisibleCountForTrack("agotadasList");
+            const pocasCount = getVisibleCountForTrack("pocasList");
+
+            if (lastTickets.length > lastCount) {
                 lastCarruselIndex = (lastCarruselIndex + 1) % lastTickets.length;
             }
 
-            if (agotadas.length > 2) {
+            if (agotadas.length > agotadasCount) {
                 agotadasCarruselIndex = (agotadasCarruselIndex + 1) % agotadas.length;
             }
 
-            if (pocas.length > 2) {
+            if (pocas.length > pocasCount) {
                 pocasCarruselIndex = (pocasCarruselIndex + 1) % pocas.length;
             }
 
@@ -1690,7 +1646,6 @@
     function scheduleMidnightReload() {
         const now = new Date();
         const next = new Date();
-
         next.setHours(24, 0, 10, 0);
 
         const ms = next.getTime() - now.getTime();
@@ -1699,6 +1654,14 @@
             location.reload();
         }, ms);
     }
+
+    window.addEventListener("resize", function () {
+        updateSide(window.__lastRows || []);
+    });
+
+    document.addEventListener("fullscreenchange", function () {
+        updateSide(window.__lastRows || []);
+    });
 
     document.addEventListener("DOMContentLoaded", function () {
         tickClock();

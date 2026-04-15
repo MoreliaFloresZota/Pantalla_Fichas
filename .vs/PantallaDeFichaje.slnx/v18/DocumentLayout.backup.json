@@ -29,7 +29,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 250,
+          "DockedHeight": 177,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Views\\Dashboard\\Index.cshtml",
               "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Views\\Dashboard\\Index.cshtml",
               "RelativeToolTip": "Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAJYGAAAAAAAAAAAAwKsGAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAHAGAAAAAAAAAAAqwI8GAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-01T14:57:58.764Z",
               "EditorCaption": ""
@@ -92,13 +92,12 @@
               "RelativeToolTip": "Controllers\\DashboardController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T14:57:07.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-01T14:57:07.994Z"
             }
           ]
         },
         {
-          "DockedHeight": 12,
+          "DockedHeight": 123,
           "SelectedChildIndex": -1,
           "Children": [
             {
