@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|c:\\users\\more\\desktop\\fichas\\pantalladefichaje1\\pantalladefichaje\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|c:\\users\\more\\desktop\\fichas\\pantalladefichaje1\\pantalladefichaje\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\models\\areadashboardrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:models\\areadashboardrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\data\\dashboardrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:data\\dashboardrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\models\\areadashboardrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:models\\areadashboardrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,12 +29,12 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 177,
+          "DockedHeight": 246,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DashboardRepo.cs",
               "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Data\\DashboardRepo.cs",
               "RelativeDocumentMoniker": "Data\\DashboardRepo.cs",
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "Views\\Dashboard\\Index.cshtml",
               "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Views\\Dashboard\\Index.cshtml",
               "RelativeToolTip": "Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAHAGAAAAAAAAAAAqwI8GAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAHAGAAAAAAAAAAAUwI0GAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-01T14:57:58.764Z",
               "EditorCaption": ""
@@ -65,14 +65,14 @@
               "RelativeDocumentMoniker": "Web.config",
               "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Web.config",
               "RelativeToolTip": "Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAUwEEAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2026-04-01T14:57:31.638Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "AreaDashboardRow.cs",
               "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Models\\AreaDashboardRow.cs",
               "RelativeDocumentMoniker": "Models\\AreaDashboardRow.cs",
@@ -80,11 +80,12 @@
               "RelativeToolTip": "Models\\AreaDashboardRow.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T14:57:13.348Z"
+              "WhenOpened": "2026-04-01T14:57:13.348Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Controllers\\DashboardController.cs",
@@ -92,12 +93,13 @@
               "RelativeToolTip": "Controllers\\DashboardController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T14:57:07.994Z"
+              "WhenOpened": "2026-04-01T14:57:07.994Z",
+              "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedHeight": 123,
+          "DockedHeight": 54,
           "SelectedChildIndex": -1,
           "Children": [
             {

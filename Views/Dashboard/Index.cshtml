@@ -91,7 +91,7 @@
                     <div class="divider"></div>
 
                     <div class="panelBlock fixedBlock sideSlot">
-                        <div class="panelTitle">ÁREAS CON POCAS</div>
+                        <div class="panelTitle">ÁREAS CON POCAS FICHAS</div>
                         <div class="miniViewport">
                             <div id="pocasList" class="miniTrack">—</div>
                         </div>
@@ -133,19 +133,22 @@
     }
 
     body {
-        background: radial-gradient(circle at top left, rgba(17,147,71,.12), transparent 38%), radial-gradient(circle at bottom right, rgba(11,107,47,.10), transparent 42%), linear-gradient(180deg, #f7fcf8 0%, #eef7f1 100%);
+        background:
+            radial-gradient(circle at top left, rgba(17,147,71,.12), transparent 38%),
+            radial-gradient(circle at bottom right, rgba(11,107,47,.10), transparent 42%),
+            linear-gradient(180deg, #f7fcf8 0%, #eef7f1 100%);
         color: var(--text);
     }
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: url('/Content/img/logo-hdb.png') center/420px no-repeat;
-            opacity: 0.06;
-            pointer-events: none;
-            z-index: 0;
-        }
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: url('/Content/img/logo-hdb.png') center/420px no-repeat;
+        opacity: 0.06;
+        pointer-events: none;
+        z-index: 0;
+    }
 
     .screenSafe {
         position: relative;
@@ -158,7 +161,6 @@
         gap: 10px;
         overflow: hidden;
     }
-
 
 
     .topbar {
@@ -304,14 +306,13 @@
         border: 1px solid rgba(215,231,222,.98);
     }
 
-        .conn.on {
-            color: #117a37;
-        }
+    .conn.on {
+        color: #117a37;
+    }
 
-        .conn.off {
-            color: #c0392b;
-        }
-
+    .conn.off {
+        color: #c0392b;
+    }
 
 
     .layout {
@@ -401,9 +402,9 @@
         transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
     }
 
-        .sectionBadge.syncing {
-            animation: badgePulse 1s ease-in-out infinite;
-        }
+    .sectionBadge.syncing {
+        animation: badgePulse 1s ease-in-out infinite;
+    }
 
     @@keyframes badgePulse {
         0% {
@@ -439,26 +440,26 @@
         scroll-behavior: auto;
     }
 
-        .cards::-webkit-scrollbar {
-            display: none;
-        }
+    .cards::-webkit-scrollbar {
+        display: none;
+    }
 
     .cardRow {
-        background: rgba(255,255,255,.76);
+        position: relative;
+        overflow: visible;
+        background: rgba(255,255,255,.78);
         backdrop-filter: blur(12px);
         border: 1px solid rgba(215,231,222,.98);
         border-radius: 22px;
-        padding: 9px 12px;
-        margin: 0 0 8px;
+        padding: 14px 14px 12px;
+        margin: 0 0 12px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 12px;
         box-shadow: 0 8px 18px rgba(0,0,0,.04);
-        min-height: 102px;
-        transition: transform .35s ease, box-shadow .35s ease, opacity .35s ease, background-color .35s ease, border-color .35s ease;
-        position: relative;
-        overflow: visible;
+        min-height: 112px;
+        transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
     }
 
     .leftBlock {
@@ -489,11 +490,11 @@
         flex: 0 0 auto;
     }
 
-        .iconCircle svg {
-            width: 22px;
-            height: 22px;
-            fill: #fff;
-        }
+    .iconCircle svg {
+        width: 22px;
+        height: 22px;
+        fill: #fff;
+    }
 
     .areaPill {
         background: linear-gradient(135deg, #0b6b2f, #119347);
@@ -570,46 +571,51 @@
 
     .cardRow.ticketHot {
         border: 2px solid #4ade80 !important;
-        background: linear-gradient(135deg, #ecfdf5 0%, #dcfce7 50%, rgba(255,255,255,.96) 100%) !important;
-        box-shadow: 0 0 0 8px rgba(74,222,128,.24), 0 16px 34px rgba(34,197,94,.30);
-        transform: translateY(-6px) scale(1.01);
+        background: linear-gradient(135deg, #ecfdf5 0%, #dcfce7 55%, rgba(255,255,255,.96) 100%) !important;
+        box-shadow: 0 0 0 6px rgba(74,222,128,.18), 0 14px 30px rgba(34,197,94,.16);
+        transform: translateY(-2px);
         z-index: 8;
+        padding-top: 18px;
     }
 
-        .cardRow.ticketHot .rightBlock {
-            animation: pulseTicketBox 1s ease-in-out 6;
-        }
+    .cardRow.ticketHot .rightBlock {
+        animation: pulseTicketBox 1s ease-in-out 6;
+    }
 
-        .cardRow.ticketHot .areaPill {
-            animation: pulseAreaPill 1s ease-in-out 6;
-            box-shadow: 0 0 0 6px rgba(74,222,128,.18);
-        }
+    .cardRow.ticketHot .areaPill {
+        animation: pulseAreaPill 1s ease-in-out 6;
+        box-shadow: 0 0 0 6px rgba(74,222,128,.18);
+    }
 
-        .cardRow.ticketHot::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 22px;
-            background: linear-gradient(90deg, rgba(34,197,94,.10), rgba(74,222,128,.18), rgba(34,197,94,.10));
-            animation: softSweep 1.2s ease-in-out 4;
-            pointer-events: none;
-            z-index: 1;
-        }
+    .cardRow.ticketHot::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 22px;
+        background: linear-gradient(90deg, rgba(34,197,94,.10), rgba(74,222,128,.18), rgba(34,197,94,.10));
+        animation: softSweep 1.2s ease-in-out 4;
+        pointer-events: none;
+        z-index: 1;
+    }
 
     .hotRibbon {
         position: absolute;
-        top: -12px;
-        left: 18px;
+        top: -11px;
+        left: 50%;
+        transform: translateX(-50%);
         background: linear-gradient(135deg, #16a34a, #22c55e);
         color: #fff;
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 1000;
         letter-spacing: 1px;
-        padding: 5px 12px;
+        line-height: 1;
+        padding: 6px 14px;
         border-radius: 999px;
-        box-shadow: 0 8px 20px rgba(34,197,94,.28);
-        animation: pulseRibbon 1s ease-in-out 6;
-        z-index: 9;
+        box-shadow: 0 6px 14px rgba(34,197,94,.24);
+        z-index: 20;
+        white-space: nowrap;
+        text-align: center;
+        min-width: max-content;
     }
 
     @@keyframes pulseTicketBox {
@@ -646,23 +652,6 @@
         }
     }
 
-    @@keyframes pulseRibbon {
-        0% {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        50% {
-            transform: translateY(-2px);
-            opacity: .95;
-        }
-
-        100% {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
     @@keyframes softSweep {
         0% {
             opacity: 0;
@@ -676,7 +665,6 @@
             opacity: 0;
         }
     }
-
 
 
     .sidePanel {
@@ -709,9 +697,9 @@
         min-height: 0;
     }
 
-        .panelBlock.fixedBlock {
-            min-height: 0;
-        }
+    .panelBlock.fixedBlock {
+        min-height: 0;
+    }
 
     .sideSlot {
         min-height: 0;
@@ -746,9 +734,9 @@
         gap: 8px;
     }
 
-        .legendBlock .legendRow.noBorder {
-            border-bottom: none;
-        }
+    .legendBlock .legendRow.noBorder {
+        border-bottom: none;
+    }
 
     .legendText {
         flex: 1;
@@ -766,17 +754,17 @@
         flex: 0 0 auto;
     }
 
-        .dot.green {
-            background: #22c55e;
-        }
+    .dot.green {
+        background: #22c55e;
+    }
 
-        .dot.yellow {
-            background: #facc15;
-        }
+    .dot.yellow {
+        background: #facc15;
+    }
 
-        .dot.red {
-            background: #ef4444;
-        }
+    .dot.red {
+        background: #ef4444;
+    }
 
     .pill {
         background: rgba(255,255,255,.8);
@@ -818,17 +806,17 @@
         overflow: hidden;
     }
 
-        .miniItem span:first-child {
-            flex: 1;
-            min-width: 0;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
+    .miniItem span:first-child {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
-        .miniItem span:last-child {
-            flex: 0 0 auto;
-        }
+    .miniItem span:last-child {
+        flex: 0 0 auto;
+    }
 
     .sideHelp {
         margin-top: 8px;
@@ -863,11 +851,12 @@
     }
 
 
+
     @@media (min-height: 930px) {
         .cardRow {
-            min-height: 86px;
-            padding: 8px 11px;
-            margin-bottom: 7px;
+            min-height: 96px;
+            padding: 10px 12px 10px;
+            margin-bottom: 9px;
         }
 
         .iconCircle {
@@ -875,10 +864,10 @@
             height: 44px;
         }
 
-            .iconCircle svg {
-                width: 20px;
-                height: 20px;
-            }
+        .iconCircle svg {
+            width: 20px;
+            height: 20px;
+        }
 
         .areaPill {
             font-size: 17px;
@@ -901,6 +890,14 @@
 
         .lbl {
             font-size: 13px;
+        }
+
+        .cardRow.ticketHot {
+            padding-top: 16px;
+        }
+
+        .hotRibbon {
+            top: -10px;
         }
     }
 
@@ -1017,6 +1014,8 @@
         }
     }
 
+ 
+
     @@media (max-width: 900px) {
         .cardRow {
             flex-direction: column;
@@ -1037,6 +1036,11 @@
 
         .chip {
             max-width: 100%;
+        }
+
+        .hotRibbon {
+            font-size: 9px;
+            padding: 5px 10px;
         }
     }
 
@@ -1108,10 +1112,10 @@
             height: 42px;
         }
 
-            .iconCircle svg {
-                width: 20px;
-                height: 20px;
-            }
+        .iconCircle svg {
+            width: 20px;
+            height: 20px;
+        }
 
         .areaPill {
             max-width: calc(100vw - 130px);
@@ -1149,7 +1153,7 @@
 
 <script>
     const REFRESH_MS = 5000;
-    const MAX_LOCAL_EVENTS = 8;
+    const MAX_LOCAL_EVENTS = 20;
     const HOT_MS = 7000;
 
     const AREA_MAP = {
@@ -1297,7 +1301,6 @@
     let lastTickets = [];
     let fetching = false;
 
-    let lastCarruselIndex = 0;
     let agotadasCarruselIndex = 0;
     let pocasCarruselIndex = 0;
 
@@ -1406,7 +1409,7 @@
         const agotadasCount = getVisibleCountForTrack("agotadasList");
         const pocasCount = getVisibleCountForTrack("pocasList");
 
-        const lastVisible = chunkRotate(lastTickets, lastCarruselIndex, lastCount);
+        const lastVisible = lastTickets.slice(0, lastCount);
         const agotadasVisible = chunkRotate(agotadas, agotadasCarruselIndex, agotadasCount);
         const pocasVisible = chunkRotate(pocas, pocasCarruselIndex, pocasCount);
 
@@ -1623,13 +1626,8 @@
                 return n >= 1 && n <= 5;
             });
 
-            const lastCount = getVisibleCountForTrack("lastTickets");
             const agotadasCount = getVisibleCountForTrack("agotadasList");
             const pocasCount = getVisibleCountForTrack("pocasList");
-
-            if (lastTickets.length > lastCount) {
-                lastCarruselIndex = (lastCarruselIndex + 1) % lastTickets.length;
-            }
 
             if (agotadas.length > agotadasCount) {
                 agotadasCarruselIndex = (agotadasCarruselIndex + 1) % agotadas.length;
