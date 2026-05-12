@@ -146,6 +146,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\dashboard\dashboard-tv.css" />
+    <Content Include="Content\dashboard\dashboard.css" />
     <Content Include="Content\img\logo-hdb.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -157,6 +159,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\dashboard\dashboard.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.js" />

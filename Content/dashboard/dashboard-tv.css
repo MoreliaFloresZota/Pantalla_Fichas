@@ -1,0 +1,390 @@
+﻿html.tv-mode,
+html.tv-mode body,
+html.tv-mode body.dashboard-body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden !important;
+}
+
+    html.tv-mode .dashboard-shell {
+        width: 100% !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        min-height: 0 !important;
+        max-width: 100% !important;
+        padding: 12px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .dashboard-top-wrap {
+        flex: 0 0 auto !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode .dashboard-main-wrap {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .topbar-row,
+    html.tv-mode .dashboard-main-row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+    }
+
+    html.tv-mode .dashboard-main-row {
+        height: 100% !important;
+        min-height: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    html.tv-mode .topbar-left,
+    html.tv-mode .topbar-center,
+    html.tv-mode .topbar-right {
+        flex: 0 0 33.3333% !important;
+        max-width: 33.3333% !important;
+    }
+
+    html.tv-mode .main-left-col {
+        flex: 0 0 74% !important;
+        max-width: 74% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        display: flex !important;
+    }
+
+    html.tv-mode .main-right-col {
+        flex: 0 0 26% !important;
+        max-width: 26% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        display: flex !important;
+    }
+
+    html.tv-mode .brand-box {
+        justify-content: flex-start !important;
+    }
+
+    html.tv-mode .brand-text,
+    html.tv-mode .topbar-left {
+        text-align: left !important;
+    }
+
+    html.tv-mode .topbar-center {
+        text-align: center !important;
+    }
+
+    html.tv-mode .topbar-right {
+        text-align: right !important;
+    }
+
+    html.tv-mode .right-box {
+        align-items: flex-end !important;
+    }
+
+    html.tv-mode .center-title {
+        white-space: nowrap !important;
+        font-size: clamp(34px, 2.7vw, 44px) !important;
+    }
+
+    html.tv-mode .center-subtitle {
+        white-space: nowrap !important;
+        font-size: clamp(15px, 1.1vw, 20px) !important;
+        letter-spacing: 2px !important;
+    }
+
+    html.tv-mode .topbar-panel,
+    html.tv-mode .cards-wrap,
+    html.tv-mode .side-panel {
+        border-radius: 24px !important;
+    }
+
+    html.tv-mode .cards-wrap,
+    html.tv-mode .side-panel {
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode .cards-body {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .cards-list {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding: 18px 10px 10px !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+        html.tv-mode .cards-list::-webkit-scrollbar,
+        html.tv-mode .cards-list::-webkit-scrollbar-button {
+            width: 0 !important;
+            height: 0 !important;
+            display: none !important;
+        }
+
+    html.tv-mode .side-panel {
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .side-middle {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        display: grid !important;
+        grid-template-rows: auto auto minmax(0, 1fr) auto minmax(0, 1fr) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .side-slot {
+        min-height: 0 !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+.side-slot:first-child .mini-viewport {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+}
+
+.side-slot:first-child .mini-track {
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+}
+
+
+    html.tv-mode .mini-viewport {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .mini-track,
+    html.tv-mode #lastTickets,
+    html.tv-mode #agotadasList,
+    html.tv-mode #pocasList {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+        padding-right: 0 !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+        html.tv-mode .mini-track::-webkit-scrollbar,
+        html.tv-mode .mini-track::-webkit-scrollbar-button,
+        html.tv-mode #lastTickets::-webkit-scrollbar,
+        html.tv-mode #lastTickets::-webkit-scrollbar-button,
+        html.tv-mode #agotadasList::-webkit-scrollbar,
+        html.tv-mode #agotadasList::-webkit-scrollbar-button,
+        html.tv-mode #pocasList::-webkit-scrollbar,
+        html.tv-mode #pocasList::-webkit-scrollbar-button {
+            width: 0 !important;
+            height: 0 !important;
+            display: none !important;
+        }
+
+    html.tv-mode .card-row {
+        flex-direction: row !important;
+        align-items: center !important;
+        min-height: 112px !important;
+        padding: 14px 14px 12px !important;
+        gap: 12px !important;
+    }
+
+    html.tv-mode .right-block {
+        width: auto !important;
+        min-width: 205px !important;
+    }
+
+    html.tv-mode .area-pill {
+        max-width: 620px !important;
+        font-size: 18px !important;
+    }
+
+    html.tv-mode .chip-pill {
+        max-width: 340px !important;
+        width: auto !important;
+        font-size: 13px !important;
+    }
+
+    html.tv-mode .side-help {
+        font-size: 13px !important;
+        line-height: 1.22 !important;
+    }
+
+    html.tv-mode .hot-ribbon {
+        font-size: 10px !important;
+        padding: 6px 14px !important;
+    }
+
+@media (max-height: 820px) {
+    html.tv-mode .dashboard-shell {
+        padding: 8px !important;
+        gap: 8px !important;
+    }
+
+    html.tv-mode .topbar-panel {
+        min-height: 92px !important;
+        padding: 8px 14px !important;
+    }
+
+    html.tv-mode .logo {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: clamp(24px, 2vw, 34px) !important;
+    }
+
+    html.tv-mode .center-subtitle {
+        font-size: clamp(12px, .85vw, 16px) !important;
+    }
+
+    html.tv-mode .side-slot:first-child .mini-viewport,
+    html.tv-mode .side-slot:first-child .mini-track {
+        height: 38px !important;
+        min-height: 38px !important;
+        max-height: 38px !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: 94px !important;
+        padding: 10px 12px 9px !important;
+        margin-bottom: 8px !important;
+    }
+
+    html.tv-mode .right-block {
+        min-width: 170px !important;
+    }
+}
+/* =========================================================
+   FIX DEFINITIVO - SIN FLECHITAS EN PANEL DERECHO
+   Las listas laterales rotan por JS, no por scroll visible
+   ========================================================= */
+
+.side-panel,
+.side-panel * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+    .side-panel *::-webkit-scrollbar,
+    .side-panel *::-webkit-scrollbar-button,
+    .side-panel *::-webkit-scrollbar-track,
+    .side-panel *::-webkit-scrollbar-thumb,
+    .side-panel *::-webkit-scrollbar-corner {
+        width: 0 !important;
+        height: 0 !important;
+        display: none !important;
+        background: transparent !important;
+    }
+
+    .side-panel .mini-viewport {
+        position: relative !important;
+        overflow: hidden !important;
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
+    }
+
+    .side-panel .mini-track,
+    .side-panel #lastTickets,
+    .side-panel #agotadasList,
+    .side-panel #pocasList {
+        height: 100% !important;
+        max-height: 100% !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
+        padding-right: 0 !important;
+        margin-right: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+    }
+
+    /* Tapa visual para BoxTV / Android WebView si insiste en pintar flechitas */
+    .side-panel .mini-viewport::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -2px;
+        width: 28px;
+        height: 100%;
+        background: #f8fcf9;
+        pointer-events: none;
+        z-index: 50;
+    }
+
+    .side-panel .mini-item {
+        position: relative;
+        z-index: 1;
+        width: calc(100% - 24px) !important;
+        max-width: calc(100% - 24px) !important;
+    }
+/* =========================================================
+   PANEL DERECHO: MISMO ALTO PARA LAS 3 LISTAS
+   Misma cantidad visible en ultimos, agotadas y pocas
+   ========================================================= */
+
+@media (min-width: 1200px) {
+    .side-middle {
+        display: grid !important;
+        grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        gap: 0 !important;
+    }
+
+    .side-slot,
+    .side-slot:first-child {
+        min-height: 0 !important;
+        height: 100% !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+        .side-slot .mini-viewport,
+        .side-slot:first-child .mini-viewport {
+            flex: 1 1 auto !important;
+            height: auto !important;
+            min-height: 0 !important;
+            max-height: none !important;
+            overflow: hidden !important;
+        }
+
+        .side-slot .mini-track,
+        .side-slot:first-child .mini-track,
+        #lastTickets,
+        #agotadasList,
+        #pocasList {
+            height: 100% !important;
+            min-height: 0 !important;
+            max-height: none !important;
+            overflow: hidden !important;
+        }
+}

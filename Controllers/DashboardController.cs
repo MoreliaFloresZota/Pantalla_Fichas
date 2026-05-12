@@ -11,9 +11,17 @@ namespace PantallaDeFichaje.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.ForceTvMode = false;
             return View();
         }
 
+        public ActionResult TV()
+        {
+            ViewBag.ForceTvMode = true;
+            return View("Index");
+        }
+
+        [HttpGet]
         public JsonResult Data()
         {
             Response.Cache.SetCacheability(HttpCacheability.NoCache);

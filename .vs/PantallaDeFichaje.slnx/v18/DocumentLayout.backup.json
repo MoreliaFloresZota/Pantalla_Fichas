@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|c:\\users\\more\\desktop\\fichas\\pantalladefichaje1\\pantalladefichaje\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|c:\\users\\more\\desktop\\fichas\\pantalladefichaje1\\pantalladefichaje\\scripts\\dashboard\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:scripts\\dashboard\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\content\\dashboard\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:content\\dashboard\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\content\\dashboard\\dashboard-tv.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:content\\dashboard\\dashboard-tv.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\models\\areadashboardrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:models\\areadashboardrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\data\\dashboardrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:data\\dashboardrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\models\\areadashboardrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:models\\areadashboardrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,19 +38,44 @@
       "DocumentGroups": [
         {
           "DockedHeight": 246,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DashboardRepo.cs",
-              "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Data\\DashboardRepo.cs",
-              "RelativeDocumentMoniker": "Data\\DashboardRepo.cs",
-              "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Data\\DashboardRepo.cs",
-              "RelativeToolTip": "Data\\DashboardRepo.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAkwLIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-12T21:35:04.573Z"
+              "DocumentIndex": 1,
+              "Title": "dashboard.js",
+              "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Scripts\\dashboard\\dashboard.js",
+              "RelativeDocumentMoniker": "Scripts\\dashboard\\dashboard.js",
+              "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Scripts\\dashboard\\dashboard.js",
+              "RelativeToolTip": "Scripts\\dashboard\\dashboard.js",
+              "ViewState": "AgIAAMsBAAAAsJmZmZn5v5kCAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-05-11T03:06:26.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dashboard-tv.css",
+              "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Content\\dashboard\\dashboard-tv.css",
+              "RelativeDocumentMoniker": "Content\\dashboard\\dashboard-tv.css",
+              "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Content\\dashboard\\dashboard-tv.css",
+              "RelativeToolTip": "Content\\dashboard\\dashboard-tv.css",
+              "ViewState": "AgIAAE4BAAAANTMzMzMjwIYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-29T03:41:50.292Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "dashboard.css",
+              "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Content\\dashboard\\dashboard.css",
+              "RelativeDocumentMoniker": "Content\\dashboard\\dashboard.css",
+              "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Content\\dashboard\\dashboard.css",
+              "RelativeToolTip": "Content\\dashboard\\dashboard.css",
+              "ViewState": "AgIAAKEEAAAAAAAAAAAUwLEEAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-29T03:40:33.288Z"
             },
             {
               "$type": "Document",
@@ -52,27 +85,27 @@
               "RelativeDocumentMoniker": "Views\\Dashboard\\Index.cshtml",
               "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Views\\Dashboard\\Index.cshtml",
               "RelativeToolTip": "Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAHAGAAAAAAAAAAAUwI0GAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAGIAAAAAMzMzMzMrwBQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-01T14:57:58.764Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Web.config",
               "RelativeDocumentMoniker": "Web.config",
               "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Web.config",
               "RelativeToolTip": "Web.config",
-              "ViewState": "AgIAACQAAAAAAAAAAAAUwEEAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2026-04-01T14:57:31.638Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "AreaDashboardRow.cs",
               "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Models\\AreaDashboardRow.cs",
               "RelativeDocumentMoniker": "Models\\AreaDashboardRow.cs",
@@ -80,21 +113,19 @@
               "RelativeToolTip": "Models\\AreaDashboardRow.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T14:57:13.348Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-01T14:57:13.348Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "Controllers\\DashboardController.cs",
               "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Controllers\\DashboardController.cs",
               "RelativeToolTip": "Controllers\\DashboardController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T14:57:07.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-01T14:57:07.994Z"
             }
           ]
         },
