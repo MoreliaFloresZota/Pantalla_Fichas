@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|c:\\users\\more\\desktop\\fichas\\pantalladefichaje1\\pantalladefichaje\\scripts\\dashboard\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:scripts\\dashboard\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\content\\dashboard\\dashboard-tv.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:content\\dashboard\\dashboard-tv.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\content\\dashboard\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:content\\dashboard\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\content\\dashboard\\dashboard-tv.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:content\\dashboard\\dashboard-tv.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|solutionrelative:views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{681DA151-C37D-433D-9D0E-7779D4843176}|PantallaDeFichaje.csproj|C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -38,24 +38,24 @@
       "DocumentGroups": [
         {
           "DockedHeight": 246,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "dashboard.js",
               "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Scripts\\dashboard\\dashboard.js",
               "RelativeDocumentMoniker": "Scripts\\dashboard\\dashboard.js",
               "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Scripts\\dashboard\\dashboard.js",
               "RelativeToolTip": "Scripts\\dashboard\\dashboard.js",
-              "ViewState": "AgIAAMsBAAAAsJmZmZn5v5kCAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAJ4AAAAA0MzMzMwuwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-05-11T03:06:26.309Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "dashboard-tv.css",
               "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Content\\dashboard\\dashboard-tv.css",
               "RelativeDocumentMoniker": "Content\\dashboard\\dashboard-tv.css",
@@ -63,7 +63,8 @@
               "RelativeToolTip": "Content\\dashboard\\dashboard-tv.css",
               "ViewState": "AgIAAE4BAAAANTMzMzMjwIYBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-29T03:41:50.292Z"
+              "WhenOpened": "2026-04-29T03:41:50.292Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -73,13 +74,14 @@
               "RelativeDocumentMoniker": "Content\\dashboard\\dashboard.css",
               "ToolTip": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Content\\dashboard\\dashboard.css",
               "RelativeToolTip": "Content\\dashboard\\dashboard.css",
-              "ViewState": "AgIAAKEEAAAAAAAAAAAUwLEEAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALEEAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-29T03:40:33.288Z"
+              "WhenOpened": "2026-04-29T03:40:33.288Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\More\\Desktop\\FICHAS\\PantallaDeFichaje1\\PantallaDeFichaje\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Dashboard\\Index.cshtml",
@@ -87,8 +89,7 @@
               "RelativeToolTip": "Views\\Dashboard\\Index.cshtml",
               "ViewState": "AgIAAGIAAAAAMzMzMzMrwBQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-01T14:57:58.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-01T14:57:58.764Z"
             },
             {
               "$type": "Document",
