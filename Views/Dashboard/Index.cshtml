@@ -18,13 +18,23 @@
     <link href="@Url.Content("~/Content/dashboard/dashboard-tv.css")" rel="stylesheet" />
 
     <script>
-        (function () {
-            var forceTv = '@forceTvMode'.toLowerCase() === 'true';
-            if (forceTv) {
-                document.documentElement.classList.add('tv-mode');
-            }
-        })();
+    (function () {
+        function setTvViewportHeight() {
+            document.documentElement.style.setProperty('--tv-vh', (window.innerHeight * 0.01) + 'px');
+        }
+
+        var forceTv = '@forceTvMode'.toLowerCase() === 'true';
+
+        if (forceTv) {
+            document.documentElement.classList.add('tv-mode');
+            setTvViewportHeight();
+
+            window.addEventListener('resize', setTvViewportHeight);
+            window.addEventListener('orientationchange', setTvViewportHeight);
+        }
+    })();
     </script>
+
 </head>
 
 <body class="dashboard-body">

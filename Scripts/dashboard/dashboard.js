@@ -621,6 +621,7 @@ function startSideRotation() {
         if (document.hidden) return;
 
         var rows = getOrderedRows(window.__lastRows || []);
+
         var agotadas = rows.filter(function (x) {
             return Number(x.FichasRestantes || 0) === 0;
         });
@@ -628,6 +629,8 @@ function startSideRotation() {
         var pocas = rows.filter(function (x) {
             var n = Number(x.FichasRestantes || 0);
             return n >= 1 && n <= 5;
+        }).sort(function (a, b) {
+            return Number(a.FichasRestantes || 0) - Number(b.FichasRestantes || 0);
         });
 
         var sideCount = getSideVisibleCount();
@@ -647,6 +650,7 @@ function startSideRotation() {
         updateSide(rows);
     }, 3000);
 }
+
 
 function scheduleMidnightReload() {
     var now = new Date();

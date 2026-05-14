@@ -5,19 +5,26 @@ html.tv-mode body.dashboard-body {
     height: 100%;
     min-height: 100%;
     overflow: hidden !important;
+    overscroll-behavior: none !important;
 }
 
     html.tv-mode .dashboard-shell {
         width: 100% !important;
         height: 100vh !important;
+        height: 100svh !important;
+        height: 100dvh !important;
+        height: calc(var(--tv-vh, 1vh) * 100) !important;
         max-height: 100vh !important;
+        max-height: 100svh !important;
+        max-height: 100dvh !important;
+        max-height: calc(var(--tv-vh, 1vh) * 100) !important;
         min-height: 0 !important;
         max-width: 100% !important;
-        padding: 12px !important;
+        padding: clamp(6px, 1.15vh, 12px) !important;
         margin: 0 auto !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 10px !important;
+        gap: clamp(5px, .9vh, 10px) !important;
         overflow: hidden !important;
     }
 
@@ -29,6 +36,7 @@ html.tv-mode body.dashboard-body {
     html.tv-mode .dashboard-main-wrap {
         flex: 1 1 auto !important;
         min-height: 0 !important;
+        height: 0 !important;
         overflow: hidden !important;
     }
 
@@ -43,6 +51,7 @@ html.tv-mode body.dashboard-body {
         min-height: 0 !important;
         margin-top: 0 !important;
         margin-bottom: 0 !important;
+        overflow: hidden !important;
     }
 
     html.tv-mode .topbar-left,
@@ -103,7 +112,7 @@ html.tv-mode body.dashboard-body {
     html.tv-mode .topbar-panel,
     html.tv-mode .cards-wrap,
     html.tv-mode .side-panel {
-        border-radius: 24px !important;
+        border-radius: clamp(14px, 2.1vh, 24px) !important;
     }
 
     html.tv-mode .cards-wrap,
@@ -123,7 +132,7 @@ html.tv-mode body.dashboard-body {
         min-height: 0 !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
-        padding: 18px 10px 10px !important;
+        padding: clamp(8px, 1.5vh, 18px) clamp(6px, .9vw, 10px) clamp(6px, 1vh, 10px) !important;
         scrollbar-width: none !important;
         -ms-overflow-style: none !important;
     }
@@ -136,6 +145,7 @@ html.tv-mode body.dashboard-body {
         }
 
     html.tv-mode .side-panel {
+        padding: clamp(6px, 1.1vh, 12px) !important;
         overflow: hidden !important;
     }
 
@@ -154,20 +164,19 @@ html.tv-mode body.dashboard-body {
         flex-direction: column !important;
     }
 
-.side-slot:first-child .mini-viewport {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    height: auto !important;
-    max-height: none !important;
-}
+        html.tv-mode .side-slot:first-child .mini-viewport {
+            flex: 1 1 auto !important;
+            min-height: 0 !important;
+            height: auto !important;
+            max-height: none !important;
+        }
 
-.side-slot:first-child .mini-track {
-    height: 100% !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    overflow: hidden !important;
-}
-
+        html.tv-mode .side-slot:first-child .mini-track {
+            height: 100% !important;
+            min-height: 0 !important;
+            max-height: none !important;
+            overflow: hidden !important;
+        }
 
     html.tv-mode .mini-viewport {
         flex: 1 1 auto !important;
@@ -208,30 +217,55 @@ html.tv-mode body.dashboard-body {
     html.tv-mode .card-row {
         flex-direction: row !important;
         align-items: center !important;
-        min-height: 112px !important;
-        padding: 14px 14px 12px !important;
-        gap: 12px !important;
+        min-height: clamp(74px, 13.2vh, 112px) !important;
+        padding: clamp(7px, 1.5vh, 14px) clamp(8px, 1.1vw, 14px) clamp(7px, 1.3vh, 12px) !important;
+        gap: clamp(7px, 1vw, 12px) !important;
+        margin-bottom: clamp(5px, 1vh, 12px) !important;
     }
 
     html.tv-mode .right-block {
         width: auto !important;
-        min-width: 205px !important;
+        min-width: clamp(135px, 16vw, 205px) !important;
+        padding: clamp(6px, 1.2vh, 10px) !important;
+        border-radius: clamp(14px, 2vh, 22px) !important;
     }
 
     html.tv-mode .area-pill {
-        max-width: 620px !important;
-        font-size: 18px !important;
+        max-width: min(620px, 44vw) !important;
+        font-size: clamp(13px, 1.85vh, 18px) !important;
+        padding: clamp(5px, 1vh, 8px) clamp(8px, 1vw, 13px) !important;
     }
 
     html.tv-mode .chip-pill {
-        max-width: 340px !important;
+        max-width: min(340px, 26vw) !important;
         width: auto !important;
-        font-size: 13px !important;
+        font-size: clamp(10px, 1.45vh, 13px) !important;
+        padding: clamp(4px, .85vh, 7px) clamp(7px, .8vw, 10px) !important;
+    }
+
+    html.tv-mode .icon-circle {
+        width: clamp(34px, 5.8vh, 48px) !important;
+        height: clamp(34px, 5.8vh, 48px) !important;
+    }
+
+        html.tv-mode .icon-circle svg.medical-icon {
+            width: clamp(20px, 3.5vh, 26px) !important;
+            height: clamp(20px, 3.5vh, 26px) !important;
+        }
+
+    html.tv-mode .num {
+        font-size: clamp(34px, 6.9vh, 54px) !important;
+    }
+
+    html.tv-mode .lbl {
+        font-size: clamp(10px, 1.55vh, 14px) !important;
     }
 
     html.tv-mode .side-help {
-        font-size: 13px !important;
-        line-height: 1.22 !important;
+        font-size: clamp(10px, 1.45vh, 13px) !important;
+        line-height: 1.14 !important;
+        margin-top: clamp(4px, .8vh, 8px) !important;
+        padding-top: clamp(4px, .8vh, 8px) !important;
     }
 
     html.tv-mode .hot-ribbon {
@@ -280,6 +314,165 @@ html.tv-mode body.dashboard-body {
         min-width: 170px !important;
     }
 }
+
+@media (max-height: 740px) {
+    html.tv-mode .dashboard-shell {
+        padding: 6px !important;
+        gap: 6px !important;
+    }
+
+    html.tv-mode .topbar-panel {
+        min-height: 76px !important;
+        padding: 6px 10px !important;
+    }
+
+    html.tv-mode .logo {
+        width: 58px !important;
+        height: 58px !important;
+        padding: 5px !important;
+        border-radius: 12px !important;
+    }
+
+    html.tv-mode .small-title {
+        font-size: 9px !important;
+        margin-bottom: 1px !important;
+    }
+
+    html.tv-mode .big-title {
+        font-size: 11px !important;
+        line-height: 1.08 !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: clamp(20px, 4.1vh, 30px) !important;
+        letter-spacing: 1px !important;
+    }
+
+    html.tv-mode .center-subtitle {
+        font-size: clamp(10px, 2vh, 14px) !important;
+        letter-spacing: 1px !important;
+        margin-top: 2px !important;
+    }
+
+    html.tv-mode .clock-card {
+        max-width: 190px !important;
+        padding: 4px 9px !important;
+        border-radius: 14px !important;
+    }
+
+    html.tv-mode .date-text,
+    html.tv-mode .conn-badge {
+        font-size: 10px !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(24px, 5vh, 34px) !important;
+    }
+
+    html.tv-mode .conn-badge {
+        padding: 4px 9px !important;
+    }
+
+    html.tv-mode .section-header {
+        padding: 6px 10px !important;
+    }
+
+    html.tv-mode .section-title {
+        font-size: 13px !important;
+    }
+
+    html.tv-mode .section-subtitle,
+    html.tv-mode .section-badge {
+        font-size: 10px !important;
+    }
+
+    html.tv-mode .section-subtitle {
+        margin-top: 1px !important;
+    }
+
+    html.tv-mode .section-badge {
+        padding: 5px 9px !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: 74px !important;
+        padding: 7px 9px !important;
+        margin-bottom: 6px !important;
+    }
+
+    html.tv-mode .right-block {
+        min-width: 140px !important;
+    }
+
+    html.tv-mode .panel-title,
+    html.tv-mode .legend-text,
+    html.tv-mode .pill-badge,
+    html.tv-mode .mini-item,
+    html.tv-mode .side-help {
+        font-size: 10px !important;
+    }
+
+    html.tv-mode .legend-row {
+        padding: 3px 0 !important;
+    }
+
+    html.tv-mode .divider-line {
+        margin: 3px 0 !important;
+    }
+
+    html.tv-mode .mini-item {
+        min-height: 28px !important;
+        max-height: 28px !important;
+        padding: 5px 7px !important;
+        border-radius: 9px !important;
+    }
+
+    html.tv-mode .mini-track,
+    html.tv-mode #lastTickets,
+    html.tv-mode #agotadasList,
+    html.tv-mode #pocasList {
+        gap: 4px !important;
+    }
+}
+
+@media (max-height: 620px) {
+    html.tv-mode .dashboard-shell {
+        padding: 4px !important;
+        gap: 4px !important;
+    }
+
+    html.tv-mode .topbar-panel {
+        min-height: 64px !important;
+        padding: 4px 8px !important;
+    }
+
+    html.tv-mode .logo {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    html.tv-mode .big-title {
+        font-size: 10px !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: 22px !important;
+    }
+
+    html.tv-mode .center-subtitle,
+    html.tv-mode .small-title {
+        font-size: 9px !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: 26px !important;
+    }
+
+    html.tv-mode .side-help {
+        display: none !important;
+    }
+}
+
 /* =========================================================
    FIX DEFINITIVO - SIN FLECHITAS EN PANEL DERECHO
    Las listas laterales rotan por JS, no por scroll visible
@@ -345,6 +538,7 @@ html.tv-mode body.dashboard-body {
         width: calc(100% - 24px) !important;
         max-width: calc(100% - 24px) !important;
     }
+
 /* =========================================================
    PANEL DERECHO: MISMO ALTO PARA LAS 3 LISTAS
    Misma cantidad visible en ultimos, agotadas y pocas
@@ -387,4 +581,79 @@ html.tv-mode body.dashboard-body {
             max-height: none !important;
             overflow: hidden !important;
         }
+}
+/* =========================================================
+   TV - PANEL DERECHO CON 3 BLOQUES IGUALES
+   Ultimos cambios, agotadas y pocas tienen la misma altura.
+   Pocas y agotadas rotan por JS si hay mas datos.
+   Ultimos cambios solo cambia cuando se toma una ficha nueva.
+   ========================================================= */
+
+html.tv-mode .side-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .side-top {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+}
+
+html.tv-mode .side-middle {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    display: grid !important;
+    grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    overflow: hidden !important;
+    gap: 0 !important;
+}
+
+html.tv-mode .side-slot,
+html.tv-mode .side-slot:first-child {
+    min-height: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 3px 0 !important;
+}
+
+    html.tv-mode .side-slot .panel-title {
+        flex: 0 0 auto !important;
+    }
+
+    html.tv-mode .side-slot .mini-viewport,
+    html.tv-mode .side-slot:first-child .mini-viewport {
+        flex: 1 1 auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .side-slot .mini-track,
+    html.tv-mode .side-slot:first-child .mini-track,
+    html.tv-mode #lastTickets,
+    html.tv-mode #agotadasList,
+    html.tv-mode #pocasList {
+        height: 100% !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: hidden !important;
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+    }
+
+html.tv-mode .side-panel .mini-item {
+    flex: 0 0 auto !important;
+    min-height: clamp(28px, 4.8vh, 38px) !important;
+    max-height: clamp(28px, 4.8vh, 38px) !important;
+    width: calc(100% - 24px) !important;
+    max-width: calc(100% - 24px) !important;
 }
