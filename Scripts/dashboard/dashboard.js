@@ -1,11 +1,43 @@
-var REFRESH_MS = 5000;
+var REFRESH_MS = 2000;
 var MAX_LOCAL_EVENTS = 20;
 var HOT_MS = 7000;
+var PREV_STORAGE_KEY = "dashboard_prev_fichas_dia_v2";
+
+var ENABLE_SOUND_ALERTS = true;
+var ENABLE_VOICE_ALERTS = true;
+var ENABLE_SUMMARY_VOICE = true;
+var SUMMARY_MS = 10 * 60 * 1000;
+
+var VOICE_RATE = 0.86;
+var VOICE_PITCH = 1;
+var VOICE_VOLUME = 1;
+var PREFERRED_VOICE_NAME = "";
+var PREFERRED_VOICE_LANG = "es-ES";
+
+var audioCtx = null;
+var audioUnlocked = false;
+
+var selectedVoice = null;
+var speechQueue = [];
+var speechBusy = false;
+var currentSpeechItem = null;
+var speechRunId = 0;
+var voiceBlocked = false;
+
+var prev = {};
+var lastTickets = [];
+var fetching = false;
+var agotadasCarruselIndex = 0;
+var pocasCarruselIndex = 0;
+var hotKeys = [];
+var hotUntil = 0;
+var hotTimer = null;
+var pauseScroll = false;
+var recentPriority = [];
 
 var AREA_MAP = {
     "ANTICONCEPCION": { icon: "shield" },
     "BACTERIOLOGIA": { icon: "bacteria" },
-
     "CE CARDIOLOGIA": { icon: "heartPulse" },
 
     "CE CIRUGIA GENERAL": { icon: "surgeryTools" },
@@ -15,11 +47,11 @@ var AREA_MAP = {
     "CE DERMATOLOGIA": { icon: "dermatology" },
     "CE DERMATOLOGIA EX SEDES": { icon: "dermatology" },
 
+    "CE EMERGENCIA": { icon: "emergency" },
     "CE EMERGENCIA EX SEDES": { icon: "emergency" },
     "CE EMERGENCIAS": { icon: "emergency" },
 
     "CE ENDOCRINOLOGIA": { icon: "thyroid" },
-
     "CE GASTROENTEROLOGIA": { icon: "stomach" },
     "CE GENETICA": { icon: "dna" },
 
@@ -48,9 +80,7 @@ var AREA_MAP = {
     "CE ODONTOLOGIA": { icon: "tooth" },
 
     "CE OFTALMOLOGIA": { icon: "eye" },
-
     "CE ONCOLOGIA": { icon: "ribbon" },
-
     "CE OTORRINOLARINGOLOGIA": { icon: "ear" },
 
     "CE PEDIATRIA": { icon: "kids" },
@@ -62,9 +92,7 @@ var AREA_MAP = {
     "CE PSIQUIATRIA": { icon: "brainHeart" },
 
     "CE QUEMOLOGIA": { icon: "burn" },
-
     "CE REHABILITACION TARAPAYA": { icon: "dumbbells" },
-
     "CE REUMATOLOGIA": { icon: "joint" },
 
     "CE TRAUMATOLOGIA": { icon: "bone" },
@@ -72,6 +100,10 @@ var AREA_MAP = {
 
     "CE UROLOGIA": { icon: "urinarySystem" }
 };
+
+function pad2(n) {
+    return Number(n) < 10 ? "0" + Number(n) : String(n);
+}
 
 function normalizeAreaText(area) {
     var value = String(area || "").toUpperCase();
@@ -87,16 +119,136 @@ function normalizeAreaText(area) {
         .trim();
 }
 
+function simpleAreaName(area) {
+    return normalizeAreaText(area)
+        .replace(/^CE\s+/, "")
+        .replace(/\s+EX\s+SEDES$/, "")
+        .trim();
+}
+
+function isRequirementArea(area) {
+    var simple = simpleAreaName(area);
+
+    return simple === "EMERGENCIA" ||
+        simple === "EMERGENCIAS" ||
+        simple === "PEDIATRIA" ||
+        simple === "TRAUMATOLOGIA";
+}
+
+function friendlyAreaName(area) {
+    var raw = String(area || "SIN AREA")
+        .replace(/^CE\s+/i, "")
+        .replace(/\s*[-]?\s*EX\s+SEDES/ig, "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    var key = normalizeAreaText(raw);
+
+    var names = {
+        "CARDIOLOGIA": "Cardiolog\u00eda",
+        "CIRUGIA GENERAL": "Cirug\u00eda general",
+        "CIRUGIA MAXILOFACIAL": "Cirug\u00eda maxilofacial",
+        "CIRUGIA": "Cirug\u00eda",
+        "DERMATOLOGIA": "Dermatolog\u00eda",
+        "EMERGENCIA": "Emergencia",
+        "EMERGENCIAS": "Emergencias",
+        "ENDOCRINOLOGIA": "Endocrinolog\u00eda",
+        "GASTROENTEROLOGIA": "Gastroenterolog\u00eda",
+        "GENETICA": "Gen\u00e9tica",
+        "GINECOLOGIA": "Ginecolog\u00eda",
+        "GINECO OBSTETRICIA": "Ginecolog\u00eda y obstetricia",
+        "OBSTETRICIA": "Obstetricia",
+        "HEMATOLOGIA": "Hematolog\u00eda",
+        "MEDICINA INTERNA": "Medicina interna",
+        "MEDICINA NATURAL": "Medicina natural",
+        "NEFROLOGIA": "Nefrolog\u00eda",
+        "NEONATOLOGIA": "Neonatolog\u00eda",
+        "NEUMOLOGIA": "Neumolog\u00eda",
+        "NEUROCIRUGIA": "Neurocirug\u00eda",
+        "NEUROLOGIA": "Neurolog\u00eda",
+        "NEUROLOGIA PEDIATRICA": "Neurolog\u00eda pedi\u00e1trica",
+        "NUTRICION Y DIETETICA": "Nutrici\u00f3n y diet\u00e9tica",
+        "ODONTOLOGIA": "Odontolog\u00eda",
+        "OFTALMOLOGIA": "Oftalmolog\u00eda",
+        "ONCOLOGIA": "Oncolog\u00eda",
+        "OTORRINOLARINGOLOGIA": "Otorrinolaringolog\u00eda",
+        "PEDIATRIA": "Pediatr\u00eda",
+        "PSICOLOGIA TARAPAYA": "Psicolog\u00eda Tarapaya",
+        "PSICOLOGIA": "Psicolog\u00eda",
+        "PSICOPEDAGOGIA TARAPAYA": "Psicopedagog\u00eda Tarapaya",
+        "PSIQUIATRIA": "Psiquiatr\u00eda",
+        "QUEMOLOGIA": "Quemolog\u00eda",
+        "REHABILITACION TARAPAYA": "Rehabilitaci\u00f3n Tarapaya",
+        "REUMATOLOGIA": "Reumatolog\u00eda",
+        "TRAUMATOLOGIA": "Traumatolog\u00eda",
+        "UROLOGIA": "Urolog\u00eda",
+        "ANTICONCEPCION": "Anticoncepci\u00f3n",
+        "BACTERIOLOGIA": "Bacteriolog\u00eda"
+    };
+
+    return names[key] || raw;
+}
+
+function speechAreaName(area) {
+    var spoken = friendlyAreaName(area);
+
+    return String(spoken || "")
+        .replace(/\bGinecolog\u00eda\b/g, "Ginecolog\u00eda")
+        .replace(/\bOtorrinolaringolog\u00eda\b/g, "Otorrinolaringolog\u00eda")
+        .replace(/\bCardiolog\u00eda\b/g, "Cardiolog\u00eda")
+        .replace(/\bEndocrinolog\u00eda\b/g, "Endocrinolog\u00eda")
+        .replace(/\bNeurolog\u00eda\b/g, "Neurolog\u00eda")
+        .replace(/\bPediatr\u00eda\b/g, "Pediatr\u00eda")
+        .trim();
+}
+
+function prepareSpeechText(text) {
+    return String(text || "")
+        .replace(/\bAreas\b/g, "\u00c1reas")
+        .replace(/\bareas\b/g, "\u00e1reas")
+        .replace(/\bArea\b/g, "\u00c1rea")
+        .replace(/\barea\b/g, "\u00e1rea")
+        .replace(/\bAtencion\b/g, "Atenci\u00f3n")
+        .replace(/\batencion\b/g, "atenci\u00f3n")
+        .replace(/\bGinecologia\b/g, "Ginecolog\u00eda")
+        .replace(/\bCardiologia\b/g, "Cardiolog\u00eda")
+        .replace(/\bDermatologia\b/g, "Dermatolog\u00eda")
+        .replace(/\bEndocrinologia\b/g, "Endocrinolog\u00eda")
+        .replace(/\bOtorrinolaringologia\b/g, "Otorrinolaringolog\u00eda")
+        .replace(/\bPediatria\b/g, "Pediatr\u00eda")
+        .replace(/\bNeurologia\b/g, "Neurolog\u00eda")
+        .replace(/\bNefrologia\b/g, "Nefrolog\u00eda")
+        .replace(/\bUrologia\b/g, "Urolog\u00eda")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+function remainingText(n) {
+    n = Number(n || 0);
+
+    if (n === 0) return "no quedan fichas disponibles";
+    if (n === 1) return "queda 1 ficha disponible";
+
+    return "quedan " + n + " fichas disponibles";
+}
+
+function areaAvailabilitySpeech(row) {
+    if (isRequirementArea(row.Area)) {
+        return "atenci\u00f3n a requerimiento, las 24 horas";
+    }
+
+    return remainingText(row.FichasRestantes);
+}
+
 function getAreaConfig(area) {
     var key = normalizeAreaText(area);
 
     if (AREA_MAP[key]) return AREA_MAP[key];
 
     if (key.indexOf("ANTICONCEPC") >= 0) return { icon: "shield" };
-    if (key.indexOf("BACTER") >= 0 || key.indexOf("LAB") >= 0 || key.indexOf("CELULA") >= 0) return { icon: "bacteria" };
+    if (key.indexOf("BACTER") >= 0 || key.indexOf("LAB") >= 0) return { icon: "bacteria" };
     if (key.indexOf("CARDIO") >= 0) return { icon: "heartPulse" };
-    if (key.indexOf("MAXILO") >= 0) return { icon: "surgeryTools" };
-    if (key.indexOf("CIRUG") >= 0 || key.indexOf("QUIROF") >= 0) return { icon: "surgeryTools" };
+    if (key.indexOf("MAXILO") >= 0 || key.indexOf("CIRUG") >= 0 || key.indexOf("QUIROF") >= 0) return { icon: "surgeryTools" };
     if (key.indexOf("DERMA") >= 0 || key.indexOf("PIEL") >= 0) return { icon: "dermatology" };
     if (key.indexOf("EMER") >= 0 || key.indexOf("URGEN") >= 0) return { icon: "emergency" };
     if (key.indexOf("ENDO") >= 0 || key.indexOf("TIROID") >= 0) return { icon: "thyroid" };
@@ -105,9 +257,9 @@ function getAreaConfig(area) {
     if (key.indexOf("OBST") >= 0 || key.indexOf("PARTO") >= 0) return { icon: "obstetrics" };
     if (key.indexOf("GINE") >= 0) return { icon: "gynecology" };
     if (key.indexOf("HEMA") >= 0 || key.indexOf("SANGRE") >= 0) return { icon: "blood" };
-    if (key.indexOf("MEDICINA NATURAL") >= 0 || key.indexOf("NATURAL") >= 0) return { icon: "leaf" };
+    if (key.indexOf("NATURAL") >= 0) return { icon: "leaf" };
     if (key.indexOf("MEDICINA") >= 0 || key.indexOf("INTERNA") >= 0) return { icon: "medicalChart" };
-    if (key.indexOf("NEFRO") >= 0 || key.indexOf("RINON") >= 0 || key.indexOf("RIÑON") >= 0) return { icon: "kidneys" };
+    if (key.indexOf("NEFRO") >= 0 || key.indexOf("RINON") >= 0) return { icon: "kidneys" };
     if (key.indexOf("URO") >= 0) return { icon: "urinarySystem" };
     if (key.indexOf("NEONATO") >= 0) return { icon: "baby" };
     if (key.indexOf("NEUMO") >= 0 || key.indexOf("PULMON") >= 0) return { icon: "lungs" };
@@ -117,9 +269,9 @@ function getAreaConfig(area) {
     if (key.indexOf("NUTRI") >= 0 || key.indexOf("DIET") >= 0) return { icon: "apple" };
     if (key.indexOf("ODONTO") >= 0 || key.indexOf("DENT") >= 0) return { icon: "tooth" };
     if (key.indexOf("OFTAL") >= 0 || key.indexOf("OJO") >= 0) return { icon: "eye" };
-    if (key.indexOf("ONCO") >= 0 || key.indexOf("CANCER") >= 0 || key.indexOf("CÁNCER") >= 0) return { icon: "ribbon" };
-    if (key.indexOf("OTORR") >= 0 || key.indexOf("OIDO") >= 0 || key.indexOf("OÍDO") >= 0 || key.indexOf("AUDIO") >= 0) return { icon: "ear" };
-    if (key.indexOf("PEDIATR") >= 0 || key.indexOf("NINO") >= 0 || key.indexOf("NIÑO") >= 0) return { icon: "kids" };
+    if (key.indexOf("ONCO") >= 0 || key.indexOf("CANCER") >= 0) return { icon: "ribbon" };
+    if (key.indexOf("OTORR") >= 0 || key.indexOf("OIDO") >= 0 || key.indexOf("AUDIO") >= 0) return { icon: "ear" };
+    if (key.indexOf("PEDIATR") >= 0 || key.indexOf("NINO") >= 0) return { icon: "kids" };
     if (key.indexOf("PSICOPED") >= 0) return { icon: "bookHeart" };
     if (key.indexOf("PSICO") >= 0) return { icon: "messageHeart" };
     if (key.indexOf("PSIQ") >= 0 || key.indexOf("MENTAL") >= 0) return { icon: "brainHeart" };
@@ -229,6 +381,10 @@ function getMedicalSvgIcon(name) {
     return icons[name] || icons.hospital;
 }
 
+function iconBootstrap(name) {
+    return getMedicalSvgIcon(name || "hospital");
+}
+
 function escapeHtml(s) {
     return String(s || "").replace(/[&<>"']/g, function (m) {
         switch (m) {
@@ -246,14 +402,124 @@ function cssId(s) {
     return String(s || "").replace(/[^a-zA-Z0-9]/g, "_");
 }
 
+function firstValue(row, names) {
+    if (!row) return "";
+
+    for (var i = 0; i < names.length; i++) {
+        if (Object.prototype.hasOwnProperty.call(row, names[i])) {
+            var value = row[names[i]];
+
+            if (value !== undefined && value !== null && String(value).trim() !== "") {
+                return String(value).trim();
+            }
+        }
+    }
+
+    return "";
+}
+
 function areaKey(r) {
-    return String((r && r.Area) || "").trim().toUpperCase();
+    var area = normalizeAreaText((r && r.Area) || "");
+    var doctor = normalizeAreaText((r && r.Doctor) || "");
+    var horario = normalizeAreaText((r && r.Horario) || "");
+
+    var id = firstValue(r, [
+        "Id",
+        "ID",
+        "IdFicha",
+        "IdServicio",
+        "IdArea",
+        "Codigo",
+        "CodServicio",
+        "cod_servicio_medico"
+    ]);
+
+    if (id) return area + "|ID:" + id;
+
+    return area + "|" + doctor + "|" + horario;
+}
+
+function getChangeSignal(row) {
+    return firstValue(row, [
+        "UltimaFicha",
+        "UltimaFichaId",
+        "IdUltimaFicha",
+        "UltimoTicket",
+        "UltimoTicketId",
+        "UltimoMovimiento",
+        "UltimoMovimientoId",
+        "MovimientoId",
+        "FichaEmitidaId",
+        "FechaUltimaFicha",
+        "HoraUltimaFicha",
+        "UltimaFichaFecha",
+        "FichasEmitidas",
+        "TotalEmitidas",
+        "TotalFichasEmitidas",
+        "FichasSacadas",
+        "TotalSacadas",
+        "TicketsEmitidos",
+        "TicketsSacados",
+        "TicketsTomados",
+        "CantidadEmitida",
+        "CantidadSacada"
+    ]);
+}
+
+function buildPrevState(row) {
+    return {
+        restantes: Number(row && row.FichasRestantes || 0),
+        signal: getChangeSignal(row)
+    };
+}
+
+function getStoredRestantes(value) {
+    if (value && typeof value === "object") return Number(value.restantes || 0);
+    return Number(value || 0);
+}
+
+function getStoredSignal(value) {
+    if (value && typeof value === "object") return String(value.signal || "");
+    return "";
+}
+
+function getTodayKey() {
+    var d = new Date();
+    return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate());
+}
+
+function loadPrevFromStorage() {
+    try {
+        var raw = localStorage.getItem(PREV_STORAGE_KEY);
+        if (!raw) return;
+
+        var saved = JSON.parse(raw);
+
+        if (!saved || saved.date !== getTodayKey() || !saved.data) return;
+
+        prev = saved.data;
+    } catch (e) {
+        console.warn("No se pudo cargar lectura anterior:", e);
+    }
+}
+
+function savePrevToStorage(data) {
+    try {
+        localStorage.setItem(PREV_STORAGE_KEY, JSON.stringify({
+            date: getTodayKey(),
+            data: data || {}
+        }));
+    } catch (e) {
+        console.warn("No se pudo guardar lectura anterior:", e);
+    }
 }
 
 function getStateByRestantes(restantes) {
     var n = Number(restantes || 0);
+
     if (n >= 6) return "VERDE";
     if (n >= 1) return "AMARILLO";
+
     return "ROJO";
 }
 
@@ -270,36 +536,496 @@ function setHtml(id, value) {
 function setConn(isOn) {
     var el = document.getElementById("conn");
     if (!el) return;
+
     el.className = isOn ? "conn-badge on" : "conn-badge off";
-    el.innerText = isOn ? "Conectado ✓" : "Sin conexión";
+    el.innerText = isOn ? "Conectado" : "Sin conexion";
 }
 
 function setSyncBadge(text, isSyncing) {
     var el = document.getElementById("syncBadge");
     if (!el) return;
+
     el.innerText = text;
+
     if (isSyncing) el.classList.add("syncing");
     else el.classList.remove("syncing");
 }
 
 function tickClock() {
     var d = new Date();
-    var dias = ["DOMINGO", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"];
+    var dias = ["DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO"];
 
-    setText("date", dias[d.getDay()] + " " + String(d.getDate()).padStart(2, "0") + "/" + String(d.getMonth() + 1).padStart(2, "0") + "/" + d.getFullYear());
-    setText("clock", String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0") + ":" + String(d.getSeconds()).padStart(2, "0"));
+    setText("date", dias[d.getDay()] + " " + pad2(d.getDate()) + "/" + pad2(d.getMonth() + 1) + "/" + d.getFullYear());
+    setText("clock", pad2(d.getHours()) + ":" + pad2(d.getMinutes()) + ":" + pad2(d.getSeconds()));
 }
 
-var prev = {};
-var lastTickets = [];
-var fetching = false;
-var agotadasCarruselIndex = 0;
-var pocasCarruselIndex = 0;
-var hotKeys = [];
-var hotUntil = 0;
-var hotTimer = null;
-var pauseScroll = false;
-var recentPriority = [];
+function getAudioContext() {
+    if (!ENABLE_SOUND_ALERTS) return null;
+
+    try {
+        if (!audioCtx) {
+            var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContextClass) return null;
+            audioCtx = new AudioContextClass();
+        }
+
+        return audioCtx;
+    } catch (e) {
+        console.warn("Audio no disponible:", e);
+        return null;
+    }
+}
+
+function unlockDashboardAudio() {
+    var ctx = getAudioContext();
+    if (!ctx) return;
+
+    try {
+        if (ctx.state === "suspended") ctx.resume();
+        audioUnlocked = true;
+    } catch (e) {
+        console.warn("No se pudo activar audio:", e);
+    }
+}
+
+function playTone(freq, startDelay, duration, gainValue, type) {
+    var ctx = getAudioContext();
+    if (!ctx || !audioUnlocked) return;
+
+    try {
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        var now = ctx.currentTime + (startDelay || 0);
+
+        osc.type = type || "sine";
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(gainValue || 0.08, now + 0.025);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + duration + 0.04);
+    } catch (e) {
+        console.warn("No se pudo reproducir tono:", e);
+    }
+}
+
+function playTicketSound() {
+    if (!ENABLE_SOUND_ALERTS) return;
+
+    unlockDashboardAudio();
+
+    playTone(740, 0, 0.16, 0.07, "sine");
+    playTone(980, 0.12, 0.18, 0.06, "sine");
+    playTone(1240, 0.27, 0.22, 0.045, "triangle");
+}
+
+function playSummarySound() {
+    if (!ENABLE_SOUND_ALERTS) return;
+
+    unlockDashboardAudio();
+
+    playTone(520, 0, 0.15, 0.055, "sine");
+    playTone(660, 0.16, 0.18, 0.05, "sine");
+}
+
+function chooseSpanishVoice() {
+    if (!("speechSynthesis" in window)) return null;
+
+    var voices = window.speechSynthesis.getVoices() || [];
+    var preferredName = String(PREFERRED_VOICE_NAME || "").toLowerCase().trim();
+    var preferredLang = String(PREFERRED_VOICE_LANG || "es-ES").toLowerCase().trim();
+    var preferred = [
+        /Microsoft.*Spanish.*Natural/i,
+        /Microsoft.*Elvira/i,
+        /Microsoft.*Alvaro/i,
+        /Microsoft.*Dalia/i,
+        /Microsoft.*Jorge/i,
+        /Microsoft.*Sabina/i,
+        /Microsoft.*Helena/i,
+        /Google.*espa/i,
+        /Google.*Spanish/i,
+        /Spanish.*Latin/i,
+        /Espa.*Lat/i,
+        /es[-_]ES/i,
+        /es[-_]MX/i,
+        /es[-_]US/i,
+        /es[-_]CO/i,
+        /es[-_]AR/i,
+        /es[-_]BO/i
+    ];
+
+    selectedVoice = null;
+
+    if (preferredName) {
+        for (var exact = 0; exact < voices.length; exact++) {
+            if (String(voices[exact].name || "").toLowerCase().indexOf(preferredName) >= 0) {
+                selectedVoice = voices[exact];
+                return selectedVoice;
+            }
+        }
+    }
+
+    if (preferredLang) {
+        for (var langIndex = 0; langIndex < voices.length; langIndex++) {
+            if (String(voices[langIndex].lang || "").toLowerCase() === preferredLang) {
+                selectedVoice = voices[langIndex];
+                return selectedVoice;
+            }
+        }
+    }
+
+    for (var p = 0; p < preferred.length; p++) {
+        for (var i = 0; i < voices.length; i++) {
+            var nameLang = (voices[i].name || "") + " " + (voices[i].lang || "");
+            if (preferred[p].test(nameLang)) {
+                selectedVoice = voices[i];
+                return selectedVoice;
+            }
+        }
+    }
+
+    for (var j = 0; j < voices.length; j++) {
+        if (/^es/i.test(voices[j].lang || "")) {
+            selectedVoice = voices[j];
+            return selectedVoice;
+        }
+    }
+
+    selectedVoice = voices[0] || null;
+    return selectedVoice;
+}
+
+function listDashboardVoices() {
+    if (!("speechSynthesis" in window)) return [];
+
+    return (window.speechSynthesis.getVoices() || []).map(function (voice, index) {
+        return {
+            index: index,
+            name: voice.name,
+            lang: voice.lang,
+            localService: voice.localService,
+            defaultVoice: voice.default
+        };
+    });
+}
+
+window.listDashboardVoices = listDashboardVoices;
+
+function initDashboardVoiceAndSound() {
+    chooseSpanishVoice();
+
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.onvoiceschanged = function () {
+            chooseSpanishVoice();
+            setTimeout(runSpeechQueue, 150);
+        };
+    }
+
+    function unlockAll() {
+        unlockDashboardAudio();
+
+        if ("speechSynthesis" in window) {
+            try {
+                voiceBlocked = false;
+                window.speechSynthesis.resume();
+                chooseSpanishVoice();
+                runSpeechQueue();
+            } catch (e) {
+                console.warn("No se pudo activar voz:", e);
+            }
+        }
+    }
+
+    document.addEventListener("click", unlockAll, false);
+    document.addEventListener("touchstart", unlockAll, false);
+    document.addEventListener("keydown", unlockAll, false);
+
+    setInterval(function () {
+        if (!("speechSynthesis" in window)) return;
+
+        try {
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            }
+
+            if (!speechBusy && speechQueue.length && !voiceBlocked) {
+                runSpeechQueue();
+            }
+        } catch (e) {
+            console.warn("No se pudo mantener activa la voz:", e);
+        }
+    }, 4000);
+}
+
+function splitSpeechText(text) {
+    var clean = prepareSpeechText(text).replace(/\s+/g, " ").trim();
+    if (!clean) return [];
+
+    var sentences = clean.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [clean];
+    var parts = [];
+    var current = "";
+
+    for (var i = 0; i < sentences.length; i++) {
+        var sentence = String(sentences[i] || "").trim();
+
+        if ((current + " " + sentence).trim().length > 180) {
+            if (current) parts.push(current.trim());
+            current = sentence;
+        } else {
+            current = (current + " " + sentence).trim();
+        }
+    }
+
+    if (current.trim()) parts.push(current.trim());
+
+    return parts;
+}
+
+function cloneSpeechItem(item, text) {
+    return {
+        text: text,
+        rate: item.rate,
+        pitch: item.pitch,
+        volume: item.volume,
+        canResume: item.canResume,
+        charIndex: 0
+    };
+}
+
+function makeResumeSpeechItem(item) {
+    if (!item || item.canResume === false) return null;
+
+    var index = Number(item.charIndex || 0);
+    var remaining = "";
+
+    if (index > 0 && index < item.text.length) {
+        remaining = item.text.substring(index);
+    } else {
+        remaining = item.text;
+    }
+
+    remaining = String(remaining || "").replace(/^[\s,.;:]+/, "").trim();
+
+    if (remaining.length < 12) return null;
+
+    return cloneSpeechItem(item, remaining);
+}
+
+function speakDashboard(text, options) {
+    if (!ENABLE_VOICE_ALERTS) return;
+    if (!("speechSynthesis" in window)) return;
+
+    options = options || {};
+    text = prepareSpeechText(text);
+
+    try {
+        chooseSpanishVoice();
+
+        var parts = splitSpeechText(text);
+        var newItems = [];
+        var i;
+
+        for (i = 0; i < parts.length; i++) {
+            newItems.push({
+                text: parts[i],
+                rate: options.rate || VOICE_RATE,
+                pitch: options.pitch || VOICE_PITCH,
+                volume: options.volume || VOICE_VOLUME,
+                canResume: options.canResume !== false,
+                charIndex: 0
+            });
+        }
+
+        if (!newItems.length) return;
+
+        if (options.priority) {
+            var resumeQueue = [];
+            var resumeItem = null;
+
+            if (options.resumeCurrent && speechBusy && currentSpeechItem) {
+                resumeItem = makeResumeSpeechItem(currentSpeechItem);
+                if (resumeItem) resumeQueue.push(resumeItem);
+            }
+
+            resumeQueue = resumeQueue.concat(speechQueue);
+
+            speechRunId++;
+            speechBusy = false;
+            currentSpeechItem = null;
+
+            window.speechSynthesis.cancel();
+
+            speechQueue = newItems.concat(resumeQueue);
+            voiceBlocked = false;
+
+            setTimeout(runSpeechQueue, 120);
+            return;
+        }
+
+        if (options.interrupt) {
+            speechRunId++;
+            speechQueue = [];
+            speechBusy = false;
+            currentSpeechItem = null;
+            window.speechSynthesis.cancel();
+        }
+
+        speechQueue = speechQueue.concat(newItems);
+        runSpeechQueue();
+    } catch (e) {
+        console.warn("Voz no disponible:", e);
+    }
+}
+
+function runSpeechQueue() {
+    if (speechBusy) return;
+    if (voiceBlocked) return;
+
+    if (!speechQueue.length) {
+        currentSpeechItem = null;
+        return;
+    }
+
+    if (!("speechSynthesis" in window)) return;
+
+    var item = speechQueue.shift();
+    var localRunId = speechRunId;
+
+    currentSpeechItem = item;
+    speechBusy = true;
+
+    try {
+        var utterance = new SpeechSynthesisUtterance(item.text);
+
+        utterance.lang = selectedVoice && selectedVoice.lang ? selectedVoice.lang : "es-ES";
+        utterance.rate = item.rate;
+        utterance.pitch = item.pitch;
+        utterance.volume = item.volume;
+
+        if (selectedVoice) utterance.voice = selectedVoice;
+
+        utterance.onboundary = function (event) {
+            if (localRunId !== speechRunId) return;
+
+            if (event && typeof event.charIndex === "number") {
+                currentSpeechItem.charIndex = event.charIndex;
+            }
+        };
+
+        utterance.onend = function () {
+            if (localRunId !== speechRunId) return;
+
+            speechBusy = false;
+            currentSpeechItem = null;
+
+            setTimeout(runSpeechQueue, 250);
+        };
+
+        utterance.onerror = function (event) {
+            if (localRunId !== speechRunId) return;
+
+            speechBusy = false;
+            currentSpeechItem = null;
+
+            if (event && /not-allowed|not_allowed/i.test(String(event.error || ""))) {
+                speechQueue.unshift(item);
+                voiceBlocked = true;
+                return;
+            }
+
+            setTimeout(runSpeechQueue, 250);
+        };
+
+        window.speechSynthesis.resume();
+        window.speechSynthesis.speak(utterance);
+    } catch (e) {
+        speechBusy = false;
+        currentSpeechItem = null;
+        console.warn("Error al hablar:", e);
+    }
+}
+
+function announceTicketChanges(changedRows) {
+    if (!changedRows || !changedRows.length) return;
+
+    try {
+        playTicketSound();
+
+        var parts = [];
+
+        for (var i = 0; i < changedRows.length && i < 4; i++) {
+            parts.push("Se tom\u00f3 una ficha en el servicio de " + speechAreaName(changedRows[i].Area) + ". " + areaAvailabilitySpeech(changedRows[i]) + ".");
+        }
+
+        speakDashboard(parts.join(" "), {
+            priority: true,
+            resumeCurrent: true,
+            canResume: false
+        });
+    } catch (e) {
+        console.warn("No se pudo anunciar ficha:", e);
+    }
+}
+
+function buildAvailabilitySummary(rows) {
+    if (!rows || !rows.length) {
+        return "Resumen de disponibilidad. No hay fichas habilitadas en este momento.";
+    }
+
+    var ordered = rows.slice().sort(function (a, b) {
+        return friendlyAreaName(a.Area).localeCompare(friendlyAreaName(b.Area));
+    });
+
+    var availability = [];
+    var agotadas = [];
+    var pocas = [];
+
+    for (var i = 0; i < ordered.length; i++) {
+        availability.push("Servicio de " + speechAreaName(ordered[i].Area) + ", " + areaAvailabilitySpeech(ordered[i]) + ".");
+
+        if (!isRequirementArea(ordered[i].Area)) {
+            var n = Number(ordered[i].FichasRestantes || 0);
+
+            if (n === 0) agotadas.push(ordered[i]);
+            if (n >= 1 && n <= 5) pocas.push(ordered[i]);
+        }
+    }
+
+    var agotadasText = agotadas.length
+        ? "\u00c1reas agotadas: " + agotadas.map(function (r) { return speechAreaName(r.Area); }).join(", ") + "."
+        : "No existen \u00e1reas agotadas.";
+
+    var pocasText = pocas.length
+        ? "\u00c1reas con pocas fichas: " + pocas.map(function (r) { return speechAreaName(r.Area) + ", " + Number(r.FichasRestantes || 0); }).join(", ") + "."
+        : "No existen \u00e1reas con pocas fichas.";
+
+    return "Resumen de disponibilidad de fichas. " + availability.join(" ") + " " + agotadasText + " " + pocasText;
+}
+
+function announceAvailabilitySummary() {
+    if (!ENABLE_SUMMARY_VOICE) return;
+    if (document.hidden) return;
+
+    try {
+        playSummarySound();
+        speakDashboard(buildAvailabilitySummary(window.__lastRows || []), { interrupt: false });
+    } catch (e) {
+        console.warn("No se pudo anunciar resumen:", e);
+    }
+}
+
+function startAvailabilityVoiceSummary() {
+    if (!ENABLE_SUMMARY_VOICE) return;
+
+    setInterval(function () {
+        announceAvailabilitySummary();
+    }, SUMMARY_MS);
+}
 
 function renderEmptyState(message) {
     return '<div class="empty-state">' + escapeHtml(message) + '</div>';
@@ -311,7 +1037,8 @@ function isHotArea(key) {
 
 function renderCard(r) {
     var restantes = Number(r.FichasRestantes || 0);
-    var state = getStateByRestantes(restantes);
+    var isRequirement = isRequirementArea(r.Area);
+    var state = isRequirement ? "VERDE" : getStateByRestantes(restantes);
     var key = areaKey(r);
     var id = "card-" + cssId(key);
     var cfg = getAreaConfig(r.Area);
@@ -319,20 +1046,21 @@ function renderCard(r) {
 
     return ''
         + '<div class="card-row state-' + state + ' ' + (isHot ? 'ticket-hot' : '') + '" id="' + id + '">'
-        + (isHot ? '<div class="hot-ribbon">ÚLTIMA FICHA SACADA</div>' : '')
+        + (isHot ? '<div class="hot-ribbon">ULTIMA FICHA SACADA</div>' : '')
         + '<div class="left-block">'
         + '  <div class="title-row">'
         + '      <div class="icon-circle">' + getMedicalSvgIcon(cfg.icon || "hospital") + '</div>'
-        + '      <div class="area-pill">' + escapeHtml(r.Area || "SIN ÁREA") + '</div>'
+        + '      <div class="area-pill">' + escapeHtml(r.Area || "SIN AREA") + '</div>'
         + '  </div>'
         + '  <div class="meta-row">'
         + '      <span class="chip-pill">' + escapeHtml(r.Doctor || "SIN DOCTOR") + '</span>'
         + '      <span class="chip-pill">' + escapeHtml(r.Horario || "SIN HORARIO") + '</span>'
         + '  </div>'
         + '</div>'
-        + '<div class="right-block">'
-        + '  <div class="num">' + restantes + '</div>'
-        + '  <div class="lbl">DISPONIBLES</div>'
+        + '<div class="right-block ' + (isRequirement ? 'requirement-block' : '') + '">'
+        + (isRequirement
+            ? '<div class="requirement-text">A REQUERIMIENTO</div><div class="lbl">ATENCION 24 HORAS</div>'
+            : '<div class="num">' + restantes + '</div><div class="lbl">DISPONIBLES</div>')
         + '</div>'
         + '</div>';
 }
@@ -378,10 +1106,10 @@ function getSideVisibleCount() {
     var ids = ["lastTickets", "agotadasList", "pocasList"];
     var counts = [];
 
-    ids.forEach(function (id) {
-        var count = getVisibleCountForTrack(id);
+    for (var i = 0; i < ids.length; i++) {
+        var count = getVisibleCountForTrack(ids[i]);
         if (count > 0) counts.push(count);
-    });
+    }
 
     if (!counts.length) return 1;
 
@@ -402,18 +1130,26 @@ function renderMiniCollection(items, formatter, emptyText) {
     return html;
 }
 
-function updateSide(rows) {
-    var agotadas = rows.filter(function (x) {
-        return Number(x.FichasRestantes || 0) === 0;
+function getAgotadas(rows) {
+    return rows.filter(function (x) {
+        return !isRequirementArea(x.Area) && Number(x.FichasRestantes || 0) === 0;
     });
+}
 
-    var pocas = rows.filter(function (x) {
+function getPocas(rows) {
+    return rows.filter(function (x) {
         var n = Number(x.FichasRestantes || 0);
-        return n >= 1 && n <= 5;
+        return !isRequirementArea(x.Area) && n >= 1 && n <= 5;
     }).sort(function (a, b) {
         return Number(a.FichasRestantes || 0) - Number(b.FichasRestantes || 0);
     });
+}
 
+function updateSide(rows) {
+    rows = rows || [];
+
+    var agotadas = getAgotadas(rows);
+    var pocas = getPocas(rows);
     var sideCount = getSideVisibleCount();
 
     var lastVisible = lastTickets.slice(0, sideCount);
@@ -429,13 +1165,13 @@ function updateSide(rows) {
     setHtml("agotadasList",
         renderMiniCollection(agotadasVisible, function (x) {
             return renderMiniItem(x.Area, x.FichasRestantes || 0);
-        }, "No existen áreas agotadas")
+        }, "No existen areas agotadas")
     );
 
     setHtml("pocasList",
         renderMiniCollection(pocasVisible, function (x) {
             return renderMiniItem(x.Area, x.FichasRestantes || 0);
-        }, "No existen áreas con pocas fichas")
+        }, "No existen areas con pocas fichas")
     );
 }
 
@@ -443,8 +1179,8 @@ function buildChangeEvent(row) {
     var now = new Date();
 
     return {
-        text: (row.Area || "SIN ÁREA") + " · " + (row.Doctor || "SIN DOCTOR"),
-        time: String(now.getHours()).padStart(2, "0") + ":" + String(now.getMinutes()).padStart(2, "0") + ":" + String(now.getSeconds()).padStart(2, "0")
+        text: (row.Area || "SIN AREA") + " - " + (row.Doctor || "SIN DOCTOR"),
+        time: pad2(now.getHours()) + ":" + pad2(now.getMinutes()) + ":" + pad2(now.getSeconds())
     };
 }
 
@@ -472,8 +1208,16 @@ function focusTopAndShowLatest() {
 
     if (cards) {
         cards.scrollTop = 0;
-        requestAnimationFrame(function () { cards.scrollTop = 0; });
-        setTimeout(function () { cards.scrollTop = 0; }, 60);
+
+        if (window.requestAnimationFrame) {
+            requestAnimationFrame(function () {
+                cards.scrollTop = 0;
+            });
+        }
+
+        setTimeout(function () {
+            cards.scrollTop = 0;
+        }, 60);
     }
 
     if (last) last.scrollTop = 0;
@@ -496,7 +1240,14 @@ function repaintRows(rows) {
         html += renderCard(ordered[i]);
     }
 
+    var previousTop = wrap.scrollTop || 0;
+
     wrap.innerHTML = html;
+
+    if (!pauseScroll) {
+        wrap.scrollTop = Math.min(previousTop, Math.max(0, wrap.scrollHeight - wrap.clientHeight));
+    }
+
     updateSide(ordered);
 }
 
@@ -513,33 +1264,43 @@ function apply(rows) {
         recentPriority = [];
         agotadasCarruselIndex = 0;
         pocasCarruselIndex = 0;
+        savePrevToStorage(prev);
         repaintRows([]);
         return;
     }
 
     var nextPrev = {};
     var changedKeys = [];
+    var changedRows = [];
     var seenChanged = {};
 
     rows.forEach(function (r) {
         var key = areaKey(r);
-        var oldVal = prev[key];
-        var newVal = Number(r.FichasRestantes || 0);
+        var oldState = prev[key];
+        var newState = buildPrevState(r);
 
-        if (oldVal !== undefined && newVal < oldVal) {
+        var oldVal = getStoredRestantes(oldState);
+        var oldSignal = getStoredSignal(oldState);
+        var newSignal = getStoredSignal(newState);
+
+        var restantesBajaron = oldState !== undefined && newState.restantes < oldVal;
+        var movimientoCambio = oldState !== undefined && oldSignal && newSignal && oldSignal !== newSignal;
+
+        if (restantesBajaron || movimientoCambio) {
             if (!seenChanged[key]) {
                 changedKeys.push(key);
+                changedRows.push(r);
+                lastTickets.unshift(buildChangeEvent(r));
                 seenChanged[key] = true;
             }
-
-            lastTickets.unshift(buildChangeEvent(r));
         }
 
-        nextPrev[key] = newVal;
+        nextPrev[key] = newState;
     });
 
     lastTickets = lastTickets.slice(0, MAX_LOCAL_EVENTS);
     prev = nextPrev;
+    savePrevToStorage(prev);
 
     if (changedKeys.length > 0) {
         recentPriority = changedKeys.concat(
@@ -553,6 +1314,7 @@ function apply(rows) {
 
         repaintRows(rows);
         focusTopAndShowLatest();
+        announceTicketChanges(changedRows);
 
         if (hotTimer) clearTimeout(hotTimer);
 
@@ -585,14 +1347,20 @@ function fetchData() {
         .then(function (rows) {
             if (rows && rows.error) throw new Error(rows.error);
 
-            apply(rows || []);
-            setConn(true);
-            setSyncBadge("Actualización automática", false);
+            try {
+                apply(rows || []);
+                setConn(true);
+                setSyncBadge("Actualizacion automatica", false);
+            } catch (uiError) {
+                console.error("Error pintando dashboard:", uiError);
+                setConn(true);
+                setSyncBadge("Actualizacion automatica", false);
+            }
         })
         .catch(function (e) {
-            console.error(e);
+            console.error("Error de conexion o servidor:", e);
             setConn(false);
-            setSyncBadge("Último intento fallido", false);
+            setSyncBadge("Actualizacion automatica", false);
         })
         .finally(function () {
             fetching = false;
@@ -621,18 +1389,8 @@ function startSideRotation() {
         if (document.hidden) return;
 
         var rows = getOrderedRows(window.__lastRows || []);
-
-        var agotadas = rows.filter(function (x) {
-            return Number(x.FichasRestantes || 0) === 0;
-        });
-
-        var pocas = rows.filter(function (x) {
-            var n = Number(x.FichasRestantes || 0);
-            return n >= 1 && n <= 5;
-        }).sort(function (a, b) {
-            return Number(a.FichasRestantes || 0) - Number(b.FichasRestantes || 0);
-        });
-
+        var agotadas = getAgotadas(rows);
+        var pocas = getPocas(rows);
         var sideCount = getSideVisibleCount();
 
         if (agotadas.length > sideCount) {
@@ -651,10 +1409,10 @@ function startSideRotation() {
     }, 3000);
 }
 
-
 function scheduleMidnightReload() {
     var now = new Date();
     var next = new Date();
+
     next.setHours(24, 0, 10, 0);
 
     setTimeout(function () {
@@ -674,13 +1432,17 @@ document.addEventListener("DOMContentLoaded", function () {
     tickClock();
     setInterval(tickClock, 1000);
 
+    initDashboardVoiceAndSound();
+    loadPrevFromStorage();
+
     setConn(true);
-    setSyncBadge("Actualización automática · cada 5 s", false);
+    setSyncBadge("Actualizacion automatica", false);
 
     fetchData();
     setInterval(fetchData, REFRESH_MS);
 
     setTimeout(startAutoScroll, 2500);
     startSideRotation();
+    startAvailabilityVoiceSummary();
     scheduleMidnightReload();
 });

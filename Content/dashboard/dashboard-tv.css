@@ -473,10 +473,7 @@ html.tv-mode body.dashboard-body {
     }
 }
 
-/* =========================================================
-   FIX DEFINITIVO - SIN FLECHITAS EN PANEL DERECHO
-   Las listas laterales rotan por JS, no por scroll visible
-   ========================================================= */
+/*Las listas laterales rotan por JS*/
 
 .side-panel,
 .side-panel * {
@@ -539,10 +536,7 @@ html.tv-mode body.dashboard-body {
         max-width: calc(100% - 24px) !important;
     }
 
-/* =========================================================
-   PANEL DERECHO: MISMO ALTO PARA LAS 3 LISTAS
-   Misma cantidad visible en ultimos, agotadas y pocas
-   ========================================================= */
+/* PANEL DERECHO: MISMO ALTO PARA LAS 3 LISTAS*/
 
 @media (min-width: 1200px) {
     .side-middle {
@@ -582,12 +576,7 @@ html.tv-mode body.dashboard-body {
             overflow: hidden !important;
         }
 }
-/* =========================================================
-   TV - PANEL DERECHO CON 3 BLOQUES IGUALES
-   Ultimos cambios, agotadas y pocas tienen la misma altura.
-   Pocas y agotadas rotan por JS si hay mas datos.
-   Ultimos cambios solo cambia cuando se toma una ficha nueva.
-   ========================================================= */
+/* TV - PANEL DERECHO CON 3 BLOQUES IGUALES */
 
 html.tv-mode .side-panel {
     display: flex !important;
@@ -656,4 +645,4541 @@ html.tv-mode .side-panel .mini-item {
     max-height: clamp(28px, 4.8vh, 38px) !important;
     width: calc(100% - 24px) !important;
     max-width: calc(100% - 24px) !important;
+}
+/* TV MODE - COLORES PASTEL PANEL DERECHO VERDE*/
+
+/* AGOTADAS */
+html.tv-mode #agotadasList .mini-item {
+    background: linear-gradient(135deg, #fff1f1 0%, #ffe1e1 100%) !important;
+    border: 1px solid #f5b5b5 !important;
+    color: #8b1e1e !important;
+}
+
+/* POCAS */
+html.tv-mode #pocasList .mini-item {
+    background: linear-gradient(135deg, #fffbe8 0%, #fff3c4 100%) !important;
+    border: 1px solid #f1d77a !important;
+    color: #6f5600 !important;
+}
+
+/*  ULTIMOS CAMBIOS */
+html.tv-mode #lastTickets .mini-item {
+    background: linear-gradient(135deg, #edfdf3 0%, #daf7e5 100%) !important;
+    border: 1px solid #9edbb4 !important;
+    color: #17653a !important;
+}
+
+html.tv-mode .side-slot .panel-title {
+    font-size: 16px !important;
+    line-height: 1.15 !important;
+}
+
+html.tv-mode .side-panel .mini-item {
+    min-height: 44px !important;
+    max-height: 44px !important;
+    font-size: 15px !important;
+    padding: 10px 12px !important;
+}
+
+    html.tv-mode .side-panel .mini-item span:first-child,
+    html.tv-mode .side-panel .mini-item span:last-child {
+        font-size: 15px !important;
+        font-weight: 1000 !important;
+    }
+
+html.tv-mode .area-pill {
+    font-size: 20px !important;
+}
+
+html.tv-mode .chip-pill {
+    font-size: 14px !important;
+}
+/* ajuste  hora */
+html.tv-mode .topbar-panel {
+    min-height: 128px !important;
+    padding: 14px 20px !important;
+}
+
+html.tv-mode .logo {
+    width: 96px !important;
+    height: 96px !important;
+}
+
+html.tv-mode .small-title {
+    font-size: 14px !important;
+}
+
+html.tv-mode .big-title {
+    font-size: 17px !important;
+}
+
+html.tv-mode .center-title {
+    font-size: clamp(36px, 2.7vw, 48px) !important;
+    letter-spacing: 2px !important;
+    white-space: nowrap !important;
+}
+
+html.tv-mode .center-subtitle {
+    font-size: clamp(15px, 1.05vw, 20px) !important;
+    letter-spacing: 2px !important;
+}
+
+html.tv-mode .clock-card {
+    max-width: 330px !important;
+    min-height: 86px !important;
+    padding: 8px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+html.tv-mode .date-text {
+    font-size: 15px !important;
+    line-height: 1.1 !important;
+}
+
+html.tv-mode .clock-text {
+    font-size: clamp(40px, 2.8vw, 54px) !important;
+    line-height: 1 !important;
+    color: #000000 !important;
+    text-shadow: 0 2px 8px rgba(214,164,0,.16);
+}
+
+html.tv-mode .conn-badge {
+    font-size: 15px !important;
+    padding: 7px 16px !important;
+}
+
+html.tv-mode .right-block {
+    min-width: 225px !important;
+    padding: 11px 12px !important;
+}
+
+html.tv-mode .num {
+    font-size: 62px !important;
+}
+
+html.tv-mode .lbl {
+    font-size: 15px !important;
+}
+/*TV  */
+
+html.tv-mode body.dashboard-body::before {
+    inset: 0 !important;
+    background-image: url('/Content/img/fondo.png') !important;
+    background-position: center center !important;
+    background-size: min(90vw, 1580px) auto !important;
+    background-repeat: no-repeat !important;
+    opacity: .42 !important;
+    filter: saturate(1.45) contrast(1.15) brightness(1.02) !important;
+    z-index: 0 !important;
+}
+
+html.tv-mode .dashboard-shell {
+    position: relative !important;
+    z-index: 1 !important;
+    max-width: 100% !important;
+}
+
+html.tv-mode .topbar-panel {
+    position: relative !important;
+    z-index: 4 !important;
+    overflow: hidden !important;
+    min-height: clamp(104px, 16vh, 156px) !important;
+    padding: clamp(10px, 1.8vh, 20px) clamp(14px, 1.45vw, 24px) !important;
+    background: radial-gradient(circle at 18% 18%, rgba(87, 255, 161, .28), transparent 28%), radial-gradient(circle at 82% 0%, rgba(58, 188, 255, .42), transparent 34%), linear-gradient(105deg, #07803c 0%, #0b6f35 31%, #0f9b50 58%, #0b9bd8 100%) !important;
+    border: 1px solid rgba(109, 225, 154, .45) !important;
+    box-shadow: 0 18px 42px rgba(6, 97, 47, .20) !important;
+    color: #fff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+    html.tv-mode .topbar-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(255,255,255,.16), transparent 18%, transparent 78%, rgba(255,255,255,.16)), radial-gradient(circle at 54% 55%, rgba(255,255,255,.14), transparent 24%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    html.tv-mode .topbar-panel > * {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+html.tv-mode .topbar-left {
+    flex: 0 0 29% !important;
+    max-width: 29% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 46% !important;
+    max-width: 46% !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+}
+
+html.tv-mode .logo {
+    width: clamp(78px, 9.6vh, 108px) !important;
+    height: clamp(78px, 9.6vh, 108px) !important;
+    background: rgba(255,255,255,.96) !important;
+    border: 2px solid rgba(198, 255, 215, .72) !important;
+    box-shadow: 0 14px 26px rgba(0,0,0,.16) !important;
+}
+
+html.tv-mode .small-title,
+html.tv-mode .big-title,
+html.tv-mode .center-title,
+html.tv-mode .center-subtitle {
+    color: #fff !important;
+}
+
+html.tv-mode .small-title {
+    font-size: clamp(12px, 1.45vh, 17px) !important;
+    line-height: 1.12 !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,.18) !important;
+}
+
+html.tv-mode .big-title {
+    font-size: clamp(13px, 1.65vh, 19px) !important;
+    line-height: 1.16 !important;
+    color: rgba(255,255,255,.94) !important;
+}
+
+html.tv-mode .center-title-wrap {
+    max-width: 100% !important;
+    overflow: visible !important;
+}
+
+html.tv-mode .center-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    font-size: clamp(34px, 2.65vw, 52px) !important;
+    line-height: 1 !important;
+    letter-spacing: 1px !important;
+    text-shadow: 0 5px 14px rgba(0,0,0,.26) !important;
+}
+
+html.tv-mode .center-subtitle {
+    white-space: nowrap !important;
+    font-size: clamp(13px, 1.05vw, 19px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: 2.4px !important;
+    color: rgba(255,255,255,.92) !important;
+}
+
+html.tv-mode .clock-card {
+    width: min(100%, 370px) !important;
+    max-width: 100% !important;
+    min-height: clamp(70px, 10.2vh, 100px) !important;
+    padding: clamp(6px, 1vh, 11px) clamp(12px, 1.2vw, 20px) !important;
+    background: linear-gradient(135deg, rgba(6, 36, 61, .96), rgba(4, 75, 104, .92)) !important;
+    border: 1px solid rgba(111, 221, 255, .34) !important;
+    border-radius: clamp(15px, 2.2vh, 24px) !important;
+    box-shadow: 0 16px 30px rgba(2, 24, 42, .28) !important;
+    text-align: center !important;
+}
+
+html.tv-mode .date-text {
+    font-size: clamp(12px, 1.35vh, 17px) !important;
+    line-height: 1.08 !important;
+    color: #fff !important;
+}
+
+html.tv-mode .clock-text {
+    font-size: clamp(34px, 3.15vw, 58px) !important;
+    line-height: .95 !important;
+    color: #fff !important;
+    text-shadow: 0 5px 14px rgba(0,0,0,.28) !important;
+}
+
+html.tv-mode .conn-badge {
+    background: rgba(255,255,255,.95) !important;
+    color: #08733a !important;
+    border-color: rgba(157, 234, 181, .9) !important;
+    box-shadow: 0 12px 24px rgba(0,0,0,.14) !important;
+    font-size: clamp(12px, 1.35vh, 15px) !important;
+    padding: clamp(5px, .8vh, 7px) clamp(12px, 1vw, 16px) !important;
+}
+
+html.tv-mode .dashboard-main-wrap .dashboard-panel,
+html.tv-mode .cards-wrap,
+html.tv-mode .side-panel {
+    background: rgba(255,255,255,.24) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    border-color: rgba(137, 222, 164, .86) !important;
+}
+
+    html.tv-mode .cards-wrap::after {
+        background-image: none !important;
+        opacity: 0 !important;
+    }
+
+html.tv-mode .section-header {
+    background: rgba(255,255,255,.14) !important;
+}
+
+html.tv-mode .section-title {
+    font-size: clamp(18px, 2.45vh, 25px) !important;
+    line-height: 1.06 !important;
+}
+
+html.tv-mode .section-subtitle {
+    font-size: clamp(13px, 1.55vh, 17px) !important;
+    line-height: 1.12 !important;
+}
+
+html.tv-mode .section-badge {
+    font-size: clamp(13px, 1.65vh, 17px) !important;
+    padding: clamp(7px, 1vh, 10px) clamp(14px, 1.1vw, 19px) !important;
+}
+
+html.tv-mode .card-row {
+    position: relative !important;
+    overflow: hidden !important;
+    min-height: clamp(92px, 13.4vh, 132px) !important;
+    padding: clamp(10px, 1.6vh, 18px) clamp(12px, 1vw, 16px) clamp(10px, 1.45vh, 16px) clamp(22px, 1.45vw, 28px) !important;
+    background: rgba(255,255,255,.36) !important;
+    border: 1px solid rgba(127, 214, 157, .72) !important;
+    box-shadow: 0 14px 28px rgba(8, 97, 47, .10) !important;
+}
+
+    html.tv-mode .card-row::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: clamp(7px, .65vw, 10px);
+        border-radius: 22px 0 0 22px;
+        background: #22c55e;
+        z-index: 1;
+    }
+
+    html.tv-mode .card-row > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    html.tv-mode .card-row.state-VERDE::before,
+    html.tv-mode .state-VERDE.card-row::before {
+        background: linear-gradient(180deg, #22c55e, #07883f) !important;
+    }
+
+    html.tv-mode .card-row.state-AMARILLO::before,
+    html.tv-mode .state-AMARILLO.card-row::before {
+        background: linear-gradient(180deg, #facc15, #f59e0b) !important;
+    }
+
+    html.tv-mode .card-row.state-ROJO::before,
+    html.tv-mode .state-ROJO.card-row::before {
+        background: linear-gradient(180deg, #ef4444, #b91c1c) !important;
+    }
+
+    html.tv-mode .card-row.state-VERDE,
+    html.tv-mode .state-VERDE.card-row {
+        background: linear-gradient(90deg, rgba(187,247,208,.40), rgba(255,255,255,.30) 34%, rgba(255,255,255,.24) 100%) !important;
+    }
+
+    html.tv-mode .card-row.state-AMARILLO,
+    html.tv-mode .state-AMARILLO.card-row {
+        background: linear-gradient(90deg, rgba(254,240,138,.46), rgba(255,255,255,.30) 36%, rgba(255,255,255,.24) 100%) !important;
+    }
+
+    html.tv-mode .card-row.state-ROJO,
+    html.tv-mode .state-ROJO.card-row {
+        background: linear-gradient(90deg, rgba(254,202,202,.46), rgba(255,255,255,.30) 36%, rgba(255,255,255,.24) 100%) !important;
+    }
+
+html.tv-mode .icon-circle {
+    width: clamp(48px, 6.4vh, 62px) !important;
+    height: clamp(48px, 6.4vh, 62px) !important;
+    background: linear-gradient(135deg, #08783a, #0aa64f) !important;
+}
+
+html.tv-mode .medical-icon {
+    width: clamp(28px, 3.8vh, 38px) !important;
+    height: clamp(28px, 3.8vh, 38px) !important;
+}
+
+html.tv-mode .area-pill {
+    font-size: clamp(18px, 2.45vh, 26px) !important;
+    line-height: 1.08 !important;
+    padding: clamp(8px, 1.05vh, 10px) clamp(14px, 1.2vw, 18px) !important;
+    max-width: min(100%, 720px) !important;
+    background: linear-gradient(135deg, #08783a, #0aa64f) !important;
+}
+
+html.tv-mode .chip-pill {
+    font-size: clamp(13px, 1.75vh, 17px) !important;
+    line-height: 1.1 !important;
+    padding: clamp(7px, 1vh, 10px) clamp(10px, .9vw, 14px) !important;
+    font-weight: 1000 !important;
+}
+
+html.tv-mode .card-row.state-VERDE .meta-row .chip-pill:first-child,
+html.tv-mode .state-VERDE.card-row .meta-row .chip-pill:first-child {
+    color: #fff !important;
+    background: linear-gradient(135deg, #22c55e, #07883f) !important;
+    border-color: rgba(34,197,94,.95) !important;
+}
+
+html.tv-mode .card-row.state-AMARILLO .meta-row .chip-pill:first-child,
+html.tv-mode .state-AMARILLO.card-row .meta-row .chip-pill:first-child {
+    color: #1f2a24 !important;
+    background: linear-gradient(135deg, #fde047, #facc15, #f59e0b) !important;
+    border-color: rgba(250,204,21,.95) !important;
+}
+
+html.tv-mode .card-row.state-ROJO .meta-row .chip-pill:first-child,
+html.tv-mode .state-ROJO.card-row .meta-row .chip-pill:first-child {
+    color: #fff !important;
+    background: linear-gradient(135deg, #fb7185, #ef4444, #b91c1c) !important;
+    border-color: rgba(239,68,68,.95) !important;
+}
+
+html.tv-mode .right-block {
+    min-width: clamp(190px, 14vw, 255px) !important;
+    min-height: clamp(82px, 11.4vh, 108px) !important;
+    border-radius: clamp(16px, 2vh, 22px) !important;
+    box-shadow: 0 15px 28px rgba(0,0,0,.12) !important;
+}
+
+html.tv-mode .state-VERDE .right-block,
+html.tv-mode .card-row.state-VERDE .right-block {
+    background: linear-gradient(135deg, #22c55e 0%, #15a44f 54%, #087b3c 100%) !important;
+    color: #fff !important;
+}
+
+html.tv-mode .state-AMARILLO .right-block,
+html.tv-mode .card-row.state-AMARILLO .right-block {
+    background: linear-gradient(135deg, #fde047 0%, #facc15 52%, #f59e0b 100%) !important;
+    color: #1f2a24 !important;
+}
+
+html.tv-mode .state-ROJO .right-block,
+html.tv-mode .card-row.state-ROJO .right-block {
+    background: linear-gradient(135deg, #fb7185 0%, #ef4444 54%, #b91c1c 100%) !important;
+    color: #fff !important;
+}
+
+html.tv-mode .num {
+    font-size: clamp(50px, 7.4vh, 78px) !important;
+    line-height: .9 !important;
+}
+
+html.tv-mode .lbl {
+    font-size: clamp(13px, 1.75vh, 17px) !important;
+    line-height: 1.05 !important;
+}
+
+html.tv-mode .hot-ribbon {
+    top: -12px !important;
+    left: clamp(78px, 7vw, 130px) !important;
+    right: auto !important;
+    transform: none !important;
+    z-index: 8 !important;
+    font-size: clamp(10px, 1.25vh, 13px) !important;
+    line-height: 1 !important;
+    padding: clamp(5px, .75vh, 7px) clamp(12px, 1vw, 18px) !important;
+    border-radius: 999px !important;
+    background: linear-gradient(135deg, #22c55e, #07883f) !important;
+    color: #fff !important;
+    box-shadow: 0 8px 18px rgba(8, 120, 58, .24) !important;
+    white-space: nowrap !important;
+}
+
+html.tv-mode .panel-title {
+    font-size: clamp(14px, 1.75vh, 18px) !important;
+}
+
+html.tv-mode .legend-text,
+html.tv-mode .pill-badge {
+    font-size: clamp(13px, 1.6vh, 16px) !important;
+}
+
+html.tv-mode .side-panel .mini-item,
+html.tv-mode #lastTickets .mini-item,
+html.tv-mode #agotadasList .mini-item,
+html.tv-mode #pocasList .mini-item {
+    min-height: clamp(36px, 5.3vh, 48px) !important;
+    max-height: clamp(36px, 5.3vh, 48px) !important;
+    font-size: clamp(12px, 1.55vh, 16px) !important;
+    padding: clamp(8px, 1.1vh, 11px) clamp(10px, .9vw, 14px) !important;
+    background: rgba(255,255,255,.40) !important;
+}
+
+    html.tv-mode .side-panel .mini-item span:first-child,
+    html.tv-mode .side-panel .mini-item span:last-child {
+        font-size: clamp(12px, 1.55vh, 16px) !important;
+    }
+
+@media (max-height: 820px) {
+    html.tv-mode .topbar-left {
+        flex-basis: 30% !important;
+        max-width: 30% !important;
+    }
+
+    html.tv-mode .topbar-center {
+        flex-basis: 45% !important;
+        max-width: 45% !important;
+    }
+
+    html.tv-mode .topbar-right {
+        flex-basis: 25% !important;
+        max-width: 25% !important;
+    }
+
+    html.tv-mode .topbar-panel {
+        min-height: 104px !important;
+        padding: 9px 14px !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: clamp(30px, 2.5vw, 44px) !important;
+        letter-spacing: .8px !important;
+    }
+
+    html.tv-mode .clock-card {
+        width: min(100%, 310px) !important;
+        min-height: 72px !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(34px, 3vw, 48px) !important;
+    }
+
+    html.tv-mode .hot-ribbon {
+        top: -10px !important;
+    }
+}
+
+@media (max-height: 700px) {
+    html.tv-mode .topbar-panel {
+        min-height: 86px !important;
+        padding: 6px 10px !important;
+    }
+
+    html.tv-mode .logo {
+        width: 68px !important;
+        height: 68px !important;
+    }
+
+    html.tv-mode .small-title {
+        font-size: 10px !important;
+    }
+
+    html.tv-mode .big-title {
+        font-size: 12px !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: clamp(24px, 2.35vw, 36px) !important;
+        letter-spacing: .4px !important;
+    }
+
+    html.tv-mode .center-subtitle {
+        font-size: 11px !important;
+        letter-spacing: 1.4px !important;
+    }
+
+    html.tv-mode .clock-card {
+        width: min(100%, 250px) !important;
+        min-height: 60px !important;
+        padding: 4px 9px !important;
+    }
+
+    html.tv-mode .date-text {
+        font-size: 10px !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(28px, 3vw, 38px) !important;
+    }
+
+    html.tv-mode .conn-badge {
+        font-size: 10px !important;
+        padding: 4px 10px !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: clamp(74px, 12.8vh, 94px) !important;
+        padding-top: 9px !important;
+        padding-bottom: 8px !important;
+    }
+
+    html.tv-mode .hot-ribbon {
+        top: -9px !important;
+        left: clamp(66px, 6.2vw, 110px) !important;
+        font-size: 9px !important;
+    }
+}
+
+/* Adaptable PARA TODO TIPO DE TVS  */
+
+html.tv-mode,
+html.tv-mode body,
+html.tv-mode body.dashboard-body {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow: hidden !important;
+}
+
+    html.tv-mode body.dashboard-body::before {
+        background-image: none !important;
+        opacity: 0 !important;
+    }
+
+    html.tv-mode .dashboard-shell {
+        width: 100% !important;
+        height: 100vh !important;
+        height: 100svh !important;
+        height: 100dvh !important;
+        height: calc(var(--tv-vh, 1vh) * 100) !important;
+        max-height: 100vh !important;
+        max-height: 100svh !important;
+        max-height: 100dvh !important;
+        max-height: calc(var(--tv-vh, 1vh) * 100) !important;
+        max-width: 100% !important;
+        min-height: 0 !important;
+        padding: clamp(6px, 1vh, 14px) !important;
+        gap: clamp(6px, .9vh, 12px) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .dashboard-top-wrap {
+        flex: 0 0 auto !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode .dashboard-main-wrap {
+        flex: 1 1 auto !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .dashboard-main-row {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .topbar-panel {
+        min-height: clamp(94px, 15.4vh, 158px) !important;
+        padding: clamp(8px, 1.6vh, 20px) clamp(12px, 1.4vw, 24px) !important;
+        border-radius: clamp(16px, 2.3vh, 28px) !important;
+        background: radial-gradient(circle at 18% 18%, rgba(87, 255, 161, .28), transparent 28%), radial-gradient(circle at 82% 0%, rgba(58, 188, 255, .42), transparent 34%), linear-gradient(105deg, #07803c 0%, #0b6f35 31%, #0f9b50 58%, #0b9bd8 100%) !important;
+        color: #fff !important;
+        overflow: hidden !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    html.tv-mode .topbar-row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .topbar-left {
+        flex: 0 0 29% !important;
+        max-width: 29% !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .topbar-center {
+        flex: 0 0 45% !important;
+        max-width: 45% !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .topbar-right {
+        flex: 0 0 26% !important;
+        max-width: 26% !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .brand-box {
+        min-width: 0 !important;
+        gap: clamp(8px, .9vw, 18px) !important;
+    }
+
+    html.tv-mode .logo {
+        flex: 0 0 auto !important;
+        width: clamp(68px, 9.2vh, 110px) !important;
+        height: clamp(68px, 9.2vh, 110px) !important;
+    }
+
+    html.tv-mode .brand-text {
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .small-title {
+        font-size: clamp(10px, 1.42vh, 17px) !important;
+        line-height: 1.12 !important;
+    }
+
+    html.tv-mode .big-title {
+        font-size: clamp(11px, 1.6vh, 19px) !important;
+        line-height: 1.14 !important;
+    }
+
+    html.tv-mode .center-title-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .center-title {
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: clip !important;
+        font-size: clamp(28px, 2.55vw, 52px) !important;
+        line-height: 1 !important;
+        letter-spacing: clamp(.2px, .08vw, 1.2px) !important;
+    }
+
+    html.tv-mode .center-subtitle {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: clip !important;
+        font-size: clamp(11px, 1.05vw, 19px) !important;
+        line-height: 1.08 !important;
+        letter-spacing: clamp(1px, .16vw, 2.8px) !important;
+    }
+
+    html.tv-mode .right-box {
+        width: 100% !important;
+        align-items: flex-end !important;
+        gap: clamp(5px, .8vh, 10px) !important;
+    }
+
+    html.tv-mode .clock-card {
+        width: min(100%, 360px) !important;
+        max-width: 100% !important;
+        min-height: clamp(58px, 9.8vh, 98px) !important;
+        padding: clamp(5px, .9vh, 10px) clamp(10px, 1.1vw, 20px) !important;
+        border-radius: clamp(14px, 2vh, 24px) !important;
+    }
+
+    html.tv-mode .date-text {
+        font-size: clamp(10px, 1.32vh, 17px) !important;
+        line-height: 1.05 !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(28px, 3vw, 56px) !important;
+        line-height: .95 !important;
+        color: #fff !important;
+    }
+
+    html.tv-mode .conn-badge {
+        font-size: clamp(10px, 1.28vh, 15px) !important;
+        padding: clamp(4px, .75vh, 7px) clamp(10px, .9vw, 16px) !important;
+    }
+
+    html.tv-mode .main-left-col {
+        flex: 0 0 74% !important;
+        max-width: 74% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode .main-right-col {
+        flex: 0 0 26% !important;
+        max-width: 26% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode .cards-wrap {
+        position: relative !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        background: rgba(255,255,255,.24) !important;
+    }
+
+        html.tv-mode .cards-wrap::after {
+            content: "" !important;
+            position: absolute !important;
+            inset: clamp(48px, 7vh, 76px) 0 0 0 !important;
+            background-image: url('/Content/img/logo-hdb.png') !important;
+            background-position: center center !important;
+            background-size: min(56vw, 980px) auto !important;
+            background-repeat: no-repeat !important;
+            opacity: .18 !important;
+            filter: saturate(1.16) contrast(1.08) brightness(1.03) !important;
+            pointer-events: none !important;
+            z-index: 0 !important;
+        }
+
+    html.tv-mode .section-header,
+    html.tv-mode .cards-body,
+    html.tv-mode .cards-list {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    html.tv-mode .section-title {
+        font-size: clamp(16px, 2.25vh, 24px) !important;
+        line-height: 1.05 !important;
+    }
+
+    html.tv-mode .section-subtitle {
+        font-size: clamp(11px, 1.45vh, 16px) !important;
+    }
+
+    html.tv-mode .section-badge {
+        font-size: clamp(11px, 1.55vh, 16px) !important;
+        padding: clamp(6px, .9vh, 10px) clamp(12px, 1vw, 18px) !important;
+    }
+
+    html.tv-mode .cards-body {
+        flex: 1 1 auto !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .cards-list {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding-top: clamp(10px, 1.7vh, 18px) !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: clamp(78px, 13vh, 126px) !important;
+        padding: clamp(10px, 1.55vh, 18px) clamp(10px, 1vw, 16px) clamp(8px, 1.35vh, 15px) clamp(20px, 1.35vw, 28px) !important;
+        margin-bottom: clamp(7px, 1.1vh, 12px) !important;
+        overflow: visible !important;
+    }
+
+        html.tv-mode .card-row.ticket-hot {
+            transform: none !important;
+            margin-top: clamp(8px, 1.2vh, 12px) !important;
+            padding-top: clamp(28px, 3.8vh, 38px) !important;
+        }
+
+            html.tv-mode .card-row > .hot-ribbon,
+            html.tv-mode .card-row.ticket-hot > .hot-ribbon {
+                position: absolute !important;
+                top: clamp(7px, 1.1vh, 10px) !important;
+                left: 50% !important;
+                right: auto !important;
+                bottom: auto !important;
+                transform: translateX(-50%) !important;
+                z-index: 90 !important;
+                min-width: clamp(150px, 13vw, 220px) !important;
+                max-width: calc(100% - 34px) !important;
+                padding: clamp(5px, .78vh, 8px) clamp(12px, 1vw, 18px) !important;
+                font-size: clamp(9px, 1.15vh, 12px) !important;
+                line-height: 1 !important;
+                border-radius: 999px !important;
+                white-space: nowrap !important;
+            }
+
+    html.tv-mode .icon-circle {
+        width: clamp(42px, 6.1vh, 62px) !important;
+        height: clamp(42px, 6.1vh, 62px) !important;
+    }
+
+    html.tv-mode .medical-icon {
+        width: clamp(25px, 3.6vh, 38px) !important;
+        height: clamp(25px, 3.6vh, 38px) !important;
+    }
+
+    html.tv-mode .area-pill {
+        font-size: clamp(16px, 2.28vh, 26px) !important;
+        padding: clamp(7px, 1vh, 10px) clamp(12px, 1.15vw, 18px) !important;
+        max-width: min(100%, 680px) !important;
+    }
+
+    html.tv-mode .chip-pill {
+        font-size: clamp(11px, 1.65vh, 16px) !important;
+        padding: clamp(6px, .92vh, 10px) clamp(9px, .85vw, 14px) !important;
+    }
+
+    html.tv-mode .right-block {
+        min-width: clamp(168px, 13.2vw, 250px) !important;
+        min-height: clamp(66px, 10.8vh, 108px) !important;
+    }
+
+    html.tv-mode .num {
+        font-size: clamp(42px, 7vh, 78px) !important;
+    }
+
+    html.tv-mode .lbl {
+        font-size: clamp(11px, 1.62vh, 16px) !important;
+    }
+
+    html.tv-mode .side-panel {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        background: rgba(255,255,255,.24) !important;
+        padding: clamp(8px, 1.2vh, 14px) !important;
+    }
+
+    html.tv-mode .panel-title {
+        font-size: clamp(12px, 1.65vh, 17px) !important;
+    }
+
+    html.tv-mode .legend-text,
+    html.tv-mode .pill-badge {
+        font-size: clamp(11px, 1.5vh, 15px) !important;
+    }
+
+    html.tv-mode .side-panel .mini-item,
+    html.tv-mode #lastTickets .mini-item,
+    html.tv-mode #agotadasList .mini-item,
+    html.tv-mode #pocasList .mini-item {
+        min-height: clamp(30px, 4.9vh, 46px) !important;
+        max-height: clamp(30px, 4.9vh, 46px) !important;
+        font-size: clamp(10px, 1.45vh, 15px) !important;
+        padding: clamp(6px, .95vh, 10px) clamp(8px, .8vw, 13px) !important;
+    }
+
+    html.tv-mode .side-help {
+        font-size: clamp(10px, 1.4vh, 14px) !important;
+        line-height: 1.18 !important;
+    }
+
+@media (min-width: 1900px) and (min-height: 900px) {
+    html.tv-mode .topbar-panel {
+        min-height: 166px !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: clamp(48px, 2.55vw, 62px) !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(48px, 2.9vw, 64px) !important;
+    }
+
+    html.tv-mode .cards-wrap::after {
+        background-size: min(52vw, 1180px) auto !important;
+        opacity: .20 !important;
+    }
+}
+
+@media (max-height: 760px) {
+    html.tv-mode .dashboard-shell {
+        padding: 6px !important;
+        gap: 6px !important;
+    }
+
+    html.tv-mode .topbar-panel {
+        min-height: 88px !important;
+        padding: 6px 10px !important;
+    }
+
+    html.tv-mode .topbar-left {
+        flex-basis: 30% !important;
+        max-width: 30% !important;
+    }
+
+    html.tv-mode .topbar-center {
+        flex-basis: 44% !important;
+        max-width: 44% !important;
+    }
+
+    html.tv-mode .topbar-right {
+        flex-basis: 26% !important;
+        max-width: 26% !important;
+    }
+
+    html.tv-mode .logo {
+        width: 68px !important;
+        height: 68px !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: clamp(24px, 2.35vw, 38px) !important;
+        letter-spacing: .2px !important;
+    }
+
+    html.tv-mode .center-subtitle {
+        font-size: clamp(10px, .95vw, 13px) !important;
+        letter-spacing: 1.1px !important;
+    }
+
+    html.tv-mode .clock-card {
+        width: min(100%, 250px) !important;
+        min-height: 58px !important;
+        padding: 4px 9px !important;
+    }
+
+    html.tv-mode .date-text {
+        font-size: 10px !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(26px, 2.85vw, 38px) !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: clamp(72px, 12.6vh, 94px) !important;
+        padding-top: 9px !important;
+        padding-bottom: 8px !important;
+    }
+
+        html.tv-mode .card-row.ticket-hot {
+            padding-top: 28px !important;
+        }
+}
+
+/*  TV  FINAL - TITULO COMPLETO , HORA */
+
+html.tv-mode .topbar-left {
+    flex: 0 0 27% !important;
+    max-width: 27% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 49% !important;
+    max-width: 49% !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 24% !important;
+    max-width: 24% !important;
+}
+
+html.tv-mode .center-title {
+    font-size: clamp(32px, 2.35vw, 48px) !important;
+    letter-spacing: .6px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+}
+
+html.tv-mode .center-subtitle {
+    font-size: clamp(12px, .95vw, 18px) !important;
+    letter-spacing: 2px !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+}
+
+html.tv-mode .clock-card {
+    width: min(100%, 350px) !important;
+    background: linear-gradient(135deg, rgba(6, 36, 61, .96), rgba(4, 75, 104, .92)) !important;
+}
+
+    html.tv-mode .clock-card,
+    html.tv-mode .clock-card *,
+    html.tv-mode .date-text,
+    html.tv-mode .clock-text {
+        color: #fff !important;
+    }
+
+html.tv-mode .clock-text {
+    font-size: clamp(34px, 2.65vw, 54px) !important;
+    line-height: .95 !important;
+    text-shadow: 0 5px 14px rgba(0,0,0,.28) !important;
+}
+
+html.tv-mode .date-text {
+    font-size: clamp(12px, 1.25vh, 16px) !important;
+}
+
+@media (min-width: 1900px) and (min-height: 900px) {
+    html.tv-mode .center-title {
+        font-size: clamp(44px, 2.35vw, 58px) !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(46px, 2.65vw, 60px) !important;
+    }
+}
+
+@media (max-height: 760px) {
+    html.tv-mode .topbar-left {
+        flex-basis: 28% !important;
+        max-width: 28% !important;
+    }
+
+    html.tv-mode .topbar-center {
+        flex-basis: 48% !important;
+        max-width: 48% !important;
+    }
+
+    html.tv-mode .topbar-right {
+        flex-basis: 24% !important;
+        max-width: 24% !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: clamp(24px, 2.1vw, 38px) !important;
+        letter-spacing: .2px !important;
+    }
+
+    html.tv-mode .center-subtitle {
+        font-size: clamp(10px, .9vw, 13px) !important;
+        letter-spacing: 1.1px !important;
+    }
+
+    html.tv-mode .clock-card {
+        width: min(100%, 245px) !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(28px, 2.65vw, 38px) !important;
+    }
+}
+
+/* Tomate Box. */
+
+html.tv-mode body.dashboard-body {
+    background: radial-gradient(circle at 12% 8%, rgba(32, 199, 106, .18), transparent 32%), radial-gradient(circle at 92% 6%, rgba(11, 143, 215, .15), transparent 34%), radial-gradient(circle at 50% 100%, rgba(8, 97, 47, .13), transparent 45%), linear-gradient(180deg, #eefbf2 0%, #f8fffa 44%, #e7f6ed 100%) !important;
+}
+
+    html.tv-mode body.dashboard-body::before {
+        background-image: none !important;
+        opacity: 0 !important;
+    }
+
+html.tv-mode .topbar-panel {
+    background: radial-gradient(circle at 18% 18%, rgba(87, 255, 161, .28), transparent 28%), radial-gradient(circle at 82% 0%, rgba(58, 188, 255, .42), transparent 34%), linear-gradient(105deg, #07803c 0%, #0b6f35 31%, #0f9b50 58%, #0b9bd8 100%) !important;
+    border: 1px solid rgba(109, 225, 154, .45) !important;
+    box-shadow: 0 20px 46px rgba(6, 97, 47, .20) !important;
+    color: #fff !important;
+}
+
+html.tv-mode .logo {
+    background: rgba(255,255,255,.96) !important;
+    border: 2px solid rgba(198, 255, 215, .72) !important;
+    box-shadow: 0 16px 28px rgba(0,0,0,.16) !important;
+}
+
+html.tv-mode .small-title,
+html.tv-mode .big-title,
+html.tv-mode .center-title,
+html.tv-mode .center-subtitle {
+    color: #fff !important;
+}
+
+html.tv-mode .center-title {
+    text-shadow: 0 5px 14px rgba(0,0,0,.26) !important;
+}
+
+html.tv-mode .clock-card {
+    background: linear-gradient(135deg, rgba(6, 36, 61, .96), rgba(4, 75, 104, .92)) !important;
+    border: 1px solid rgba(111, 221, 255, .34) !important;
+    box-shadow: 0 16px 30px rgba(2, 24, 42, .28) !important;
+}
+
+    html.tv-mode .clock-card,
+    html.tv-mode .clock-card *,
+    html.tv-mode .date-text,
+    html.tv-mode .clock-text {
+        color: #fff !important;
+    }
+
+html.tv-mode .conn-badge {
+    background: rgba(255,255,255,.95) !important;
+    color: #08733a !important;
+    border-color: rgba(157, 234, 181, .9) !important;
+    box-shadow: 0 12px 24px rgba(0,0,0,.14) !important;
+}
+
+html.tv-mode .dashboard-main-wrap .dashboard-panel,
+html.tv-mode .cards-wrap,
+html.tv-mode .side-panel {
+    background: rgba(255,255,255,.24) !important;
+    border-color: rgba(137, 222, 164, .86) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+}
+
+html.tv-mode .cards-wrap {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+    html.tv-mode .cards-wrap::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: clamp(48px, 7vh, 76px) 0 0 0 !important;
+        background-image: url('/Content/img/logo-hdb.png') !important;
+        background-position: center center !important;
+        background-size: min(56vw, 980px) auto !important;
+        background-repeat: no-repeat !important;
+        opacity: .18 !important;
+        filter: saturate(1.16) contrast(1.08) brightness(1.03) !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+    }
+
+html.tv-mode .section-header,
+html.tv-mode .cards-body,
+html.tv-mode .cards-list {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+html.tv-mode .card-row {
+    background: rgba(255,255,255,.36) !important;
+    border: 1px solid rgba(101, 210, 143, .70) !important;
+    box-shadow: 0 16px 30px rgba(8, 97, 47, .10) !important;
+}
+
+    html.tv-mode .card-row.state-VERDE,
+    html.tv-mode .state-VERDE.card-row {
+        background: linear-gradient(90deg, rgba(187,247,208,.40), rgba(255,255,255,.30) 34%, rgba(255,255,255,.24) 100%) !important;
+    }
+
+    html.tv-mode .card-row.state-AMARILLO,
+    html.tv-mode .state-AMARILLO.card-row {
+        background: linear-gradient(90deg, rgba(254,240,138,.46), rgba(255,255,255,.30) 36%, rgba(255,255,255,.24) 100%) !important;
+    }
+
+    html.tv-mode .card-row.state-ROJO,
+    html.tv-mode .state-ROJO.card-row {
+        background: linear-gradient(90deg, rgba(254,202,202,.46), rgba(255,255,255,.30) 36%, rgba(255,255,255,.24) 100%) !important;
+    }
+
+html.tv-mode .area-pill,
+html.tv-mode .icon-circle {
+    background: linear-gradient(135deg, #08783a, #0aa64f) !important;
+}
+
+html.tv-mode .card-row.state-VERDE::before,
+html.tv-mode .state-VERDE.card-row::before {
+    background: linear-gradient(180deg, #22c55e, #07883f) !important;
+}
+
+html.tv-mode .card-row.state-AMARILLO::before,
+html.tv-mode .state-AMARILLO.card-row::before {
+    background: linear-gradient(180deg, #facc15, #f59e0b) !important;
+}
+
+html.tv-mode .card-row.state-ROJO::before,
+html.tv-mode .state-ROJO.card-row::before {
+    background: linear-gradient(180deg, #ef4444, #b91c1c) !important;
+}
+
+html.tv-mode .card-row.state-VERDE .meta-row .chip-pill:first-child,
+html.tv-mode .state-VERDE.card-row .meta-row .chip-pill:first-child {
+    color: #fff !important;
+    background: linear-gradient(135deg, #22c55e, #07883f) !important;
+    border-color: rgba(34,197,94,.95) !important;
+}
+
+html.tv-mode .card-row.state-AMARILLO .meta-row .chip-pill:first-child,
+html.tv-mode .state-AMARILLO.card-row .meta-row .chip-pill:first-child {
+    color: #1f2a24 !important;
+    background: linear-gradient(135deg, #fde047, #facc15, #f59e0b) !important;
+    border-color: rgba(250,204,21,.95) !important;
+}
+
+html.tv-mode .card-row.state-ROJO .meta-row .chip-pill:first-child,
+html.tv-mode .state-ROJO.card-row .meta-row .chip-pill:first-child {
+    color: #fff !important;
+    background: linear-gradient(135deg, #fb7185, #ef4444, #b91c1c) !important;
+    border-color: rgba(239,68,68,.95) !important;
+}
+
+html.tv-mode .state-VERDE .right-block,
+html.tv-mode .card-row.state-VERDE .right-block {
+    background: linear-gradient(135deg, #22c55e 0%, #15a44f 54%, #087b3c 100%) !important;
+    color: #fff !important;
+}
+
+html.tv-mode .state-AMARILLO .right-block,
+html.tv-mode .card-row.state-AMARILLO .right-block {
+    background: linear-gradient(135deg, #fde047 0%, #facc15 52%, #f59e0b 100%) !important;
+    color: #1f2a24 !important;
+}
+
+html.tv-mode .state-ROJO .right-block,
+html.tv-mode .card-row.state-ROJO .right-block {
+    background: linear-gradient(135deg, #fb7185 0%, #ef4444 54%, #b91c1c 100%) !important;
+    color: #fff !important;
+}
+
+html.tv-mode .card-row.ticket-hot {
+    transform: none !important;
+    overflow: visible !important;
+    margin-top: clamp(8px, 1.2vh, 12px) !important;
+    padding-top: clamp(28px, 3.8vh, 38px) !important;
+}
+
+    html.tv-mode .card-row > .hot-ribbon,
+    html.tv-mode .card-row.ticket-hot > .hot-ribbon {
+        position: absolute !important;
+        top: clamp(7px, 1.1vh, 10px) !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 90 !important;
+        min-width: clamp(150px, 13vw, 220px) !important;
+        max-width: calc(100% - 34px) !important;
+        padding: clamp(5px, .78vh, 8px) clamp(12px, 1vw, 18px) !important;
+        background: linear-gradient(135deg, #22c55e, #07883f) !important;
+        color: #fff !important;
+        box-shadow: 0 8px 18px rgba(8, 120, 58, .24) !important;
+        border-radius: 999px !important;
+        white-space: nowrap !important;
+    }
+
+/* Proporciones TV: se ajustan por altura real del televisor */
+@media (min-height: 900px) {
+    html.tv-mode .topbar-panel {
+        min-height: 154px !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: 124px !important;
+    }
+}
+
+@media (max-height: 820px) {
+    html.tv-mode .topbar-panel {
+        min-height: 104px !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: clamp(84px, 12.9vh, 106px) !important;
+    }
+}
+
+@media (max-height: 700px) {
+    html.tv-mode .topbar-panel {
+        min-height: 84px !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: clamp(70px, 12.4vh, 90px) !important;
+    }
+}
+
+/*  TV HEADER NUEVO - MISMO ENCABEZADO DEGRADADDO VERDE/ROJO */
+
+html.tv-mode .topbar-panel {
+    position: relative !important;
+    overflow: hidden !important;
+    background: linear-gradient(90deg, rgba(4,111,49,.96) 0%, rgba(7,132,57,.96) 44%, rgba(13,157,74,.94) 74%, rgba(222,0,37,.96) 74%, rgba(238,0,50,.96) 100%) !important;
+    border: 1px solid rgba(255,255,255,.55) !important;
+    box-shadow: 0 18px 36px rgba(6, 97, 47, .20) !important;
+}
+
+    html.tv-mode .topbar-panel::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: radial-gradient(circle at 42% 76%, rgba(255,255,255,.12), transparent 24%), linear-gradient(90deg, rgba(255,255,255,.08), transparent 22%, transparent 72%, rgba(255,255,255,.08)), url('/Content/img/logo-hdb.png') center 56% / min(44vw, 620px) auto no-repeat !important;
+        opacity: .18 !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+    }
+
+    html.tv-mode .topbar-panel::after {
+        content: "" !important;
+        position: absolute !important;
+        top: -38px !important;
+        bottom: -38px !important;
+        right: 18.4% !important;
+        width: 92px !important;
+        border-right: 12px solid rgba(255,255,255,.96) !important;
+        border-radius: 0 999px 999px 0 !important;
+        transform: rotate(10deg) !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+    }
+
+    html.tv-mode .topbar-panel > * {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+html.tv-mode .topbar-left {
+    flex: 0 0 30% !important;
+    max-width: 30% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 48% !important;
+    max-width: 48% !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 22% !important;
+    max-width: 22% !important;
+}
+
+html.tv-mode .clock-card {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+html.tv-mode .date-text,
+html.tv-mode .clock-text {
+    color: #fff !important;
+}
+
+html.tv-mode .center-title-wrap {
+    position: relative !important;
+    padding-bottom: clamp(14px, 2vh, 22px) !important;
+}
+
+    html.tv-mode .center-title-wrap::after {
+        content: "" !important;
+        position: absolute !important;
+        left: 50% !important;
+        bottom: 1px !important;
+        width: clamp(170px, 16vw, 240px) !important;
+        height: 16px !important;
+        transform: translateX(-50%) !important;
+        background: linear-gradient(90deg, transparent 0 8%, rgba(255,255,255,.72) 8% 37%, transparent 37% 41%, #ff1744 41% 44%, transparent 44% 47%, #ff1744 47% 50%, transparent 50% 53%, #ff1744 53% 56%, transparent 56% 60%, rgba(255,255,255,.72) 60% 92%, transparent 92% 100%) !important;
+        border-radius: 999px !important;
+        opacity: .95 !important;
+    }
+
+
+
+html.tv-mode .topbar-panel {
+    background: linear-gradient(90deg, rgba(3,103,45,.98) 0%, rgba(5,125,52,.98) 34%, rgba(12,151,68,.96) 67%, rgba(18,166,77,.94) 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(90deg, rgba(255,255,255,.07), transparent 24%, transparent 72%, rgba(255,255,255,.05)), url('/Content/img/logo-hdb.png') center 54% / min(42vw, 620px) auto no-repeat !important;
+        opacity: .14 !important;
+        pointer-events: none !important;
+        z-index: 0 !important;
+    }
+
+    html.tv-mode .topbar-panel::after {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 27% !important;
+        background: linear-gradient(135deg, #e9002f 0%, #e4002b 55%, #f20a3c 100%) !important;
+        clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%) !important;
+        border-radius: 0 clamp(16px, 2.3vh, 28px) clamp(16px, 2.3vh, 28px) 0 !important;
+        pointer-events: none !important;
+        z-index: 1 !important;
+    }
+
+html.tv-mode .topbar-row {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+html.tv-mode .topbar-center::after {
+    content: "" !important;
+    position: absolute !important;
+    top: -58px !important;
+    right: -24px !important;
+    width: clamp(76px, 6vw, 110px) !important;
+    height: clamp(190px, 24vh, 270px) !important;
+    border-right: clamp(9px, .75vw, 13px) solid rgba(255,255,255,.96) !important;
+    border-radius: 0 999px 999px 0 !important;
+    transform: rotate(12deg) !important;
+    pointer-events: none !important;
+    z-index: 4 !important;
+}
+
+html.tv-mode .topbar-left {
+    flex: 0 0 31% !important;
+    max-width: 31% !important;
+}
+
+html.tv-mode .topbar-center {
+    position: relative !important;
+    flex: 0 0 46% !important;
+    max-width: 46% !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 23% !important;
+    max-width: 23% !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+html.tv-mode .center-title {
+    font-size: clamp(30px, 2.45vw, 52px) !important;
+    overflow: visible !important;
+}
+
+html.tv-mode .clock-card {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+html.tv-mode .date-text,
+html.tv-mode .clock-text {
+    color: #fff !important;
+}
+
+@media (max-height: 760px) {
+    html.tv-mode .topbar-left {
+        flex-basis: 32% !important;
+        max-width: 32% !important;
+    }
+
+    html.tv-mode .topbar-center {
+        flex-basis: 45% !important;
+        max-width: 45% !important;
+    }
+
+    html.tv-mode .topbar-right {
+        flex-basis: 23% !important;
+        max-width: 23% !important;
+    }
+
+    html.tv-mode .topbar-center::after {
+        right: -18px !important;
+        width: 76px !important;
+    }
+}
+
+/* TV ICON LATIDO */
+
+html.tv-mode .topbar-panel {
+    background: linear-gradient(90deg, rgba(3,103,45,.98) 0%, rgba(5,125,52,.98) 36%, rgba(12,151,68,.96) 69%, #e9002f 69%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::after {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        top: -30px !important;
+        right: 21.2% !important;
+        bottom: -30px !important;
+        width: clamp(62px, 5.2vw, 86px) !important;
+        background: transparent !important;
+        border-right: clamp(9px, .7vw, 13px) solid rgba(255,255,255,.98) !important;
+        border-radius: 0 999px 999px 0 !important;
+        transform: rotate(12deg) !important;
+        pointer-events: none !important;
+        z-index: 4 !important;
+        clip-path: none !important;
+    }
+
+html.tv-mode .topbar-right {
+    z-index: 6 !important;
+}
+
+html.tv-mode .center-title-wrap::after {
+    width: clamp(210px, 18vw, 310px) !important;
+    height: clamp(20px, 2.6vh, 28px) !important;
+    bottom: -4px !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: contain !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20310%2028'%3E%3Cpath%20d='M0%2014H118'%20stroke='white'%20stroke-width='4'%20stroke-linecap='round'%20opacity='.82'/%3E%3Cpath%20d='M192%2014H310'%20stroke='white'%20stroke-width='4'%20stroke-linecap='round'%20opacity='.82'/%3E%3Cpath%20d='M122%2014H144L151%204L160%2024L170%208L180%2014H190'%20fill='none'%20stroke='%23ff1744'%20stroke-width='4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+@media (max-height: 700px) {
+    html.tv-mode .topbar-panel::after {
+        right: 20.8% !important;
+        width: 58px !important;
+    }
+}
+
+/*COLOR EN FECHA/HORA */
+
+html.tv-mode .topbar-panel {
+    background: linear-gradient(90deg, rgba(3,103,45,.98) 0%, rgba(5,125,52,.98) 40%, rgba(12,151,68,.96) 74%, rgba(16,164,76,.94) 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::after {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 25.5% !important;
+        background: linear-gradient(135deg, #e9002f 0%, #ed0036 100%) !important;
+        clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%) !important;
+        border: 0 !important;
+        border-radius: 0 clamp(16px, 2.3vh, 28px) clamp(16px, 2.3vh, 28px) 0 !important;
+        transform: none !important;
+        z-index: 1 !important;
+    }
+
+html.tv-mode .topbar-center::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -72px !important;
+    right: -10px !important;
+    width: clamp(78px, 6vw, 112px) !important;
+    height: clamp(220px, 28vh, 300px) !important;
+    border-right: clamp(9px, .72vw, 13px) solid rgba(255,255,255,.98) !important;
+    border-radius: 0 999px 999px 0 !important;
+    transform: rotate(12deg) !important;
+    pointer-events: none !important;
+    z-index: 6 !important;
+}
+
+html.tv-mode .topbar-left {
+    flex: 0 0 31% !important;
+    max-width: 31% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 24% !important;
+    max-width: 24% !important;
+    z-index: 7 !important;
+}
+
+@media (max-height: 760px) {
+    html.tv-mode .topbar-center::after {
+        right: -6px !important;
+        width: 78px !important;
+    }
+}
+
+
+html.tv-mode .topbar-panel {
+    min-height: clamp(86px, 13.4vh, 132px) !important;
+    padding: clamp(7px, 1.25vh, 14px) clamp(12px, 1.2vw, 20px) !important;
+    background: linear-gradient(90deg, rgba(3,103,45,.98) 0%, rgba(5,125,52,.98) 38%, rgba(12,151,68,.96) 72.8%, #e9002f 72.8%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::after {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 28.2% !important;
+        background: linear-gradient(135deg, #e9002f 0%, #ed0036 100%) !important;
+        clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%) !important;
+        border: 0 !important;
+        border-radius: 0 clamp(16px, 2.3vh, 28px) clamp(16px, 2.3vh, 28px) 0 !important;
+        transform: none !important;
+        z-index: 2 !important;
+    }
+
+html.tv-mode .topbar-center::after {
+    top: -76px !important;
+    right: -44px !important;
+    width: clamp(88px, 7vw, 132px) !important;
+    height: clamp(210px, 28vh, 292px) !important;
+    border-right: clamp(9px, .72vw, 13px) solid rgba(255,255,255,.98) !important;
+    z-index: 7 !important;
+}
+
+html.tv-mode .topbar-row {
+    z-index: 8 !important;
+}
+
+html.tv-mode .logo {
+    width: clamp(66px, 8.4vh, 100px) !important;
+    height: clamp(66px, 8.4vh, 100px) !important;
+}
+
+html.tv-mode .center-title {
+    font-size: clamp(26px, 2.35vw, 48px) !important;
+}
+
+html.tv-mode .center-subtitle {
+    font-size: clamp(10px, .95vw, 17px) !important;
+}
+
+html.tv-mode .clock-text {
+    font-size: clamp(30px, 2.7vw, 52px) !important;
+}
+
+@media (max-height: 760px) {
+    html.tv-mode .topbar-panel {
+        min-height: 82px !important;
+    }
+
+    html.tv-mode .topbar-center::after {
+        right: -28px !important;
+        width: 88px !important;
+    }
+}
+
+
+html.tv-mode .topbar-panel {
+    min-height: clamp(80px, 12.6vh, 126px) !important;
+    padding: clamp(6px, 1.05vh, 11px) clamp(10px, 1vw, 18px) !important;
+    background: linear-gradient(90deg, rgba(3,103,45,.99) 0%, rgba(5,125,52,.99) 35%, rgba(12,151,68,.98) 74.6%, #e9002f 74.6%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::after {
+        display: none !important;
+    }
+
+html.tv-mode .topbar-row {
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+html.tv-mode .topbar-left {
+    flex: 0 0 31% !important;
+    max-width: 31% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+    position: relative !important;
+    z-index: 11 !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 24% !important;
+    max-width: 24% !important;
+    position: relative !important;
+    z-index: 12 !important;
+}
+
+html.tv-mode .topbar-center::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: clamp(-78px, -7.8vh, -58px) !important;
+    right: clamp(-48px, -2.55vw, -26px) !important;
+    width: clamp(92px, 7vw, 136px) !important;
+    height: clamp(196px, 28vh, 304px) !important;
+    border-right: clamp(9px, .74vw, 14px) solid rgba(255,255,255,.98) !important;
+    border-radius: 0 999px 999px 0 !important;
+    transform: rotate(12deg) !important;
+    pointer-events: none !important;
+    z-index: 30 !important;
+}
+
+html.tv-mode .topbar-panel .logo {
+    width: clamp(64px, 8vh, 96px) !important;
+    height: clamp(64px, 8vh, 96px) !important;
+}
+
+html.tv-mode .topbar-panel .center-title {
+    font-size: clamp(26px, 2.5vw, 50px) !important;
+    white-space: nowrap !important;
+}
+
+html.tv-mode .topbar-panel .center-subtitle {
+    font-size: clamp(10px, .98vw, 19px) !important;
+}
+
+html.tv-mode .topbar-panel .clock-text {
+    color: #fff !important;
+    font-size: clamp(30px, 2.75vw, 52px) !important;
+}
+
+html.tv-mode .topbar-panel .date-text {
+    color: #fff !important;
+}
+
+html.tv-mode .topbar-panel .clock-card {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+@media (max-height: 760px) {
+    html.tv-mode .topbar-panel {
+        min-height: 78px !important;
+    }
+
+    html.tv-mode .topbar-center::after {
+        right: -28px !important;
+        width: 92px !important;
+    }
+}
+
+/* HORA CENTRADA */
+
+html.tv-mode .topbar-panel {
+    overflow: hidden !important;
+    isolation: isolate !important;
+    background: linear-gradient(90deg, rgba(3,103,45,.99) 0%, rgba(5,125,52,.99) 37%, rgba(10,141,61,.98) 78.8%, #e9002f 78.8%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::before {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: auto !important;
+        width: 21.4% !important;
+        background: linear-gradient(135deg, #e9002f 0%, #ed0036 100%) !important;
+        border-radius: 0 clamp(16px, 2.3vh, 28px) clamp(16px, 2.3vh, 28px) 0 !important;
+        pointer-events: none !important;
+        opacity: 1 !important;
+        z-index: 1 !important;
+    }
+
+html.tv-mode .topbar-row {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+html.tv-mode .topbar-center::after {
+    top: clamp(-82px, -7.8vh, -58px) !important;
+    right: clamp(-54px, -2.85vw, -30px) !important;
+    width: clamp(98px, 7.5vw, 148px) !important;
+    height: clamp(200px, 28vh, 312px) !important;
+    z-index: 8 !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap::after {
+    bottom: clamp(-28px, -2.45vh, -14px) !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap {
+    padding-bottom: clamp(14px, 2.2vh, 24px) !important;
+}
+
+html.tv-mode .topbar-right .right-box,
+html.tv-mode .topbar-panel .right-box {
+    width: 100% !important;
+    min-height: clamp(70px, 10.8vh, 108px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(8px, 1.25vh, 14px) !important;
+    text-align: center !important;
+}
+
+html.tv-mode .topbar-panel .clock-card {
+    width: 100% !important;
+    max-width: clamp(230px, 18vw, 320px) !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+html.tv-mode .topbar-panel .clock-text,
+html.tv-mode .topbar-panel .date-text {
+    width: 100% !important;
+    text-align: center !important;
+    color: #fff !important;
+}
+
+html.tv-mode .topbar-panel .conn-badge {
+    margin: 0 auto !important;
+}
+
+/* TV RESPONSIVE  */
+
+html.tv-mode,
+html.tv-mode body,
+html.tv-mode body.dashboard-body {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+}
+
+    html.tv-mode body.dashboard-body {
+        background-color: #e6f7ee !important;
+    }
+
+    html.tv-mode .dashboard-shell {
+        --tv-pad: clamp(5px, .95vh, 12px);
+        --tv-gap: clamp(5px, .8vh, 10px);
+        --tv-topbar-h: clamp(96px, 18vh, 164px);
+        --tv-logo: clamp(62px, 12vh, 116px);
+        --tv-title: clamp(32px, 3.25vw, 70px);
+        --tv-subtitle: clamp(12px, 1.05vw, 22px);
+        --tv-brand: clamp(15px, 1.25vw, 27px);
+        --tv-clock: clamp(42px, 3.8vw, 82px);
+        --tv-card-h: clamp(82px, 14vh, 138px);
+        --tv-card-title: clamp(22px, 1.75vw, 38px);
+        --tv-meta: clamp(14px, 1.05vw, 22px);
+        --tv-num: clamp(50px, 5vw, 98px);
+        --tv-side-title: clamp(16px, 1.18vw, 25px);
+        --tv-mini: clamp(13px, .98vw, 20px);
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        height: 100svh !important;
+        height: 100dvh !important;
+        max-height: 100vh !important;
+        max-height: 100svh !important;
+        max-height: 100dvh !important;
+        min-height: 0 !important;
+        padding: var(--tv-pad) !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--tv-gap) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .dashboard-top-wrap {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode .topbar-panel {
+        height: var(--tv-topbar-h) !important;
+        min-height: var(--tv-topbar-h) !important;
+        max-height: var(--tv-topbar-h) !important;
+        padding: clamp(10px, 1.65vh, 22px) clamp(16px, 1.75vw, 36px) !important;
+        border-radius: clamp(18px, 1.45vw, 30px) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .topbar-row {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+    }
+
+    html.tv-mode .topbar-left {
+        flex: 0 0 30% !important;
+        max-width: 30% !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .topbar-center {
+        flex: 1 1 auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        text-align: center !important;
+    }
+
+    html.tv-mode .topbar-right {
+        flex: 0 0 23% !important;
+        max-width: 23% !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .brand-box {
+        min-width: 0 !important;
+        gap: clamp(10px, 1.15vw, 22px) !important;
+        justify-content: flex-start !important;
+    }
+
+    html.tv-mode .logo {
+        width: var(--tv-logo) !important;
+        height: var(--tv-logo) !important;
+        flex: 0 0 var(--tv-logo) !important;
+        object-fit: contain !important;
+    }
+
+    html.tv-mode .brand-text {
+        min-width: 0 !important;
+        text-align: left !important;
+    }
+
+    html.tv-mode .small-title {
+        font-size: clamp(12px, 1.02vw, 21px) !important;
+        line-height: 1.05 !important;
+        white-space: nowrap !important;
+    }
+
+    html.tv-mode .big-title {
+        font-size: var(--tv-brand) !important;
+        line-height: 1.08 !important;
+        white-space: normal !important;
+    }
+
+    html.tv-mode .center-title-wrap {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .center-title {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: var(--tv-title) !important;
+        line-height: .95 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: clip !important;
+        letter-spacing: 0 !important;
+    }
+
+    html.tv-mode .center-subtitle {
+        font-size: var(--tv-subtitle) !important;
+        line-height: 1.08 !important;
+        white-space: nowrap !important;
+        letter-spacing: clamp(2px, .36vw, 6px) !important;
+        margin-top: clamp(3px, .65vh, 8px) !important;
+    }
+
+    html.tv-mode .center-title-wrap::after,
+    html.tv-mode .ecg-line,
+    html.tv-mode .heartbeat-line {
+        display: block !important;
+        width: min(36vw, 560px) !important;
+        max-width: 100% !important;
+        height: clamp(22px, 3.8vh, 42px) !important;
+        margin: clamp(8px, 1.35vh, 16px) auto 0 !important;
+        overflow: visible !important;
+    }
+
+    html.tv-mode .right-box {
+        width: 100% !important;
+        min-width: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: clamp(7px, 1.15vh, 14px) !important;
+    }
+
+    html.tv-mode .clock-card {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        text-align: center !important;
+    }
+
+    html.tv-mode .date-text {
+        font-size: clamp(14px, 1.05vw, 22px) !important;
+        line-height: 1 !important;
+        color: #fff !important;
+        white-space: nowrap !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: var(--tv-clock) !important;
+        line-height: .92 !important;
+        color: #fff !important;
+        white-space: nowrap !important;
+    }
+
+    html.tv-mode .conn-badge {
+        width: auto !important;
+        max-width: 100% !important;
+        min-height: clamp(30px, 4.4vh, 48px) !important;
+        padding: clamp(5px, .75vh, 10px) clamp(14px, 1.3vw, 28px) !important;
+        font-size: clamp(13px, 1vw, 19px) !important;
+        white-space: nowrap !important;
+    }
+
+    html.tv-mode .dashboard-main-wrap {
+        flex: 1 1 auto !important;
+        width: 100% !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .dashboard-main-row {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .main-left-col {
+        flex: 0 0 74% !important;
+        max-width: 74% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        display: flex !important;
+    }
+
+    html.tv-mode .main-right-col {
+        flex: 0 0 26% !important;
+        max-width: 26% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        display: flex !important;
+    }
+
+    html.tv-mode .cards-wrap,
+    html.tv-mode .side-panel {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        border-radius: clamp(16px, 1.25vw, 28px) !important;
+    }
+
+    html.tv-mode .section-header {
+        flex: 0 0 auto !important;
+        min-height: 0 !important;
+        padding: clamp(8px, 1.2vh, 16px) clamp(14px, 1.2vw, 24px) !important;
+    }
+
+    html.tv-mode .section-title {
+        font-size: clamp(20px, 1.55vw, 34px) !important;
+        line-height: 1.02 !important;
+    }
+
+    html.tv-mode .section-subtitle {
+        font-size: clamp(12px, .95vw, 18px) !important;
+        line-height: 1.1 !important;
+    }
+
+    html.tv-mode .section-badge {
+        padding: clamp(7px, .9vh, 13px) clamp(14px, 1.35vw, 28px) !important;
+        font-size: clamp(12px, .95vw, 18px) !important;
+        white-space: nowrap !important;
+    }
+
+    html.tv-mode .cards-body {
+        flex: 1 1 auto !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .cards-list {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        padding: clamp(7px, .95vh, 14px) clamp(8px, .8vw, 14px) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+
+        html.tv-mode .cards-list::-webkit-scrollbar {
+            width: 0 !important;
+            height: 0 !important;
+            display: none !important;
+        }
+
+    html.tv-mode .card-row {
+        min-height: var(--tv-card-h) !important;
+        padding: clamp(8px, 1.2vh, 16px) clamp(12px, 1.05vw, 22px) !important;
+        margin-bottom: clamp(6px, 1vh, 12px) !important;
+        gap: clamp(8px, 1vw, 16px) !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .left-block {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .title-row {
+        gap: clamp(8px, .9vw, 16px) !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .icon-circle {
+        width: clamp(46px, 5.9vh, 76px) !important;
+        height: clamp(46px, 5.9vh, 76px) !important;
+        flex: 0 0 clamp(46px, 5.9vh, 76px) !important;
+    }
+
+    html.tv-mode .medical-icon {
+        width: clamp(25px, 3.3vh, 42px) !important;
+        height: clamp(25px, 3.3vh, 42px) !important;
+    }
+
+    html.tv-mode .area-pill {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        font-size: var(--tv-card-title) !important;
+        line-height: 1.04 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    html.tv-mode .meta-row {
+        min-width: 0 !important;
+        gap: clamp(6px, .75vw, 12px) !important;
+        flex-wrap: nowrap !important;
+    }
+
+    html.tv-mode .chip-pill {
+        max-width: min(100%, 560px) !important;
+        min-width: 0 !important;
+        font-size: var(--tv-meta) !important;
+        line-height: 1.08 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    html.tv-mode .right-block {
+        flex: 0 0 clamp(170px, 18vw, 350px) !important;
+        width: clamp(170px, 18vw, 350px) !important;
+        min-width: clamp(170px, 18vw, 350px) !important;
+        min-height: clamp(68px, 10vh, 120px) !important;
+        border-radius: clamp(14px, 1.1vw, 22px) !important;
+    }
+
+        html.tv-mode .right-block .num,
+        html.tv-mode .num {
+            font-size: var(--tv-num) !important;
+            line-height: .88 !important;
+        }
+
+        html.tv-mode .right-block .lbl,
+        html.tv-mode .lbl {
+            font-size: clamp(12px, 1vw, 20px) !important;
+            line-height: 1.02 !important;
+        }
+
+    html.tv-mode .ticket-hot .hot-ribbon,
+    html.tv-mode .hot-ribbon {
+        top: 0 !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, -1px) !important;
+        max-width: min(70%, 370px) !important;
+        padding: clamp(5px, .65vh, 8px) clamp(14px, 1.3vw, 24px) !important;
+        border-radius: 0 0 999px 999px !important;
+        font-size: clamp(9px, .8vw, 14px) !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        z-index: 6 !important;
+    }
+
+    html.tv-mode .side-panel {
+        padding: clamp(9px, 1.2vh, 18px) !important;
+    }
+
+    html.tv-mode .panel-title {
+        font-size: var(--tv-side-title) !important;
+        line-height: 1.08 !important;
+    }
+
+    html.tv-mode .legend-row,
+    html.tv-mode .mini-item {
+        min-height: clamp(32px, 5vh, 52px) !important;
+        font-size: var(--tv-mini) !important;
+    }
+
+    html.tv-mode .pill-badge {
+        min-width: clamp(36px, 4.2vw, 58px) !important;
+        height: clamp(28px, 4.2vh, 44px) !important;
+        font-size: clamp(13px, 1vw, 18px) !important;
+    }
+
+    html.tv-mode .side-middle {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        display: grid !important;
+        grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .side-slot {
+        min-height: 0 !important;
+        height: 100% !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    html.tv-mode .mini-viewport {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .mini-track,
+    html.tv-mode #lastTickets,
+    html.tv-mode #agotadasList,
+    html.tv-mode #pocasList {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: clamp(5px, .7vh, 8px) !important;
+    }
+
+    html.tv-mode .side-help {
+        font-size: clamp(11px, .9vw, 17px) !important;
+        line-height: 1.15 !important;
+    }
+
+@media (max-width: 1366px) and (max-height: 768px) {
+    html.tv-mode .dashboard-shell {
+        --tv-pad: 5px;
+        --tv-gap: 5px;
+        --tv-topbar-h: clamp(88px, 18vh, 118px);
+        --tv-logo: clamp(58px, 11.5vh, 82px);
+        --tv-title: clamp(30px, 3.15vw, 42px);
+        --tv-subtitle: clamp(10px, 1vw, 14px);
+        --tv-brand: clamp(14px, 1.22vw, 18px);
+        --tv-clock: clamp(38px, 3.75vw, 54px);
+        --tv-card-h: clamp(76px, 14.4vh, 96px);
+        --tv-card-title: clamp(20px, 1.7vw, 28px);
+        --tv-meta: clamp(13px, 1vw, 16px);
+        --tv-num: clamp(44px, 4.5vw, 64px);
+    }
+
+    html.tv-mode .topbar-panel {
+        padding: 8px 14px !important;
+    }
+
+    html.tv-mode .section-header {
+        padding-top: 7px !important;
+        padding-bottom: 7px !important;
+    }
+
+    html.tv-mode .card-row {
+        padding-top: 7px !important;
+        padding-bottom: 7px !important;
+        margin-bottom: 5px !important;
+    }
+
+    html.tv-mode .side-panel {
+        padding: 8px !important;
+    }
+}
+
+@media (min-width: 2200px) {
+    html.tv-mode .dashboard-shell {
+        --tv-pad: clamp(12px, .75vw, 24px);
+        --tv-gap: clamp(10px, .65vw, 18px);
+        --tv-topbar-h: clamp(150px, 13vh, 230px);
+        --tv-logo: clamp(108px, 8vh, 160px);
+        --tv-title: clamp(62px, 2.75vw, 92px);
+        --tv-subtitle: clamp(20px, .9vw, 30px);
+        --tv-brand: clamp(24px, 1vw, 34px);
+        --tv-clock: clamp(74px, 3vw, 110px);
+        --tv-card-h: clamp(130px, 10.8vh, 190px);
+        --tv-card-title: clamp(34px, 1.28vw, 48px);
+        --tv-meta: clamp(22px, .82vw, 30px);
+        --tv-num: clamp(92px, 3.6vw, 136px);
+    }
+}
+
+
+html.tv-mode .topbar-panel {
+    overflow: hidden !important;
+    isolation: isolate !important;
+    min-height: clamp(82px, 13vh, 126px) !important;
+    padding: clamp(7px, 1.1vh, 12px) clamp(12px, 1.1vw, 20px) !important;
+    background: linear-gradient(90deg, #06652f 0%, #087a38 30%, #168948 54%, #83682d 70%, #c4162f 84%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::before,
+    html.tv-mode .topbar-panel::after,
+    html.tv-mode .topbar-center::before,
+    html.tv-mode .topbar-center::after {
+        content: none !important;
+        display: none !important;
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        clip-path: none !important;
+        transform: none !important;
+    }
+
+html.tv-mode .topbar-left {
+    flex: 0 0 31% !important;
+    max-width: 31% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 24% !important;
+    max-width: 24% !important;
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap {
+    padding-bottom: clamp(24px, 3.2vh, 36px) !important;
+}
+
+    html.tv-mode .topbar-panel .center-title-wrap::after {
+        content: "" !important;
+        display: block !important;
+        width: clamp(250px, 21vw, 360px) !important;
+        height: clamp(25px, 3.3vh, 36px) !important;
+        bottom: clamp(-46px, -4vh, -28px) !important;
+        opacity: 1 !important;
+        filter: drop-shadow(0 5px 8px rgba(0,0,0,.22)) !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        background-size: contain !important;
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20360%2036'%3E%3Cpath%20d='M0%2018H140'%20stroke='white'%20stroke-width='5'%20stroke-linecap='round'%20opacity='.95'/%3E%3Cpath%20d='M220%2018H360'%20stroke='white'%20stroke-width='5'%20stroke-linecap='round'%20opacity='.95'/%3E%3Cpath%20d='M144%2018H160L169%206L178%2030L194%209L208%2018H218'%20fill='none'%20stroke='white'%20stroke-width='5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    }
+
+html.tv-mode .topbar-right .right-box,
+html.tv-mode .topbar-panel .right-box {
+    width: 100% !important;
+    min-height: clamp(74px, 11vh, 110px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(8px, 1.2vh, 13px) !important;
+    text-align: center !important;
+}
+
+html.tv-mode .topbar-panel .clock-card {
+    width: 100% !important;
+    max-width: clamp(230px, 18vw, 340px) !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+html.tv-mode .topbar-panel .clock-text,
+html.tv-mode .topbar-panel .date-text {
+    width: 100% !important;
+    text-align: center !important;
+    color: #fff !important;
+    text-shadow: 0 5px 12px rgba(0,0,0,.32) !important;
+}
+
+html.tv-mode .topbar-panel .conn-badge {
+    margin: 0 auto !important;
+    color: #fff !important;
+    background: rgba(255,255,255,.08) !important;
+    border: 2px solid rgba(255,255,255,.92) !important;
+    box-shadow: 0 10px 22px rgba(0,0,0,.18) !important;
+}
+
+    html.tv-mode .topbar-panel .conn-badge::before {
+        background: #18c86a !important;
+        box-shadow: 0 0 0 4px rgba(24,200,106,.18) !important;
+    }
+
+/*ENCABEZADO  MAS ALTO, ECG VISIBLE*/
+
+html.tv-mode .topbar-panel {
+    min-height: clamp(88px, 13.8vh, 138px) !important;
+    padding: clamp(8px, 1.2vh, 14px) clamp(12px, 1.1vw, 20px) !important;
+    background: linear-gradient(90deg, #05652d 0%, #087a38 32%, #0b9146 62%, #18a857 72%, #c91532 86%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel .logo {
+        width: clamp(70px, 8.8vh, 104px) !important;
+        height: clamp(70px, 8.8vh, 104px) !important;
+    }
+
+    html.tv-mode .topbar-panel .center-title {
+        font-size: clamp(30px, 2.72vw, 56px) !important;
+    }
+
+    html.tv-mode .topbar-panel .center-subtitle {
+        margin-top: clamp(4px, .65vh, 7px) !important;
+    }
+
+    html.tv-mode .topbar-panel .center-title-wrap {
+        padding-bottom: clamp(28px, 4vh, 44px) !important;
+    }
+
+        html.tv-mode .topbar-panel .center-title-wrap::after {
+            width: clamp(230px, 20vw, 340px) !important;
+            height: clamp(24px, 3.2vh, 34px) !important;
+            bottom: clamp(-54px, -4.6vh, -30px) !important;
+            opacity: 1 !important;
+            filter: drop-shadow(0 5px 8px rgba(0,0,0,.18)) !important;
+            background-repeat: no-repeat !important;
+            background-position: center center !important;
+            background-size: contain !important;
+            background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20340%2034'%3E%3Cpath%20d='M0%2017H132'%20stroke='white'%20stroke-width='5'%20stroke-linecap='round'%20opacity='.92'/%3E%3Cpath%20d='M208%2017H340'%20stroke='white'%20stroke-width='5'%20stroke-linecap='round'%20opacity='.92'/%3E%3Cpath%20d='M136%2017H158L166%205L177%2029L188%2010L198%2017H206'%20fill='none'%20stroke='%23ff1744'%20stroke-width='5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+        }
+
+    html.tv-mode .topbar-right .right-box,
+    html.tv-mode .topbar-panel .right-box {
+        min-height: clamp(78px, 11.6vh, 118px) !important;
+    }
+
+
+html.tv-mode .topbar-panel {
+    overflow: hidden !important;
+    isolation: isolate !important;
+    min-height: clamp(80px, 12.6vh, 126px) !important;
+    padding: clamp(6px, 1.05vh, 11px) clamp(10px, 1vw, 18px) !important;
+    background: linear-gradient(90deg, #05652d 0%, #087a38 35%, #0b9146 66%, #11a957 74%, #c71331 88%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::before,
+    html.tv-mode .topbar-panel::after,
+    html.tv-mode .topbar-center::after {
+        content: none !important;
+        display: none !important;
+        background: none !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        clip-path: none !important;
+    }
+
+html.tv-mode .topbar-row {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+html.tv-mode .topbar-left {
+    flex: 0 0 31% !important;
+    max-width: 31% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 24% !important;
+    max-width: 24% !important;
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap {
+    padding-bottom: clamp(22px, 3.1vh, 34px) !important;
+}
+
+    html.tv-mode .topbar-panel .center-title-wrap::after {
+        bottom: clamp(-40px, -3.5vh, -24px) !important;
+    }
+
+html.tv-mode .topbar-right .right-box,
+html.tv-mode .topbar-panel .right-box {
+    width: 100% !important;
+    min-height: clamp(70px, 10.8vh, 108px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(8px, 1.25vh, 14px) !important;
+    text-align: center !important;
+}
+
+html.tv-mode .topbar-panel .clock-card {
+    width: 100% !important;
+    max-width: clamp(230px, 18vw, 320px) !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+html.tv-mode .topbar-panel .clock-text,
+html.tv-mode .topbar-panel .date-text {
+    width: 100% !important;
+    text-align: center !important;
+    color: #fff !important;
+}
+
+html.tv-mode .topbar-panel .conn-badge {
+    margin: 0 auto !important;
+}
+
+/* Ajuste fino TV: rojo solo despues de la curva y latido separado */
+html.tv-mode .topbar-panel {
+    background: linear-gradient(90deg, rgba(3,103,45,.99) 0%, rgba(5,125,52,.99) 37%, rgba(10,141,61,.98) 79%, #e9002f 79%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::before {
+        width: 21% !important;
+    }
+
+    html.tv-mode .topbar-panel .center-title-wrap {
+        padding-bottom: clamp(16px, 2.4vh, 26px) !important;
+    }
+
+        html.tv-mode .topbar-panel .center-title-wrap::after {
+            bottom: clamp(-30px, -2.65vh, -16px) !important;
+        }
+
+
+html.tv-mode .topbar-panel {
+    background: linear-gradient(90deg, rgba(3,103,45,.99) 0%, rgba(5,125,52,.99) 38%, rgba(10,141,61,.98) 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::before {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: auto !important;
+        width: 29% !important;
+        background: linear-gradient(135deg, #e9002f 0%, #ed0036 100%) !important;
+        border-radius: 0 clamp(16px, 2.3vh, 28px) clamp(16px, 2.3vh, 28px) 0 !important;
+        pointer-events: none !important;
+        opacity: 1 !important;
+        z-index: 1 !important;
+    }
+
+    html.tv-mode .topbar-panel::after {
+        content: "" !important;
+        display: block !important;
+        position: absolute !important;
+        top: clamp(-78px, -7.7vh, -54px) !important;
+        right: 22.8% !important;
+        width: clamp(110px, 8.8vw, 168px) !important;
+        height: clamp(206px, 29vh, 314px) !important;
+        background: linear-gradient(90deg, rgba(8,128,55,.99) 0%, rgba(10,141,61,.98) 100%) !important;
+        border-right: clamp(9px, .74vw, 14px) solid rgba(255,255,255,.98) !important;
+        border-radius: 0 999px 999px 0 !important;
+        transform: rotate(12deg) !important;
+        pointer-events: none !important;
+        opacity: 1 !important;
+        z-index: 2 !important;
+    }
+
+html.tv-mode .topbar-center::after {
+    display: none !important;
+}
+
+html.tv-mode .topbar-row {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap {
+    padding-bottom: clamp(24px, 3.2vh, 36px) !important;
+}
+
+    html.tv-mode .topbar-panel .center-title-wrap::after {
+        bottom: clamp(-42px, -3.7vh, -24px) !important;
+    }
+
+/* ENCABEZADO DE VERDE A ROJO*/
+
+html.tv-mode .topbar-panel {
+    overflow: hidden !important;
+    isolation: isolate !important;
+    min-height: clamp(78px, 12.3vh, 118px) !important;
+    padding: clamp(6px, 1vh, 9px) clamp(10px, 1vw, 18px) !important;
+    background: linear-gradient(90deg, #05652d 0%, #087a38 34%, #0a9348 61%, #11a957 73%, #d40a2e 86%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::before,
+    html.tv-mode .topbar-panel::after,
+    html.tv-mode .topbar-center::after {
+        content: none !important;
+        display: none !important;
+        background: none !important;
+        border: 0 !important;
+    }
+
+html.tv-mode .topbar-row {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+html.tv-mode .topbar-left {
+    flex: 0 0 31% !important;
+    max-width: 31% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 24% !important;
+    max-width: 24% !important;
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap {
+    padding-bottom: clamp(16px, 2.4vh, 22px) !important;
+}
+
+    html.tv-mode .topbar-panel .center-title-wrap::after {
+        display: block !important;
+        content: "" !important;
+        width: clamp(230px, 20vw, 330px) !important;
+        height: clamp(22px, 3vh, 30px) !important;
+        bottom: clamp(-30px, -2.7vh, -18px) !important;
+        opacity: 1 !important;
+        filter: drop-shadow(0 4px 7px rgba(0,0,0,.18)) !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
+        background-size: contain !important;
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20330%2030'%3E%3Cpath%20d='M0%2015H126'%20stroke='white'%20stroke-width='5'%20stroke-linecap='round'%20opacity='.95'/%3E%3Cpath%20d='M204%2015H330'%20stroke='white'%20stroke-width='5'%20stroke-linecap='round'%20opacity='.95'/%3E%3Cpath%20d='M130%2015H152L160%204L171%2026L182%209L194%2015H202'%20fill='none'%20stroke='%23ff1744'%20stroke-width='5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    }
+
+html.tv-mode .topbar-right .right-box,
+html.tv-mode .topbar-panel .right-box {
+    width: 100% !important;
+    min-height: clamp(70px, 10.8vh, 108px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(8px, 1.25vh, 14px) !important;
+    text-align: center !important;
+}
+
+html.tv-mode .topbar-panel .clock-card {
+    width: 100% !important;
+    max-width: clamp(230px, 18vw, 330px) !important;
+    margin: 0 auto !important;
+    padding: clamp(4px, .8vh, 6px) clamp(9px, .9vw, 12px) !important;
+    text-align: center !important;
+    background: rgba(255,255,255,.94) !important;
+    border: 1px solid rgba(255,255,255,.98) !important;
+    border-radius: clamp(14px, 1.8vh, 20px) !important;
+    box-shadow: 0 14px 26px rgba(0,0,0,.18) !important;
+}
+
+html.tv-mode .topbar-panel .clock-text {
+    width: 100% !important;
+    text-align: center !important;
+    color: #e9002f !important;
+    text-shadow: none !important;
+}
+
+html.tv-mode .topbar-panel .date-text {
+    width: 100% !important;
+    text-align: center !important;
+    color: #b20b26 !important;
+    text-shadow: none !important;
+}
+
+/* =========================================================
+   TV AJUSTE FINAL 4 - HORA SIN CUADRO, ROJO EN TODA SU ZONA
+   ========================================================= */
+
+html.tv-mode .topbar-panel {
+    background: linear-gradient(90deg, #05652d 0%, #087a38 32%, #0b9146 61%, #18a857 72%, #b71a32 84%, #e9002f 92%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel .clock-card {
+        width: 100% !important;
+        max-width: clamp(230px, 18vw, 340px) !important;
+        min-height: auto !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        text-align: center !important;
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    html.tv-mode .topbar-panel .clock-text,
+    html.tv-mode .topbar-panel .date-text {
+        width: 100% !important;
+        text-align: center !important;
+        color: #fff !important;
+        text-shadow: 0 5px 12px rgba(0,0,0,.28) !important;
+    }
+
+    html.tv-mode .topbar-panel .conn-badge {
+        margin: 0 auto !important;
+        background: rgba(255,255,255,.94) !important;
+        color: #1f2a24 !important;
+        border: 0 !important;
+        box-shadow: 0 10px 22px rgba(0,0,0,.16) !important;
+    }
+
+    html.tv-mode .topbar-panel .conn-badge {
+        margin: 0 auto !important;
+    }
+
+/* =========================================================
+   TV RESPONSIVE FINAL - REFUERZO AL CIERRE
+   No agregar reglas debajo de este bloque.
+   ========================================================= */
+
+html.tv-mode,
+html.tv-mode body,
+html.tv-mode body.dashboard-body {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow: hidden !important;
+}
+
+    html.tv-mode .dashboard-shell {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        max-height: 100vh !important;
+        max-height: 100dvh !important;
+        min-height: 0 !important;
+        padding: clamp(5px, .95vh, 12px) !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: clamp(5px, .8vh, 10px) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .dashboard-top-wrap {
+        flex: 0 0 auto !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode .topbar-panel {
+        height: clamp(96px, 18vh, 164px) !important;
+        min-height: clamp(96px, 18vh, 164px) !important;
+        max-height: clamp(96px, 18vh, 164px) !important;
+        padding: clamp(10px, 1.65vh, 22px) clamp(16px, 1.75vw, 36px) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .topbar-row {
+        height: 100% !important;
+        min-height: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+    }
+
+    html.tv-mode .topbar-left {
+        flex: 0 0 30% !important;
+        max-width: 30% !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .topbar-center {
+        flex: 1 1 auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .topbar-right {
+        flex: 0 0 23% !important;
+        max-width: 23% !important;
+        min-width: 0 !important;
+    }
+
+    html.tv-mode .logo {
+        width: clamp(62px, 12vh, 116px) !important;
+        height: clamp(62px, 12vh, 116px) !important;
+        flex: 0 0 clamp(62px, 12vh, 116px) !important;
+        object-fit: contain !important;
+    }
+
+    html.tv-mode .small-title {
+        font-size: clamp(12px, 1.02vw, 21px) !important;
+        line-height: 1.05 !important;
+        white-space: nowrap !important;
+    }
+
+    html.tv-mode .big-title {
+        font-size: clamp(15px, 1.25vw, 27px) !important;
+        line-height: 1.08 !important;
+    }
+
+    html.tv-mode .center-title {
+        max-width: 100% !important;
+        font-size: clamp(32px, 3.25vw, 70px) !important;
+        line-height: .95 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: clip !important;
+    }
+
+    html.tv-mode .center-subtitle {
+        font-size: clamp(12px, 1.05vw, 22px) !important;
+        line-height: 1.08 !important;
+        white-space: nowrap !important;
+        letter-spacing: clamp(2px, .36vw, 6px) !important;
+    }
+
+    html.tv-mode .center-title-wrap::after,
+    html.tv-mode .ecg-line,
+    html.tv-mode .heartbeat-line {
+        display: block !important;
+        width: min(36vw, 560px) !important;
+        height: clamp(22px, 3.8vh, 42px) !important;
+        margin: clamp(8px, 1.35vh, 16px) auto 0 !important;
+        overflow: visible !important;
+    }
+
+    html.tv-mode .clock-card {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        text-align: center !important;
+    }
+
+    html.tv-mode .date-text {
+        font-size: clamp(14px, 1.05vw, 22px) !important;
+        line-height: 1 !important;
+        color: #fff !important;
+        white-space: nowrap !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(42px, 3.8vw, 82px) !important;
+        line-height: .92 !important;
+        color: #fff !important;
+        white-space: nowrap !important;
+    }
+
+    html.tv-mode .conn-badge {
+        width: auto !important;
+        min-height: clamp(30px, 4.4vh, 48px) !important;
+        padding: clamp(5px, .75vh, 10px) clamp(14px, 1.3vw, 28px) !important;
+        font-size: clamp(13px, 1vw, 19px) !important;
+        white-space: nowrap !important;
+    }
+
+    html.tv-mode .dashboard-main-wrap {
+        flex: 1 1 auto !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .dashboard-main-row {
+        height: 100% !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .main-left-col {
+        flex: 0 0 74% !important;
+        max-width: 74% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode .main-right-col {
+        flex: 0 0 26% !important;
+        max-width: 26% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode .cards-wrap,
+    html.tv-mode .side-panel {
+        height: 100% !important;
+        min-height: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .cards-body {
+        flex: 1 1 auto !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .cards-list {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        scrollbar-width: none !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: clamp(82px, 14vh, 138px) !important;
+        padding: clamp(8px, 1.2vh, 16px) clamp(12px, 1.05vw, 22px) !important;
+        margin-bottom: clamp(6px, 1vh, 12px) !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .area-pill {
+        max-width: 100% !important;
+        font-size: clamp(22px, 1.75vw, 38px) !important;
+        line-height: 1.04 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    html.tv-mode .chip-pill {
+        max-width: min(100%, 560px) !important;
+        font-size: clamp(14px, 1.05vw, 22px) !important;
+        line-height: 1.08 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    html.tv-mode .right-block {
+        flex: 0 0 clamp(170px, 18vw, 350px) !important;
+        width: clamp(170px, 18vw, 350px) !important;
+        min-width: clamp(170px, 18vw, 350px) !important;
+        min-height: clamp(68px, 10vh, 120px) !important;
+    }
+
+    html.tv-mode .num {
+        font-size: clamp(50px, 5vw, 98px) !important;
+        line-height: .88 !important;
+    }
+
+    html.tv-mode .lbl {
+        font-size: clamp(12px, 1vw, 20px) !important;
+        line-height: 1.02 !important;
+    }
+
+    html.tv-mode .ticket-hot .hot-ribbon,
+    html.tv-mode .hot-ribbon {
+        top: 0 !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, -1px) !important;
+        max-width: min(70%, 370px) !important;
+        border-radius: 0 0 999px 999px !important;
+        white-space: nowrap !important;
+        z-index: 6 !important;
+    }
+
+    html.tv-mode .side-middle {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        display: grid !important;
+        grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .side-slot,
+    html.tv-mode .mini-viewport,
+    html.tv-mode .mini-track {
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode .mini-viewport {
+        flex: 1 1 auto !important;
+    }
+
+    html.tv-mode .mini-track,
+    html.tv-mode #lastTickets,
+    html.tv-mode #agotadasList,
+    html.tv-mode #pocasList {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+@media (max-width: 1366px) and (max-height: 768px) {
+    html.tv-mode .topbar-panel {
+        height: clamp(88px, 18vh, 118px) !important;
+        min-height: clamp(88px, 18vh, 118px) !important;
+        max-height: clamp(88px, 18vh, 118px) !important;
+        padding: 8px 14px !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: clamp(30px, 3.15vw, 42px) !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(38px, 3.75vw, 54px) !important;
+    }
+
+    html.tv-mode .card-row {
+        min-height: clamp(76px, 14.4vh, 96px) !important;
+        padding-top: 7px !important;
+        padding-bottom: 7px !important;
+        margin-bottom: 5px !important;
+    }
+}
+
+@media (min-width: 2200px) {
+    html.tv-mode .topbar-panel {
+        height: clamp(150px, 13vh, 230px) !important;
+        min-height: clamp(150px, 13vh, 230px) !important;
+        max-height: clamp(150px, 13vh, 230px) !important;
+    }
+
+    html.tv-mode .center-title {
+        font-size: clamp(62px, 2.75vw, 92px) !important;
+    }
+
+    html.tv-mode .clock-text {
+        font-size: clamp(74px, 3vw, 110px) !important;
+    }
+}
+
+/* =========================================================
+   TV FINAL IGUAL AL CSS NORMAL
+   Desde pantallas tipo laptop 16" hasta televisores 100"+
+   ========================================================= */
+
+html.tv-mode .dashboard-shell {
+    --tv-top-h-final: clamp(118px, 17.5vh, 168px);
+    --tv-logo-final: clamp(78px, 12.8vh, 112px);
+    --tv-title-final: clamp(38px, 3.15vw, 64px);
+    --tv-subtitle-final: clamp(13px, 1.1vw, 21px);
+    --tv-brand-final: clamp(15px, 1.22vw, 24px);
+    --tv-clock-final: clamp(44px, 3.4vw, 72px);
+    --tv-card-final: clamp(82px, 13.8vh, 132px);
+    --tv-num-final: clamp(48px, 4.65vw, 88px);
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
+    min-height: 0 !important;
+    padding: clamp(6px, .95vh, 12px) !important;
+    gap: clamp(6px, .85vh, 11px) !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .topbar-panel {
+    height: var(--tv-top-h-final) !important;
+    min-height: var(--tv-top-h-final) !important;
+    max-height: var(--tv-top-h-final) !important;
+    padding: clamp(12px, 1.45vh, 18px) clamp(18px, 1.45vw, 28px) !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    border-radius: clamp(18px, 1.45vw, 30px) !important;
+    background: linear-gradient(90deg, #05652d 0%, #087a38 30%, #158f48 54%, #7c7132 66%, #b5382f 74%, #d71435 82%, #ed0036 100%) !important;
+}
+
+    html.tv-mode .topbar-panel::before,
+    html.tv-mode .topbar-panel::after,
+    html.tv-mode .topbar-center::before,
+    html.tv-mode .topbar-center::after {
+        content: none !important;
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        clip-path: none !important;
+        transform: none !important;
+    }
+
+html.tv-mode .topbar-row {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+html.tv-mode .topbar-left {
+    flex: 0 0 31% !important;
+    max-width: 31% !important;
+    min-width: 0 !important;
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+    min-width: 0 !important;
+    position: relative !important;
+    z-index: 6 !important;
+    text-align: center !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 24% !important;
+    max-width: 24% !important;
+    min-width: 0 !important;
+    position: relative !important;
+    z-index: 6 !important;
+}
+
+html.tv-mode .brand-box {
+    width: 100% !important;
+    min-width: 0 !important;
+    justify-content: flex-start !important;
+    gap: clamp(10px, 1.05vw, 20px) !important;
+}
+
+html.tv-mode .topbar-panel .logo,
+html.tv-mode .logo {
+    width: var(--tv-logo-final) !important;
+    height: var(--tv-logo-final) !important;
+    flex: 0 0 var(--tv-logo-final) !important;
+    object-fit: contain !important;
+}
+
+html.tv-mode .brand-text {
+    min-width: 0 !important;
+    text-align: left !important;
+}
+
+html.tv-mode .topbar-panel .small-title,
+html.tv-mode .small-title {
+    font-size: clamp(12px, 1vw, 19px) !important;
+    line-height: 1.08 !important;
+    white-space: nowrap !important;
+}
+
+html.tv-mode .topbar-panel .big-title,
+html.tv-mode .big-title {
+    font-size: var(--tv-brand-final) !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap,
+html.tv-mode .center-title-wrap {
+    position: relative !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-bottom: clamp(22px, 2.8vh, 34px) !important;
+}
+
+html.tv-mode .topbar-panel .center-title,
+html.tv-mode .center-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    color: #fff !important;
+    font-size: var(--tv-title-final) !important;
+    line-height: .98 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+    letter-spacing: 1px !important;
+    text-shadow: 0 5px 12px rgba(0,0,0,.28) !important;
+}
+
+html.tv-mode .topbar-panel .center-subtitle,
+html.tv-mode .center-subtitle {
+    color: #fff !important;
+    font-size: var(--tv-subtitle-final) !important;
+    line-height: 1.08 !important;
+    white-space: nowrap !important;
+    letter-spacing: clamp(2px, .34vw, 5px) !important;
+    margin-top: clamp(5px, .65vh, 9px) !important;
+    text-shadow: 0 4px 10px rgba(0,0,0,.24) !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap::after,
+html.tv-mode .center-title-wrap::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    left: 50% !important;
+    bottom: clamp(-32px, -2.9vh, -18px) !important;
+    width: clamp(300px, 27vw, 500px) !important;
+    height: clamp(34px, 4vh, 50px) !important;
+    transform: translateX(-50%) !important;
+    opacity: 1 !important;
+    filter: drop-shadow(0 5px 9px rgba(0,0,0,.28)) !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: contain !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20490%2050'%3E%3Cpath%20d='M0%2025H202'%20stroke='white'%20stroke-width='6'%20stroke-linecap='round'/%3E%3Cpath%20d='M288%2025H490'%20stroke='white'%20stroke-width='6'%20stroke-linecap='round'/%3E%3Cpath%20d='M202%2025H224L238%205L252%2045L270%2012L288%2025'%20fill='none'%20stroke='%23ff1744'%20stroke-width='8'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+html.tv-mode .topbar-right .right-box,
+html.tv-mode .topbar-panel .right-box,
+html.tv-mode .right-box {
+    width: 100% !important;
+    min-height: clamp(88px, 10.5vh, 118px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(8px, 1.05vh, 14px) !important;
+    text-align: center !important;
+}
+
+html.tv-mode .topbar-right .clock-card,
+html.tv-mode .topbar-panel .clock-card,
+html.tv-mode .clock-card {
+    width: 100% !important;
+    max-width: clamp(230px, 18vw, 360px) !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+html.tv-mode .topbar-panel .clock-text,
+html.tv-mode .topbar-panel .date-text,
+html.tv-mode .clock-text,
+html.tv-mode .date-text {
+    width: 100% !important;
+    text-align: center !important;
+    color: #fff !important;
+    text-shadow: 0 5px 12px rgba(0,0,0,.34) !important;
+}
+
+html.tv-mode .topbar-panel .date-text,
+html.tv-mode .date-text {
+    font-size: clamp(14px, 1vw, 20px) !important;
+    letter-spacing: 1px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+}
+
+html.tv-mode .topbar-panel .clock-text,
+html.tv-mode .clock-text {
+    font-size: var(--tv-clock-final) !important;
+    line-height: .95 !important;
+    white-space: nowrap !important;
+}
+
+html.tv-mode .topbar-panel .conn-badge,
+html.tv-mode .conn-badge {
+    margin: 0 auto !important;
+    color: #fff !important;
+    background: rgba(255,255,255,.08) !important;
+    border: 2px solid rgba(255,255,255,.92) !important;
+    box-shadow: 0 10px 22px rgba(0,0,0,.20) !important;
+}
+
+    html.tv-mode .topbar-panel .conn-badge::before,
+    html.tv-mode .conn-badge::before {
+        background: #18c86a !important;
+        box-shadow: 0 0 0 4px rgba(24,200,106,.18) !important;
+    }
+
+html.tv-mode .dashboard-main-wrap {
+    flex: 1 1 auto !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .dashboard-main-row {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .main-left-col {
+    flex: 0 0 74% !important;
+    max-width: 74% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    display: flex !important;
+}
+
+html.tv-mode .main-right-col {
+    flex: 0 0 26% !important;
+    max-width: 26% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    display: flex !important;
+}
+
+html.tv-mode .cards-wrap,
+html.tv-mode .side-panel {
+    height: 100% !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .cards-body {
+    flex: 1 1 auto !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .cards-list {
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+html.tv-mode .card-row {
+    min-height: var(--tv-card-final) !important;
+}
+
+html.tv-mode .num {
+    font-size: var(--tv-num-final) !important;
+}
+
+@media (max-width: 1366px) and (max-height: 820px) {
+    html.tv-mode .dashboard-shell {
+        --tv-top-h-final: clamp(104px, 18vh, 130px);
+        --tv-logo-final: clamp(64px, 12vh, 88px);
+        --tv-title-final: clamp(34px, 3.08vw, 44px);
+        --tv-subtitle-final: clamp(11px, 1vw, 15px);
+        --tv-brand-final: clamp(14px, 1.16vw, 18px);
+        --tv-clock-final: clamp(40px, 3.65vw, 56px);
+        --tv-card-final: clamp(78px, 14.5vh, 102px);
+        --tv-num-final: clamp(44px, 4.4vw, 66px);
+    }
+
+    html.tv-mode .topbar-panel {
+        padding: 9px 16px !important;
+    }
+
+        html.tv-mode .topbar-panel .center-title-wrap::after,
+        html.tv-mode .center-title-wrap::after {
+            bottom: clamp(-27px, -2.75vh, -18px) !important;
+            width: clamp(280px, 26vw, 390px) !important;
+            height: clamp(28px, 3.6vh, 40px) !important;
+        }
+}
+
+@media (min-width: 2200px) {
+    html.tv-mode .dashboard-shell {
+        --tv-top-h-final: clamp(166px, 12vh, 240px);
+        --tv-logo-final: clamp(122px, 7.7vh, 172px);
+        --tv-title-final: clamp(68px, 2.65vw, 98px);
+        --tv-subtitle-final: clamp(22px, .92vw, 34px);
+        --tv-brand-final: clamp(26px, .95vw, 38px);
+        --tv-clock-final: clamp(78px, 3vw, 120px);
+        --tv-card-final: clamp(132px, 10.4vh, 198px);
+        --tv-num-final: clamp(96px, 3.6vw, 146px);
+    }
+}
+
+/* TV AJUSTE FINAL*/
+
+html.tv-mode .dashboard-shell {
+    --tv-top-h-final: clamp(108px, 16.5vh, 150px);
+    --tv-logo-final: clamp(72px, 11.8vh, 104px);
+    --tv-title-final: clamp(30px, 2.58vw, 56px);
+    --tv-subtitle-final: clamp(11px, .98vw, 18px);
+    --tv-brand-final: clamp(13px, 1.08vw, 21px);
+    --tv-clock-final: clamp(40px, 3.15vw, 66px);
+    --tv-card-final: clamp(76px, 13.2vh, 120px);
+    --tv-num-final: clamp(44px, 4.25vw, 82px);
+    height: calc(100vh - 8px) !important;
+    height: calc(100dvh - 8px) !important;
+    max-height: calc(100vh - 8px) !important;
+    max-height: calc(100dvh - 8px) !important;
+    padding-bottom: clamp(8px, 1.2vh, 14px) !important;
+}
+
+html.tv-mode .topbar-panel {
+    height: var(--tv-top-h-final) !important;
+    min-height: var(--tv-top-h-final) !important;
+    max-height: var(--tv-top-h-final) !important;
+}
+
+html.tv-mode .topbar-left {
+    flex: 0 0 28% !important;
+    max-width: 28% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 22% !important;
+    max-width: 22% !important;
+}
+
+html.tv-mode .topbar-panel .center-title,
+html.tv-mode .center-title {
+    font-size: var(--tv-title-final) !important;
+    letter-spacing: .5px !important;
+    transform: none !important;
+}
+
+html.tv-mode .topbar-panel .center-subtitle,
+html.tv-mode .center-subtitle {
+    font-size: var(--tv-subtitle-final) !important;
+    letter-spacing: clamp(2px, .26vw, 4px) !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap,
+html.tv-mode .center-title-wrap {
+    padding-bottom: clamp(18px, 2.45vh, 28px) !important;
+}
+
+    html.tv-mode .topbar-panel .center-title-wrap::after,
+    html.tv-mode .center-title-wrap::after {
+        bottom: clamp(-27px, -2.5vh, -16px) !important;
+        width: clamp(280px, 25vw, 450px) !important;
+        height: clamp(28px, 3.5vh, 44px) !important;
+    }
+
+html.tv-mode .topbar-right .right-box,
+html.tv-mode .topbar-panel .right-box,
+html.tv-mode .right-box {
+    min-height: 0 !important;
+    gap: clamp(6px, .85vh, 11px) !important;
+}
+
+html.tv-mode .topbar-panel .date-text,
+html.tv-mode .date-text {
+    font-size: clamp(13px, .92vw, 18px) !important;
+}
+
+html.tv-mode .topbar-panel .clock-text,
+html.tv-mode .clock-text {
+    font-size: var(--tv-clock-final) !important;
+}
+
+html.tv-mode .topbar-panel .conn-badge,
+html.tv-mode .conn-badge {
+    min-height: clamp(28px, 3.7vh, 42px) !important;
+    padding: clamp(4px, .65vh, 8px) clamp(12px, 1.05vw, 22px) !important;
+    font-size: clamp(12px, .9vw, 17px) !important;
+}
+
+html.tv-mode .side-panel {
+    display: grid !important;
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto !important;
+    gap: 0 !important;
+    padding: clamp(8px, .95vh, 14px) !important;
+}
+
+html.tv-mode .side-top {
+    min-height: 0 !important;
+}
+
+html.tv-mode .divider-line {
+    flex: 0 0 auto !important;
+    min-height: 1px !important;
+    margin: clamp(5px, .65vh, 9px) 0 !important;
+}
+
+html.tv-mode .side-middle {
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .panel-title {
+    font-size: clamp(14px, 1vw, 21px) !important;
+    line-height: 1.05 !important;
+}
+
+html.tv-mode .legend-row,
+html.tv-mode .mini-item {
+    min-height: clamp(28px, 4.2vh, 44px) !important;
+    font-size: clamp(12px, .85vw, 17px) !important;
+}
+
+html.tv-mode .pill-badge {
+    min-width: clamp(34px, 3.5vw, 52px) !important;
+    height: clamp(26px, 3.8vh, 40px) !important;
+}
+
+html.tv-mode .side-help {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    padding-top: clamp(4px, .55vh, 8px) !important;
+    font-size: clamp(11px, .8vw, 15px) !important;
+    line-height: 1.12 !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .card-row {
+    min-height: var(--tv-card-final) !important;
+}
+
+@media (max-width: 1366px) and (max-height: 820px) {
+    html.tv-mode .dashboard-shell {
+        --tv-top-h-final: clamp(96px, 16.2vh, 118px);
+        --tv-logo-final: clamp(60px, 11.2vh, 78px);
+        --tv-title-final: clamp(28px, 2.45vw, 38px);
+        --tv-subtitle-final: clamp(10px, .88vw, 13px);
+        --tv-brand-final: clamp(12px, 1vw, 16px);
+        --tv-clock-final: clamp(36px, 3.1vw, 50px);
+        --tv-card-final: clamp(70px, 13.2vh, 90px);
+        --tv-num-final: clamp(40px, 4vw, 58px);
+        height: calc(100vh - 10px) !important;
+        height: calc(100dvh - 10px) !important;
+        max-height: calc(100vh - 10px) !important;
+        max-height: calc(100dvh - 10px) !important;
+    }
+}
+
+@media (min-width: 2200px) {
+    html.tv-mode .dashboard-shell {
+        --tv-top-h-final: clamp(154px, 11.2vh, 220px);
+        --tv-logo-final: clamp(112px, 7vh, 160px);
+        --tv-title-final: clamp(62px, 2.35vw, 88px);
+        --tv-subtitle-final: clamp(20px, .82vw, 30px);
+        --tv-brand-final: clamp(24px, .88vw, 34px);
+        --tv-clock-final: clamp(72px, 2.75vw, 108px);
+        --tv-card-final: clamp(124px, 9.8vh, 184px);
+        --tv-num-final: clamp(88px, 3.25vw, 132px);
+    }
+}
+
+/* =========================================================
+   TV AJUSTE FINAL 2 - PANEL DERECHO COMPACTO Y SIN DESBORDE
+   ========================================================= */
+
+html.tv-mode .dashboard-shell {
+    --tv-top-h-final: clamp(96px, 15.4vh, 138px);
+    --tv-logo-final: clamp(62px, 10.8vh, 94px);
+    --tv-title-final: clamp(28px, 2.42vw, 52px);
+    --tv-subtitle-final: clamp(10px, .9vw, 17px);
+    --tv-brand-final: clamp(12px, 1vw, 19px);
+    --tv-clock-final: clamp(36px, 2.95vw, 62px);
+    --tv-card-final: clamp(70px, 12.6vh, 112px);
+    --tv-num-final: clamp(40px, 4vw, 76px);
+    height: calc(100vh - 24px) !important;
+    height: calc(100dvh - 24px) !important;
+    max-height: calc(100vh - 24px) !important;
+    max-height: calc(100dvh - 24px) !important;
+    padding: clamp(5px, .75vh, 10px) clamp(5px, .6vw, 10px) clamp(10px, 1.3vh, 18px) !important;
+}
+
+html.tv-mode .topbar-panel {
+    height: var(--tv-top-h-final) !important;
+    min-height: var(--tv-top-h-final) !important;
+    max-height: var(--tv-top-h-final) !important;
+    padding-top: clamp(8px, 1.05vh, 14px) !important;
+    padding-bottom: clamp(8px, 1.05vh, 14px) !important;
+}
+
+html.tv-mode .topbar-left {
+    flex: 0 0 27% !important;
+    max-width: 27% !important;
+}
+
+html.tv-mode .topbar-center {
+    flex: 0 0 51% !important;
+    max-width: 51% !important;
+}
+
+html.tv-mode .topbar-right {
+    flex: 0 0 22% !important;
+    max-width: 22% !important;
+}
+
+html.tv-mode .topbar-panel .center-title,
+html.tv-mode .center-title {
+    font-size: var(--tv-title-final) !important;
+    line-height: .96 !important;
+}
+
+html.tv-mode .topbar-panel .center-title-wrap,
+html.tv-mode .center-title-wrap {
+    padding-bottom: clamp(16px, 2.1vh, 24px) !important;
+}
+
+    html.tv-mode .topbar-panel .center-title-wrap::after,
+    html.tv-mode .center-title-wrap::after {
+        bottom: clamp(-23px, -2.15vh, -14px) !important;
+        width: clamp(260px, 23vw, 410px) !important;
+        height: clamp(24px, 3.1vh, 38px) !important;
+    }
+
+html.tv-mode .dashboard-main-wrap,
+html.tv-mode .dashboard-main-row,
+html.tv-mode .main-left-col,
+html.tv-mode .main-right-col,
+html.tv-mode .cards-wrap,
+html.tv-mode .side-panel {
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .side-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    padding: clamp(6px, .75vh, 10px) clamp(8px, .65vw, 12px) !important;
+    gap: 0 !important;
+}
+
+html.tv-mode .side-top {
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+}
+
+html.tv-mode .side-panel > .divider-line {
+    flex: 0 0 auto !important;
+    height: 1px !important;
+    min-height: 1px !important;
+    margin: clamp(4px, .55vh, 7px) 0 !important;
+}
+
+html.tv-mode .legend-row {
+    min-height: clamp(24px, 3.6vh, 36px) !important;
+    padding: clamp(3px, .45vh, 6px) 0 !important;
+    font-size: clamp(11px, .78vw, 15px) !important;
+}
+
+html.tv-mode .pill-badge {
+    min-width: clamp(30px, 3vw, 46px) !important;
+    height: clamp(24px, 3.4vh, 36px) !important;
+    font-size: clamp(11px, .78vw, 15px) !important;
+}
+
+html.tv-mode .side-middle {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-rows: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+}
+
+    html.tv-mode .side-middle > .divider-line {
+        height: 1px !important;
+        min-height: 1px !important;
+        margin: clamp(4px, .55vh, 7px) 0 !important;
+    }
+
+html.tv-mode .side-slot {
+    min-height: 0 !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+    html.tv-mode .side-slot .panel-title {
+        flex: 0 0 auto !important;
+        min-height: 0 !important;
+        margin: 0 0 clamp(4px, .5vh, 7px) !important;
+        font-size: clamp(13px, .9vw, 18px) !important;
+        line-height: 1.03 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+html.tv-mode .mini-viewport {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .mini-track,
+html.tv-mode #lastTickets,
+html.tv-mode #agotadasList,
+html.tv-mode #pocasList {
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: clamp(4px, .5vh, 7px) !important;
+}
+
+html.tv-mode .mini-item {
+    min-height: clamp(26px, 3.6vh, 38px) !important;
+    padding: clamp(5px, .65vh, 8px) clamp(8px, .65vw, 12px) !important;
+    font-size: clamp(11px, .78vw, 15px) !important;
+    line-height: 1.08 !important;
+}
+
+html.tv-mode .side-help {
+    flex: 0 0 auto !important;
+    max-height: clamp(28px, 4.8vh, 44px) !important;
+    padding-top: clamp(3px, .45vh, 6px) !important;
+    font-size: clamp(10px, .72vw, 14px) !important;
+    line-height: 1.08 !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode .section-header {
+    padding-top: clamp(7px, .8vh, 12px) !important;
+    padding-bottom: clamp(7px, .8vh, 12px) !important;
+}
+
+html.tv-mode .cards-list {
+    padding-top: clamp(5px, .65vh, 10px) !important;
+    padding-bottom: clamp(10px, 1.35vh, 18px) !important;
+}
+
+html.tv-mode .card-row {
+    min-height: var(--tv-card-final) !important;
+    margin-bottom: clamp(5px, .75vh, 9px) !important;
+}
+
+@media (max-width: 1366px) and (max-height: 820px) {
+    html.tv-mode .dashboard-shell {
+        --tv-top-h-final: clamp(88px, 14.8vh, 106px);
+        --tv-logo-final: clamp(54px, 10vh, 72px);
+        --tv-title-final: clamp(25px, 2.25vw, 34px);
+        --tv-subtitle-final: clamp(9px, .8vw, 12px);
+        --tv-brand-final: clamp(11px, .9vw, 14px);
+        --tv-clock-final: clamp(32px, 2.75vw, 44px);
+        --tv-card-final: clamp(64px, 12.2vh, 82px);
+        --tv-num-final: clamp(36px, 3.7vw, 52px);
+        height: calc(100vh - 28px) !important;
+        height: calc(100dvh - 28px) !important;
+        max-height: calc(100vh - 28px) !important;
+        max-height: calc(100dvh - 28px) !important;
+    }
+}
+
+
+html.tv-mode .dashboard-shell {
+    --tv-top-h-final: clamp(122px, 16.8vh, 166px);
+    --tv-logo-final: clamp(78px, 12.4vh, 112px);
+    --tv-title-final: clamp(34px, 2.72vw, 62px);
+    --tv-subtitle-final: clamp(12px, 1vw, 19px);
+    --tv-brand-final: clamp(14px, 1.12vw, 22px);
+    --tv-clock-final: clamp(44px, 3.28vw, 72px);
+}
+
+html.tv-mode .topbar-panel {
+    height: var(--tv-top-h-final) !important;
+    min-height: var(--tv-top-h-final) !important;
+    max-height: var(--tv-top-h-final) !important;
+    padding-top: clamp(10px, 1.2vh, 16px) !important;
+    padding-bottom: clamp(10px, 1.2vh, 16px) !important;
+}
+
+    html.tv-mode .topbar-panel .logo,
+    html.tv-mode .logo {
+        width: var(--tv-logo-final) !important;
+        height: var(--tv-logo-final) !important;
+        flex-basis: var(--tv-logo-final) !important;
+    }
+
+    html.tv-mode .topbar-panel .center-title,
+    html.tv-mode .center-title {
+        font-size: var(--tv-title-final) !important;
+    }
+
+    html.tv-mode .topbar-panel .center-subtitle,
+    html.tv-mode .center-subtitle {
+        font-size: var(--tv-subtitle-final) !important;
+    }
+
+    html.tv-mode .topbar-panel .small-title,
+    html.tv-mode .small-title {
+        font-size: clamp(12px, 1vw, 19px) !important;
+    }
+
+    html.tv-mode .topbar-panel .big-title,
+    html.tv-mode .big-title {
+        font-size: var(--tv-brand-final) !important;
+    }
+
+    html.tv-mode .topbar-panel .clock-text,
+    html.tv-mode .clock-text {
+        font-size: var(--tv-clock-final) !important;
+    }
+
+    html.tv-mode .topbar-panel .center-title-wrap::after,
+    html.tv-mode .center-title-wrap::after {
+        bottom: clamp(-28px, -2.45vh, -17px) !important;
+        width: clamp(300px, 25.5vw, 460px) !important;
+        height: clamp(30px, 3.55vh, 44px) !important;
+    }
+
+@media (max-width: 1366px) and (max-height: 820px) {
+    html.tv-mode .dashboard-shell {
+        --tv-top-h-final: clamp(104px, 16vh, 122px);
+        --tv-logo-final: clamp(62px, 10.8vh, 82px);
+        --tv-title-final: clamp(28px, 2.38vw, 38px);
+        --tv-subtitle-final: clamp(10px, .88vw, 13px);
+        --tv-brand-final: clamp(12px, .98vw, 16px);
+        --tv-clock-final: clamp(36px, 3vw, 50px);
+    }
+}
+
+/* ESTADO DE CONEXION*/
+
+html.tv-mode .conn-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(7px, .6vw, 12px) !important;
+}
+
+    html.tv-mode .conn-badge::before {
+        content: "" !important;
+        display: inline-block !important;
+        width: clamp(10px, .75vw, 15px) !important;
+        height: clamp(10px, .75vw, 15px) !important;
+        flex: 0 0 clamp(10px, .75vw, 15px) !important;
+        border-radius: 999px !important;
+    }
+
+    html.tv-mode .conn-badge.on {
+        color: #fff !important;
+        border-color: rgba(255,255,255,.92) !important;
+        background: rgba(255,255,255,.08) !important;
+    }
+
+        html.tv-mode .conn-badge.on::before {
+            background: #22c55e !important;
+            box-shadow: 0 0 0 4px rgba(34,197,94,.22), 0 0 14px rgba(34,197,94,.55) !important;
+        }
+
+    html.tv-mode .conn-badge.off {
+        color: #fff !important;
+        border-color: rgba(255,255,255,.92) !important;
+        background: rgba(255,255,255,.08) !important;
+    }
+
+        html.tv-mode .conn-badge.off::before {
+            background: #facc15 !important;
+            box-shadow: 0 0 0 4px rgba(250,204,21,.22), 0 0 14px rgba(250,204,21,.58) !important;
+        }
+
+/*  PANEL DERECHO - VERDE VISIBLE*/
+
+html.tv-mode body.dashboard-body .dashboard-shell .main-right-col .side-panel,
+html.tv-mode body.dashboard-body .dashboard-panel.side-panel,
+html.tv-mode body.dashboard-body aside.side-panel {
+    opacity: 1 !important;
+    color: #f8fff9 !important;
+    background-color: #03452f !important;
+    background-image: radial-gradient(circle at 92% 4%, rgba(34,197,94,.34) 0%, rgba(34,197,94,.12) 18%, transparent 34%), linear-gradient(180deg, #075f38 0%, #044d34 46%, #022f22 100%) !important;
+    background-blend-mode: normal !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid rgba(134,239,172,.80) !important;
+    box-shadow: 0 18px 44px rgba(0, 50, 31, .30) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel *,
+html.tv-mode body.dashboard-body .side-panel .side-top,
+html.tv-mode body.dashboard-body .side-panel .side-middle,
+html.tv-mode body.dashboard-body .side-panel .side-slot,
+html.tv-mode body.dashboard-body .side-panel .side-help {
+    opacity: 1 !important;
+    background-color: transparent !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel::before,
+html.tv-mode body.dashboard-body .side-panel::after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .panel-title,
+html.tv-mode body.dashboard-body .side-panel .legend-text,
+html.tv-mode body.dashboard-body .side-panel .side-help {
+    color: #ffffff !important;
+    text-shadow: 0 3px 8px rgba(0,0,0,.35) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .legend-row {
+    background: rgba(255,255,255,.035) !important;
+    border-color: rgba(187,247,208,.36) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .pill-badge {
+    color: #ffffff !important;
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(220,252,231,.48) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .divider-line {
+    background: rgba(187,247,208,.36) !important;
+    border-color: rgba(187,247,208,.36) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel #agotadasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel .mini-track[id="agotadasList"] .mini-item,
+html.tv-mode body.dashboard-body .side-panel #pocasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel .mini-track[id="pocasList"] .mini-item {
+    font-size: clamp(18px, 1.22vw, 25px) !important;
+    line-height: 1.1 !important;
+    font-weight: 1000 !important;
+}
+
+/* SCROLL INVISIBLE*/
+
+html.tv-mode body.dashboard-body .dashboard-shell .main-right-col .side-panel,
+html.tv-mode body.dashboard-body .dashboard-panel.side-panel,
+html.tv-mode body.dashboard-body aside.side-panel {
+    background-color: #05652d !important;
+    background-image: radial-gradient(circle at 92% 5%, rgba(34,197,94,.18), transparent 24%), linear-gradient(180deg, #087a38 0%, #05652d 42%, #034424 100%) !important;
+    border-color: rgba(134,239,172,.75) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .mini-viewport::after,
+html.tv-mode body.dashboard-body .side-panel .mini-viewport::before {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .divider-line {
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: clamp(6px, .75vh, 10px) 0 !important;
+    background: transparent !important;
+    border-top: 1px solid rgba(187,247,208,.24) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .legend-row {
+    border-bottom: 1px solid rgba(187,247,208,.18) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .mini-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: clamp(46px, 5.2vh, 64px) !important;
+    padding: clamp(10px, .9vw, 15px) clamp(15px, 1.05vw, 22px) !important;
+    font-size: clamp(17px, 1.12vw, 23px) !important;
+    line-height: 1.08 !important;
+    font-weight: 1000 !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel #lastTickets .mini-item,
+html.tv-mode body.dashboard-body .side-panel #agotadasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel #pocasList .mini-item {
+    font-size: clamp(18px, 1.18vw, 24px) !important;
+    font-weight: 1000 !important;
+}
+
+
+html.tv-mode body.dashboard-body .dashboard-shell .main-right-col .side-panel,
+html.tv-mode body.dashboard-body .dashboard-panel.side-panel,
+html.tv-mode body.dashboard-body aside.side-panel {
+    color: #ffffff !important;
+    background-color: #05652d !important;
+    background-image: linear-gradient(180deg, #087a38 0%, #05652d 45%, #034424 100%) !important;
+    border-color: rgba(134, 239, 172, .78) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .panel-title,
+html.tv-mode body.dashboard-body .side-panel .legend-text,
+html.tv-mode body.dashboard-body .side-panel .side-help {
+    color: #ffffff !important;
+    text-shadow: 0 3px 8px rgba(0,0,0,.32) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .legend-row {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(187,247,208,.24) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .pill-badge {
+    color: #ffffff !important;
+    background: rgba(255,255,255,.12) !important;
+    border-color: rgba(220,252,231,.50) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .mini-item {
+    opacity: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: clamp(42px, 4.8vh, 58px) !important;
+    padding: clamp(9px, .82vw, 14px) clamp(14px, 1vw, 20px) !important;
+    border-radius: 16px !important;
+    font-size: clamp(16px, 1.05vw, 22px) !important;
+    line-height: 1.08 !important;
+    font-weight: 950 !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,.12) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel #lastTickets .mini-item {
+    color: #075e34 !important;
+    background: linear-gradient(135deg, rgba(220,252,231,.98), rgba(187,247,208,.94)) !important;
+    border-color: rgba(134,239,172,.85) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel #agotadasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel .mini-track[id="agotadasList"] .mini-item {
+    color: #991b1b !important;
+    background: linear-gradient(135deg, rgba(254,226,226,.98), rgba(254,242,242,.96)) !important;
+    border-color: rgba(248,113,113,.88) !important;
+    font-size: clamp(18px, 1.18vw, 24px) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel #pocasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel .mini-track[id="pocasList"] .mini-item {
+    color: #70420b !important;
+    background: linear-gradient(135deg, rgba(254,249,195,.98), rgba(253,224,71,.94)) !important;
+    border-color: rgba(250,204,21,.90) !important;
+    font-size: clamp(18px, 1.18vw, 24px) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .divider-line {
+    border-top: 1px solid rgba(187,247,208,.24) !important;
+    background: transparent !important;
+}
+
+
+html.tv-mode body.dashboard-body .cards-wrap::before {
+    background-image: url("/Content/img/logo-hdb.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center 52% !important;
+    background-size: min(40vw, 640px) auto !important;
+    opacity: .11 !important;
+}
+
+html.tv-mode body.dashboard-body .cards-wrap::after {
+    background: rgba(240, 253, 244, .34) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .side-top {
+    padding-bottom: clamp(4px, .55vh, 8px) !important;
+}
+
+    html.tv-mode body.dashboard-body .side-panel .side-top .panel-title {
+        margin-bottom: clamp(8px, .9vh, 12px) !important;
+        font-size: clamp(18px, 1.25vw, 26px) !important;
+    }
+
+html.tv-mode body.dashboard-body .side-panel .legend-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: clamp(34px, 4.5vh, 52px) !important;
+    padding: clamp(5px, .65vh, 8px) 0 !important;
+    gap: 10px !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .legend-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(9px, .75vw, 14px) !important;
+    min-width: 0 !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .dot {
+    display: inline-block !important;
+    width: clamp(13px, 1vw, 18px) !important;
+    height: clamp(13px, 1vw, 18px) !important;
+    min-width: clamp(13px, 1vw, 18px) !important;
+    min-height: clamp(13px, 1vw, 18px) !important;
+    border-radius: 999px !important;
+    opacity: 1 !important;
+    flex: 0 0 clamp(13px, 1vw, 18px) !important;
+}
+
+    html.tv-mode body.dashboard-body .side-panel .dot.green {
+        background: #22c55e !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel .dot.yellow {
+        background: #facc15 !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel .dot.red {
+        background: #ef4444 !important;
+    }
+
+html.tv-mode body.dashboard-body .side-panel .legend-text {
+    display: inline-block !important;
+    color: #ffffff !important;
+    font-size: clamp(15px, 1.04vw, 21px) !important;
+    line-height: 1.05 !important;
+    font-weight: 950 !important;
+    white-space: nowrap !important;
+    opacity: 1 !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .pill-badge {
+    flex: 0 0 auto !important;
+    min-width: clamp(42px, 3.5vw, 62px) !important;
+    height: clamp(30px, 3.8vh, 44px) !important;
+    font-size: clamp(14px, .95vw, 19px) !important;
+    font-weight: 950 !important;
+}
+
+
+html.tv-mode body.dashboard-body .side-panel #lastTickets .mini-item,
+html.tv-mode body.dashboard-body .side-panel #agotadasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel #pocasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel .mini-track .mini-item {
+    font-size: clamp(20px, 1.38vw, 29px) !important;
+    line-height: 1.08 !important;
+    font-weight: 1000 !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .mini-item span {
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-weight: inherit !important;
+}
+
+    html.tv-mode body.dashboard-body .side-panel .mini-item span:last-child {
+        font-size: clamp(18px, 1.16vw, 25px) !important;
+        font-weight: 1000 !important;
+    }
+
+html.tv-mode body.dashboard-body .side-panel .side-help {
+    font-size: clamp(17px, 1.08vw, 23px) !important;
+    line-height: 1.18 !important;
+    font-weight: 950 !important;
+}
+
+@media (max-height: 760px) {
+    html.tv-mode body.dashboard-body .side-panel #lastTickets .mini-item,
+    html.tv-mode body.dashboard-body .side-panel #agotadasList .mini-item,
+    html.tv-mode body.dashboard-body .side-panel #pocasList .mini-item,
+    html.tv-mode body.dashboard-body .side-panel .mini-track .mini-item {
+        font-size: clamp(18px, 1.2vw, 24px) !important;
+        min-height: clamp(40px, 5.1vh, 54px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel .mini-item span:last-child {
+        font-size: clamp(16px, 1.02vw, 21px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel .side-help {
+        font-size: clamp(15px, .95vw, 20px) !important;
+    }
+}
+
+/* =========================================================
+   TV AJUSTE FINAL - TODO VISIBLE EN CUALQUIER ALTO
+   ========================================================= */
+
+html.tv-mode,
+html.tv-mode body,
+html.tv-mode body.dashboard-body {
+    width: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+}
+
+    html.tv-mode body.dashboard-body .dashboard-shell {
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        min-height: 0 !important;
+        padding: clamp(5px, .55vw, 10px) !important;
+        gap: clamp(5px, .55vw, 10px) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode body.dashboard-body .dashboard-top-wrap {
+        flex: 0 0 auto !important;
+        min-height: 0 !important;
+    }
+
+    html.tv-mode body.dashboard-body .topbar-panel {
+        min-height: clamp(114px, 15vh, 166px) !important;
+        max-height: clamp(114px, 15vh, 166px) !important;
+        padding-top: clamp(10px, 1.2vh, 16px) !important;
+        padding-bottom: clamp(10px, 1.2vh, 16px) !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode body.dashboard-body .dashboard-main-wrap {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode body.dashboard-body .dashboard-main-row,
+    html.tv-mode body.dashboard-body .main-left-col,
+    html.tv-mode body.dashboard-body .main-right-col,
+    html.tv-mode body.dashboard-body .cards-wrap,
+    html.tv-mode body.dashboard-body .side-panel {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode body.dashboard-body .cards-wrap,
+    html.tv-mode body.dashboard-body .side-panel {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    html.tv-mode body.dashboard-body .section-header {
+        flex: 0 0 auto !important;
+        min-height: clamp(54px, 6.9vh, 76px) !important;
+        padding-top: clamp(8px, .9vh, 14px) !important;
+        padding-bottom: clamp(7px, .8vh, 12px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .cards-body {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode body.dashboard-body .cards-list {
+        height: 100% !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        padding-bottom: clamp(8px, .9vh, 14px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel {
+        padding: clamp(8px, .72vw, 14px) !important;
+        gap: clamp(3px, .38vh, 7px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-top {
+        flex: 0 0 auto !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-middle {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        display: grid !important;
+        grid-template-rows: minmax(0, .86fr) auto minmax(0, .86fr) auto minmax(0, .86fr) !important;
+        overflow: hidden !important;
+        gap: 0 !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-slot {
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-help {
+        flex: 0 0 auto !important;
+        min-height: 0 !important;
+        margin-top: clamp(2px, .35vh, 5px) !important;
+        padding-top: clamp(4px, .5vh, 8px) !important;
+        padding-bottom: 0 !important;
+    }
+
+@media (max-height: 820px) {
+    html.tv-mode body.dashboard-body .topbar-panel {
+        min-height: clamp(100px, 14vh, 128px) !important;
+        max-height: clamp(100px, 14vh, 128px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .section-header {
+        min-height: clamp(46px, 6.1vh, 60px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel {
+        padding: clamp(6px, .55vw, 10px) !important;
+    }
+
+        html.tv-mode body.dashboard-body .side-panel .panel-title {
+            font-size: clamp(15px, .96vw, 20px) !important;
+            margin-bottom: clamp(3px, .38vh, 6px) !important;
+        }
+
+        html.tv-mode body.dashboard-body .side-panel .legend-row {
+            min-height: clamp(25px, 3.4vh, 34px) !important;
+            padding-top: 2px !important;
+            padding-bottom: 2px !important;
+        }
+
+        html.tv-mode body.dashboard-body .side-panel .mini-item {
+            min-height: clamp(32px, 4vh, 44px) !important;
+            padding-top: clamp(6px, .55vh, 9px) !important;
+            padding-bottom: clamp(6px, .55vh, 9px) !important;
+            font-size: clamp(15px, .96vw, 20px) !important;
+        }
+
+        html.tv-mode body.dashboard-body .side-panel .side-help {
+            font-size: clamp(13px, .82vw, 17px) !important;
+            line-height: 1.06 !important;
+        }
+}
+
+/* PANEL COMPACTO */
+
+html.tv-mode body.dashboard-body .topbar-panel {
+    min-height: clamp(136px, 17.2vh, 188px) !important;
+    max-height: clamp(136px, 17.2vh, 188px) !important;
+    padding-top: clamp(13px, 1.35vh, 20px) !important;
+    padding-bottom: clamp(13px, 1.35vh, 20px) !important;
+    overflow: hidden !important;
+}
+
+html.tv-mode body.dashboard-body .topbar-row {
+    height: 100% !important;
+    min-height: 0 !important;
+    align-items: center !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel {
+    padding: clamp(7px, .62vw, 12px) !important;
+    gap: clamp(2px, .3vh, 5px) !important;
+}
+
+    html.tv-mode body.dashboard-body .side-panel .panel-title {
+        font-size: clamp(16px, .96vw, 21px) !important;
+        line-height: 1.05 !important;
+        margin-bottom: clamp(3px, .34vh, 6px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel .legend-row {
+        min-height: clamp(26px, 3.45vh, 36px) !important;
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel .legend-text {
+        font-size: clamp(13px, .86vw, 18px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel .pill-badge {
+        height: clamp(26px, 3.2vh, 36px) !important;
+        min-width: clamp(36px, 2.8vw, 52px) !important;
+        font-size: clamp(12px, .78vw, 16px) !important;
+    }
+
+html.tv-mode body.dashboard-body .side-middle {
+    grid-template-rows: minmax(0, .70fr) auto minmax(0, .70fr) auto minmax(0, .70fr) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .mini-item,
+html.tv-mode body.dashboard-body .side-panel #lastTickets .mini-item,
+html.tv-mode body.dashboard-body .side-panel #agotadasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel #pocasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel .mini-track .mini-item {
+    min-height: clamp(32px, 3.95vh, 46px) !important;
+    padding: clamp(6px, .5vh, 9px) clamp(11px, .84vw, 17px) !important;
+    font-size: clamp(15px, .94vw, 20px) !important;
+    line-height: 1.04 !important;
+}
+
+    html.tv-mode body.dashboard-body .side-panel .mini-item span:last-child {
+        font-size: clamp(13px, .8vw, 17px) !important;
+    }
+
+html.tv-mode body.dashboard-body .side-panel .divider-line {
+    margin: clamp(3px, .38vh, 6px) 0 !important;
+}
+
+html.tv-mode body.dashboard-body .side-help {
+    font-size: clamp(12px, .78vw, 16px) !important;
+    line-height: 1.05 !important;
+    padding-top: clamp(3px, .32vh, 5px) !important;
+}
+
+@media (max-height: 820px) {
+    html.tv-mode body.dashboard-body .topbar-panel {
+        min-height: clamp(122px, 16vh, 146px) !important;
+        max-height: clamp(122px, 16vh, 146px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-panel .mini-item,
+    html.tv-mode body.dashboard-body .side-panel #lastTickets .mini-item,
+    html.tv-mode body.dashboard-body .side-panel #agotadasList .mini-item,
+    html.tv-mode body.dashboard-body .side-panel #pocasList .mini-item,
+    html.tv-mode body.dashboard-body .side-panel .mini-track .mini-item {
+        min-height: clamp(29px, 3.55vh, 40px) !important;
+        font-size: clamp(13px, .82vw, 17px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .side-help {
+        font-size: clamp(11px, .7vw, 14px) !important;
+    }
+}
+
+/* =========================================================
+   TV AJUSTE FINAL 3 - ENCABEZADO COMPLETO SIN CORTES
+   ========================================================= */
+
+html.tv-mode body.dashboard-body .dashboard-shell {
+    padding: clamp(6px, .55vw, 10px) !important;
+    gap: clamp(7px, .62vw, 12px) !important;
+}
+
+html.tv-mode body.dashboard-body .topbar-panel {
+    min-height: clamp(158px, 18vh, 204px) !important;
+    max-height: clamp(158px, 18vh, 204px) !important;
+    padding-top: clamp(15px, 1.45vh, 22px) !important;
+    padding-bottom: clamp(15px, 1.45vh, 22px) !important;
+}
+
+html.tv-mode body.dashboard-body .topbar-row,
+html.tv-mode body.dashboard-body .topbar-col,
+html.tv-mode body.dashboard-body .brand-box,
+html.tv-mode body.dashboard-body .center-title-wrap,
+html.tv-mode body.dashboard-body .right-box {
+    min-height: 0 !important;
+}
+
+html.tv-mode body.dashboard-body .right-box {
+    justify-content: center !important;
+    gap: clamp(7px, .65vh, 11px) !important;
+}
+
+html.tv-mode body.dashboard-body .center-title-wrap::after {
+    bottom: clamp(-34px, -2.9vh, -22px) !important;
+}
+
+html.tv-mode body.dashboard-body .side-panel .mini-item,
+html.tv-mode body.dashboard-body .side-panel #lastTickets .mini-item,
+html.tv-mode body.dashboard-body .side-panel #agotadasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel #pocasList .mini-item,
+html.tv-mode body.dashboard-body .side-panel .mini-track .mini-item {
+    min-height: clamp(30px, 3.55vh, 42px) !important;
+    font-size: clamp(13px, .86vw, 18px) !important;
+}
+
+html.tv-mode body.dashboard-body .side-help {
+    font-size: clamp(11px, .72vw, 15px) !important;
+    line-height: 1.04 !important;
+}
+
+@media (max-height: 820px) {
+    html.tv-mode body.dashboard-body .topbar-panel {
+        min-height: clamp(140px, 17.2vh, 160px) !important;
+        max-height: clamp(140px, 17.2vh, 160px) !important;
+    }
+
+    html.tv-mode body.dashboard-body .center-title-wrap::after {
+        bottom: clamp(-26px, -2.25vh, -17px) !important;
+    }
 }
