@@ -145,45 +145,45 @@ function friendlyAreaName(area) {
     var key = normalizeAreaText(raw);
 
     var names = {
-        "CARDIOLOGIA": "Cardiolog\u00eda",
-        "CIRUGIA GENERAL": "Cirug\u00eda general",
-        "CIRUGIA MAXILOFACIAL": "Cirug\u00eda maxilofacial",
-        "CIRUGIA": "Cirug\u00eda",
-        "DERMATOLOGIA": "Dermatolog\u00eda",
+        "CARDIOLOGIA": "Cardiología",
+        "CIRUGIA GENERAL": "Cirugía general",
+        "CIRUGIA MAXILOFACIAL": "Cirugía maxilofacial",
+        "CIRUGIA": "Cirugía",
+        "DERMATOLOGIA": "Dermatología",
         "EMERGENCIA": "Emergencia",
         "EMERGENCIAS": "Emergencias",
-        "ENDOCRINOLOGIA": "Endocrinolog\u00eda",
-        "GASTROENTEROLOGIA": "Gastroenterolog\u00eda",
-        "GENETICA": "Gen\u00e9tica",
-        "GINECOLOGIA": "Ginecolog\u00eda",
-        "GINECO OBSTETRICIA": "Ginecolog\u00eda y obstetricia",
+        "ENDOCRINOLOGIA": "Endocrinología",
+        "GASTROENTEROLOGIA": "Gastroenterología",
+        "GENETICA": "Genética",
+        "GINECOLOGIA": "Ginecología",
+        "GINECO OBSTETRICIA": "Ginecología y obstetricia",
         "OBSTETRICIA": "Obstetricia",
-        "HEMATOLOGIA": "Hematolog\u00eda",
+        "HEMATOLOGIA": "Hematología",
         "MEDICINA INTERNA": "Medicina interna",
         "MEDICINA NATURAL": "Medicina natural",
-        "NEFROLOGIA": "Nefrolog\u00eda",
-        "NEONATOLOGIA": "Neonatolog\u00eda",
-        "NEUMOLOGIA": "Neumolog\u00eda",
-        "NEUROCIRUGIA": "Neurocirug\u00eda",
-        "NEUROLOGIA": "Neurolog\u00eda",
-        "NEUROLOGIA PEDIATRICA": "Neurolog\u00eda pedi\u00e1trica",
-        "NUTRICION Y DIETETICA": "Nutrici\u00f3n y diet\u00e9tica",
-        "ODONTOLOGIA": "Odontolog\u00eda",
-        "OFTALMOLOGIA": "Oftalmolog\u00eda",
-        "ONCOLOGIA": "Oncolog\u00eda",
-        "OTORRINOLARINGOLOGIA": "Otorrinolaringolog\u00eda",
-        "PEDIATRIA": "Pediatr\u00eda",
-        "PSICOLOGIA TARAPAYA": "Psicolog\u00eda Tarapaya",
-        "PSICOLOGIA": "Psicolog\u00eda",
-        "PSICOPEDAGOGIA TARAPAYA": "Psicopedagog\u00eda Tarapaya",
-        "PSIQUIATRIA": "Psiquiatr\u00eda",
-        "QUEMOLOGIA": "Quemolog\u00eda",
-        "REHABILITACION TARAPAYA": "Rehabilitaci\u00f3n Tarapaya",
-        "REUMATOLOGIA": "Reumatolog\u00eda",
-        "TRAUMATOLOGIA": "Traumatolog\u00eda",
-        "UROLOGIA": "Urolog\u00eda",
-        "ANTICONCEPCION": "Anticoncepci\u00f3n",
-        "BACTERIOLOGIA": "Bacteriolog\u00eda"
+        "NEFROLOGIA": "Nefrología",
+        "NEONATOLOGIA": "Neonatología",
+        "NEUMOLOGIA": "Neumología",
+        "NEUROCIRUGIA": "Neurocirugía",
+        "NEUROLOGIA": "Neurología",
+        "NEUROLOGIA PEDIATRICA": "Neurología pediátrica",
+        "NUTRICION Y DIETETICA": "Nutrición y dietética",
+        "ODONTOLOGIA": "Odontología",
+        "OFTALMOLOGIA": "Oftalmología",
+        "ONCOLOGIA": "Oncología",
+        "OTORRINOLARINGOLOGIA": "Otorrinolaringología",
+        "PEDIATRIA": "Pediatría",
+        "PSICOLOGIA TARAPAYA": "Psicología Tarapaya",
+        "PSICOLOGIA": "Psicología",
+        "PSICOPEDAGOGIA TARAPAYA": "Psicopedagogía Tarapaya",
+        "PSIQUIATRIA": "Psiquiatría",
+        "QUEMOLOGIA": "Quemología",
+        "REHABILITACION TARAPAYA": "Rehabilitación Tarapaya",
+        "REUMATOLOGIA": "Reumatología",
+        "TRAUMATOLOGIA": "Traumatología",
+        "UROLOGIA": "Urología",
+        "ANTICONCEPCION": "Anticoncepción",
+        "BACTERIOLOGIA": "Bacteriología"
     };
 
     return names[key] || raw;
@@ -193,32 +193,32 @@ function speechAreaName(area) {
     var spoken = friendlyAreaName(area);
 
     return String(spoken || "")
-        .replace(/\bGinecolog\u00eda\b/g, "Ginecolog\u00eda")
-        .replace(/\bOtorrinolaringolog\u00eda\b/g, "Otorrinolaringolog\u00eda")
-        .replace(/\bCardiolog\u00eda\b/g, "Cardiolog\u00eda")
-        .replace(/\bEndocrinolog\u00eda\b/g, "Endocrinolog\u00eda")
-        .replace(/\bNeurolog\u00eda\b/g, "Neurolog\u00eda")
-        .replace(/\bPediatr\u00eda\b/g, "Pediatr\u00eda")
+        .replace(/\bGinecología\b/g, "Ginecología")
+        .replace(/\bOtorrinolaringología\b/g, "Otorrinolaringología")
+        .replace(/\bCardiología\b/g, "Cardiología")
+        .replace(/\bEndocrinología\b/g, "Endocrinología")
+        .replace(/\bNeurología\b/g, "Neurología")
+        .replace(/\bPediatría\b/g, "Pediatría")
         .trim();
 }
 
 function prepareSpeechText(text) {
     return String(text || "")
-        .replace(/\bAreas\b/g, "\u00c1reas")
-        .replace(/\bareas\b/g, "\u00e1reas")
-        .replace(/\bArea\b/g, "\u00c1rea")
-        .replace(/\barea\b/g, "\u00e1rea")
-        .replace(/\bAtencion\b/g, "Atenci\u00f3n")
-        .replace(/\batencion\b/g, "atenci\u00f3n")
-        .replace(/\bGinecologia\b/g, "Ginecolog\u00eda")
-        .replace(/\bCardiologia\b/g, "Cardiolog\u00eda")
-        .replace(/\bDermatologia\b/g, "Dermatolog\u00eda")
-        .replace(/\bEndocrinologia\b/g, "Endocrinolog\u00eda")
-        .replace(/\bOtorrinolaringologia\b/g, "Otorrinolaringolog\u00eda")
-        .replace(/\bPediatria\b/g, "Pediatr\u00eda")
-        .replace(/\bNeurologia\b/g, "Neurolog\u00eda")
-        .replace(/\bNefrologia\b/g, "Nefrolog\u00eda")
-        .replace(/\bUrologia\b/g, "Urolog\u00eda")
+        .replace(/\bAreas\b/g, "áreas")
+        .replace(/\bareas\b/g, "áreas")
+        .replace(/\bArea\b/g, "área")
+        .replace(/\barea\b/g, "área")
+        .replace(/\bAtencion\b/g, "Atención")
+        .replace(/\batencion\b/g, "atención")
+        .replace(/\bGinecologia\b/g, "Ginecología")
+        .replace(/\bCardiologia\b/g, "Cardiología")
+        .replace(/\bDermatologia\b/g, "Dermatología")
+        .replace(/\bEndocrinologia\b/g, "Endocrinología")
+        .replace(/\bOtorrinolaringologia\b/g, "Otorrinolaringología")
+        .replace(/\bPediatria\b/g, "Pediatría")
+        .replace(/\bNeurologia\b/g, "Neurología")
+        .replace(/\bNefrologia\b/g, "Nefrología")
+        .replace(/\bUrologia\b/g, "Urología")
         .replace(/\s+/g, " ")
         .trim();
 }
@@ -234,7 +234,7 @@ function remainingText(n) {
 
 function areaAvailabilitySpeech(row) {
     if (isRequirementArea(row.Area)) {
-        return "atenci\u00f3n a requerimiento, las 24 horas";
+        return "atención a requerimiento, las 24 horas";
     }
 
     return remainingText(row.FichasRestantes);
@@ -959,7 +959,7 @@ function announceTicketChanges(changedRows) {
         var parts = [];
 
         for (var i = 0; i < changedRows.length && i < 4; i++) {
-            parts.push("Se tom\u00f3 una ficha en el servicio de " + speechAreaName(changedRows[i].Area) + ". " + areaAvailabilitySpeech(changedRows[i]) + ".");
+            parts.push("Se tomó una ficha en el servicio de " + speechAreaName(changedRows[i].Area) + ". " + areaAvailabilitySpeech(changedRows[i]) + ".");
         }
 
         speakDashboard(parts.join(" "), {
@@ -997,12 +997,12 @@ function buildAvailabilitySummary(rows) {
     }
 
     var agotadasText = agotadas.length
-        ? "\u00c1reas agotadas: " + agotadas.map(function (r) { return speechAreaName(r.Area); }).join(", ") + "."
-        : "No existen \u00e1reas agotadas.";
+        ? "áreas agotadas: " + agotadas.map(function (r) { return speechAreaName(r.Area); }).join(", ") + "."
+        : "No existen áreas agotadas.";
 
     var pocasText = pocas.length
-        ? "\u00c1reas con pocas fichas: " + pocas.map(function (r) { return speechAreaName(r.Area) + ", " + Number(r.FichasRestantes || 0); }).join(", ") + "."
-        : "No existen \u00e1reas con pocas fichas.";
+        ? "áreas con pocas fichas: " + pocas.map(function (r) { return speechAreaName(r.Area) + ", " + Number(r.FichasRestantes || 0); }).join(", ") + "."
+        : "No existen áreas con pocas fichas.";
 
     return "Resumen de disponibilidad de fichas. " + availability.join(" ") + " " + agotadasText + " " + pocasText;
 }
@@ -1035,6 +1035,19 @@ function isHotArea(key) {
     return hotKeys.indexOf(key) >= 0 && Date.now() < hotUntil;
 }
 
+function getTurnoLabel(horario) {
+    var text = String(horario || "").trim();
+    var match = text.match(/(\d{1,2})\s*:\s*(\d{2})/);
+
+    if (!text) return "SIN TURNO";
+    if (!match) return "TURNO";
+
+    var startHour = Number(match[1]);
+
+    if (startHour >= 13) return "TURNO TARDE";
+    return "TURNO MAÑANA";
+}
+
 function renderCard(r) {
     var restantes = Number(r.FichasRestantes || 0);
     var isRequirement = isRequirementArea(r.Area);
@@ -1054,7 +1067,7 @@ function renderCard(r) {
         + '  </div>'
         + '  <div class="meta-row">'
         + '      <span class="chip-pill">' + escapeHtml(r.Doctor || "SIN DOCTOR") + '</span>'
-        + '      <span class="chip-pill">' + escapeHtml(r.Horario || "SIN HORARIO") + '</span>'
+        + '      <span class="chip-pill">' + escapeHtml(getTurnoLabel(r.Horario)) + '</span>'
         + '  </div>'
         + '</div>'
         + '<div class="right-block ' + (isRequirement ? 'requirement-block' : '') + '">'
